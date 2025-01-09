@@ -15,7 +15,7 @@ const Projects = () => {
       image: ycDirectoryImage,
       description:
         "A modern web application for startup pitches built with Next.js 15, Sanity CMS, and TypeScript. The platform allows users to submit, view, and explore startup pitches with a clean and intuitive interface.",
-      liveUrl: "ycdirectory.sahanbandara.com",
+      liveUrl: "https://ycdirectory.sahanbandara.com",
       githubUrl: "https://github.com/Vibhashana/yc_directory",
     },
     {
@@ -24,7 +24,7 @@ const Projects = () => {
       image: bookNestImage,
       description:
         "BookNest is a modern web application built with Next.js that provides an intuitive interface for browsing and purchasing books online.",
-      liveUrl: "booknest.sahanbandara.com",
+      liveUrl: "https://booknest.sahanbandara.com",
       githubUrl: "https://github.com/Vibhashana/circle-frontend-challenge",
     },
     {
