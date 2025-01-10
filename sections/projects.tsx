@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
+import { grainImage } from "@/assets/images";
 
 const Projects = () => {
   const projects = [
@@ -29,7 +30,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: "BookNest",
+      title: "Acme Dashboard",
       image: nextDashboardImage,
       description:
         "A dashboard project created using Next.js App router and authentication",
@@ -39,7 +40,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-12" id="projects">
+    <section className="pb-16" id="projects">
       <div className="container">
         <div className="flex justify-center">
           <p className="bg-gradient-to-r from-blue-600 to-sky-300 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
@@ -54,33 +55,61 @@ const Projects = () => {
           highlights my dedication to quality and attention to detail.
         </p>
 
-        <div className="mt-10">
+        <div className="group mt-10 md:mt-20">
           {projects.map(
             ({ id, title, description, image, liveUrl, githubUrl }) => (
-              <div className="mb-5 rounded-lg border p-4" key={id}>
-                <Image src={image} alt={title} width={1308} height={816} />
-                <h3 className="mb-4 mt-4 text-xl">{title}</h3>
-                <p className="text-muted-foreground mb-5">{description}</p>
-                <div className="flex items-center gap-2">
-                  <Button variant="secondary" asChild>
-                    <Link href={`/projects/${id}`}>Details</Link>
-                  </Button>
-                  <Button asChild>
-                    <Link href={liveUrl} target="_blank">
-                      <span>View live site</span>
-                      <ArrowUpRight />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <Link href={githubUrl} target="_blank">
-                      <Github />
-                      <span>Go to GitHub repository</span>
-                    </Link>
-                  </Button>
+              <div
+                className="relative isolate mb-5 flex flex-col gap-5 rounded-lg border p-4 md:mb-10 md:flex-row md:gap-10 md:p-6 md:odd:flex-row-reverse"
+                key={id}
+              >
+                <div
+                  className="absolute inset-0 -z-10 opacity-5"
+                  style={{
+                    backgroundImage: `url(${grainImage.src})`,
+                  }}
+                />
+                <div>
+                  <h3 className="mb-4 text-xl">{title}</h3>
+                  <p className="text-muted-foreground">{description}</p>
+                  <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row md:mt-8">
+                    <Button asChild>
+                      <Link href={liveUrl} target="_blank">
+                        <span>Visit live site</span>
+                        <ArrowUpRight />
+                      </Link>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <Link href={githubUrl} target="_blank">
+                        <Github />
+                        <span>Go to GitHub repository</span>
+                      </Link>
+                    </Button>
+                    <Button variant="secondary" asChild>
+                      <Link href={`/projects/${id}`}>View project details</Link>
+                    </Button>
+                  </div>
+                </div>
+
+                <div>
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={1308}
+                    height={816}
+                    className="rounded-lg"
+                  />
                 </div>
               </div>
             )
           )}
+        </div>
+        <div className="text-center">
+          <Button variant="secondary" asChild>
+            <Link href="/projects">
+              <span>See all projects</span>
+              <ArrowRight />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

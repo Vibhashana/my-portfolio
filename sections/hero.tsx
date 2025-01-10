@@ -46,9 +46,9 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 md:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button variant="outline" size="lg" className="group h-12" asChild>
-            <Link href="#">
+            <Link href="#projects">
               <span>Explore my work</span>
               <ArrowDown className="!size-[18px] group-hover:animate-bounce" />
             </Link>
@@ -56,7 +56,7 @@ const Hero = () => {
           <Button
             size="lg"
             asChild
-            className="h-12 bg-blue-700 text-white hover:bg-blue-800"
+            className="h-12 bg-blue-700 text-white shadow-[0_8px_20px_0] shadow-blue-800/50 hover:bg-blue-800"
           >
             <Link href="#contact">
               <span className="text-xl">🤝</span> Let&apos;s connect!
