@@ -6,7 +6,6 @@ import { Card, CardContent } from "./ui/card";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -50,7 +49,6 @@ const ContactForm = () => {
   return (
     <Card className="relative overflow-hidden pt-6 md:w-[350px]">
       <CardContent>
-        {/* blur-lg */}
         <div
           className={clsx(
             successOpen &&
@@ -114,17 +112,12 @@ const ContactForm = () => {
                       {...field}
                     />
                   </FormControl>
-                  <div className="flex justify-between gap-2">
-                    <FormMessage />
-                    <FormDescription className="ml-auto text-end text-xs text-muted-foreground">
-                      0/250
-                    </FormDescription>
-                  </div>
+                  <FormMessage />
                 </FormItem>
               )}
             />
 
-            <Button type="submit">
+            <Button type="submit" className="w-full">
               {form.formState.isSubmitting ? (
                 <span>Sending...</span>
               ) : (

@@ -50,7 +50,7 @@ const Projects = () => {
         <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
           Featured Projects
         </h2>
-        <p className="text-muted-foreground mx-auto mt-3 max-w-[60ch] text-center">
+        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
           Here&apos;s a selection of projects I&apos;ve worked on. Each one
           highlights my dedication to quality and attention to detail.
         </p>
@@ -71,7 +71,7 @@ const Projects = () => {
                 <div>
                   <h3 className="mb-4 text-xl">{title}</h3>
                   <p className="text-muted-foreground">{description}</p>
-                  <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row md:mt-8">
+                  <div className="mt-5 flex flex-col gap-2 sm:flex-row md:mt-8">
                     <Button asChild>
                       <Link href={liveUrl} target="_blank">
                         <span>Visit live site</span>

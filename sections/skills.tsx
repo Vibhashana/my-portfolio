@@ -1,17 +1,53 @@
-import { CssIcon, HtmlIcon } from "@/assets/icons";
-import Image from "next/image";
+import {
+  CssIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  NextIcon,
+  ReactIcon,
+  SassIcon,
+  ShadcnIcon,
+  TailwindIcon,
+  TypescriptIcon,
+} from "@/assets/icons";
+import SkillIcon from "@/components/skill-icon";
 
 const Skills = () => {
   const skills = [
     {
-      id: 1,
       title: "HTML",
-      icon: HtmlIcon,
+      iconType: HtmlIcon,
     },
     {
-      id: 2,
       title: "CSS",
-      icon: CssIcon,
+      iconType: CssIcon,
+    },
+    {
+      title: "React",
+      iconType: ReactIcon,
+    },
+    {
+      title: "JavaScript",
+      iconType: JavascriptIcon,
+    },
+    {
+      title: "TypeScript",
+      iconType: TypescriptIcon,
+    },
+    {
+      title: "Next.js",
+      iconType: NextIcon,
+    },
+    {
+      title: "ShadCN",
+      iconType: ShadcnIcon,
+    },
+    {
+      title: "Tailwind",
+      iconType: TailwindIcon,
+    },
+    {
+      title: "Sass",
+      iconType: SassIcon,
     },
   ];
 
@@ -26,23 +62,18 @@ const Skills = () => {
         <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
           Skills & Technologies
         </h2>
-        <p className="text-muted-foreground mx-auto mt-3 max-w-[60ch] text-center">
+        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
           Here are the tools and technologies I use to turn ideas into reality:
         </p>
 
-        <div className="mt-5 flex justify-center gap-4">
-          {skills.map((skill) => (
+        <div className="mt-5 flex flex-wrap justify-center gap-4">
+          {skills.map(({ title, iconType }) => (
             <div
-              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2"
-              key={skill.id}
+              className="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5"
+              key={title}
             >
-              <Image
-                src={skill.icon}
-                alt={skill.title}
-                width={30}
-                height={30}
-              />
-              <span>{skill.title}</span>
+              <SkillIcon type={iconType} />
+              <span>{title}</span>
             </div>
           ))}
         </div>
