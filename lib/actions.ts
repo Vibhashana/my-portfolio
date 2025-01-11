@@ -33,6 +33,7 @@ export const sendMail = async ({ name, email, message }: FormSchema) => {
     return {
       success: false,
       message: "Failed to send the message",
+      error: error,
     };
   }
 };
