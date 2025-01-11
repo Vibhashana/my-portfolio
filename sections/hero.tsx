@@ -1,7 +1,7 @@
 import { profileImage, grainImage } from "@/assets/images";
 import HeroRings from "@/components/hero-rings";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Mouse } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,7 +36,10 @@ const Hero = () => {
           </div>
           <div className="mx-auto max-w-[55ch]">
             <h1 className="mt-8 text-center text-3xl font-bold leading-10 tracking-wide md:text-5xl md:leading-[3.5rem]">
-              Turning Ideas into Exceptional Digital Experiences
+              Turning Ideas into{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-sky-300 bg-clip-text text-transparent">
+                Exceptional Digital Experiences
+              </span>
             </h1>
             <p className="text-muted-foreground mt-4 text-center md:text-lg">
               A frontend developer driven by a passion for clean code and
@@ -63,6 +66,7 @@ const Hero = () => {
             </Link>
           </Button>
         </div>
+        <Mouse className="mx-auto mt-10 animate-bounce" size={30} />
       </div>
     </section>
   );

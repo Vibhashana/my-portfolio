@@ -33,7 +33,7 @@ const Skills = () => {
         <div className="mt-5 flex justify-center gap-4">
           {skills.map((skill) => (
             <div
-              className="inline-flex items-center gap-2 rounded-2xl border px-4 py-2"
+              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2"
               key={skill.id}
             >
               <Image
