@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,7 +59,7 @@ const Projects = () => {
           {projects.map(
             ({ id, title, description, image, liveUrl, githubUrl }) => (
               <div
-                className="relative isolate mb-5 flex flex-col gap-5 rounded-lg border p-4 md:mb-10 md:flex-row md:gap-10 md:p-6 md:odd:flex-row-reverse"
+                className="relative isolate mb-5 flex flex-col gap-5 overflow-hidden rounded-lg p-6 outline -outline-offset-2 outline-neutral-950/40 dark:outline-white/40 md:mb-10 md:gap-10 md:p-6 lg:flex-row lg:p-10 lg:even:flex-row-reverse"
                 key={id}
               >
                 <div
@@ -68,7 +68,7 @@ const Projects = () => {
                     backgroundImage: `url(${grainImage.src})`,
                   }}
                 />
-                <div>
+                <div className="lg:w-[1000px]">
                   <h3 className="mb-4 text-xl">{title}</h3>
                   <p className="text-muted-foreground">{description}</p>
                   <div className="mt-5 flex flex-col gap-2 sm:flex-row md:mt-8">
@@ -84,33 +84,34 @@ const Projects = () => {
                         <span>Go to GitHub repository</span>
                       </Link>
                     </Button>
-                    <Button variant="secondary" asChild>
+                    {/* <Button variant="secondary" asChild>
                       <Link href={`/projects/${id}`}>View project details</Link>
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
 
-                <div>
+                <div className="">
                   <Image
                     src={image}
                     alt={title}
-                    width={1308}
-                    height={816}
-                    className="rounded-lg"
+                    width={1086}
+                    height={648}
+                    className="rounded-xl"
+                    sizes="(min-width: 1360px) 571px, (min-width: 1040px) 41.67vw, calc(95.56vw - 67px)"
                   />
                 </div>
               </div>
             )
           )}
         </div>
-        <div className="text-center">
+        {/* <div className="text-center">
           <Button variant="secondary" asChild>
             <Link href="/projects">
               <span>See all projects</span>
               <ArrowRight />
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
