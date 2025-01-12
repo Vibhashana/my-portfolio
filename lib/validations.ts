@@ -10,7 +10,12 @@ export const formSchema = z.object({
   email: z.string().email({
     message: "Email doesn't seem to be valid.",
   }),
-  message: z.string().min(5).max(250),
+  message: z
+    .string()
+    .min(5, {
+      message: "Message must be 2 al least characters long.",
+    })
+    .max(250),
 });
 
 export type FormSchema = z.infer<typeof formSchema>;

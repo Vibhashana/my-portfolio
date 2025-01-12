@@ -79,7 +79,7 @@ const Experience = () => {
         <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
           Work Experience
         </h2>
-        <p className="text-muted-foreground mx-auto mt-3 max-w-[60ch] text-center">
+        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
           I&apos;ve had the privilege of working on diverse projects that honed
           my technical skills and creativity. Here are some highlights:
         </p>
@@ -102,14 +102,14 @@ const Experience = () => {
 
               <Card className="z-10 mt-[30px] lg:mt-0">
                 <CardHeader>
-                  <p className="text-muted-foreground text-xs">
+                  <p className="text-xs text-muted-foreground">
                     {company.duration}
                   </p>
                   <p className="text-sm">{company.name}</p>
-                  <h4 className="text-lg font-medium">{company.title}</h4>
+                  <p className="text-lg font-medium">{company.title}</p>
                 </CardHeader>
                 <CardContent>
-                  <ul className="text-muted-foreground ml-4 list-disc space-y-2 text-sm">
+                  <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">
                     {company.responsibilities.map((responsibility, index) => (
                       <li key={`${company.id}-${index}`}>{responsibility}</li>
                     ))}

@@ -10,7 +10,7 @@ const SkillIcon: React.FC<SkillIconProps> = ({ component: Icon }) => {
     return null;
   }
 
-  return <Icon className="size-8" />;
+  return <Icon className="size-7" />;
 };
 
 export default SkillIcon;

@@ -77,7 +77,11 @@ const ContactForm = () => {
                   <FormItem>
                     <FormLabel>Your name</FormLabel>
                     <FormControl>
-                      <Input placeholder="John" {...field} />
+                      <Input
+                        placeholder="John"
+                        autoComplete="name"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -92,7 +96,12 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Your email</FormLabel>
                   <FormControl>
-                    <Input placeholder="example@email.com" {...field} />
+                    <Input
+                      placeholder="example@email.com"
+                      autoComplete="email"
+                      type="email"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -108,7 +117,7 @@ const ContactForm = () => {
                   <FormControl>
                     <Textarea
                       placeholder="Tell us a little bit about yourself"
-                      className="resize-y"
+                      className="min-h-40 resize-y"
                       {...field}
                     />
                   </FormControl>
