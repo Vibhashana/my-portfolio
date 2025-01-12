@@ -47,18 +47,18 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="relative overflow-hidden pt-6 md:w-[350px]">
+    <Card className="relative overflow-hidden pt-6 md:w-[400px]">
       <CardContent>
         <div
           className={clsx(
             successOpen &&
-              "pointer-events-auto translate-y-0 opacity-100 blur-0",
-            "pointer-events-none absolute inset-0 z-10 flex -translate-y-10 items-center justify-center bg-card p-6 opacity-0 blur-lg transition-all"
+              "pointer-events-auto translate-y-0 opacity-100 !blur-0",
+            "pointer-events-none absolute inset-0 z-10 flex -translate-y-10 items-center justify-center bg-card p-8 opacity-0 blur-lg transition-all duration-200"
           )}
         >
           <div className="space-y-4 text-center">
-            <CheckCircle2 size={50} className="mx-auto text-green-500" />
-            <div className="text-lg font-semibold">Message sent!</div>
+            <CheckCircle2 size={60} className="mx-auto text-green-500" />
+            <div className="text-xl font-semibold">Message sent!</div>
             <p className="text-muted-foreground">
               Thank you for your message. I&apos;ll get back to you soon!
             </p>

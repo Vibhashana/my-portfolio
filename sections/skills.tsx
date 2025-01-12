@@ -3,7 +3,7 @@ import {
   HtmlIcon,
   JavascriptIcon,
   NextIcon,
-  ReactIcon,
+  ReactjsIcon,
   SassIcon,
   ShadcnIcon,
   TailwindIcon,
@@ -23,7 +23,7 @@ const Skills = () => {
     },
     {
       title: "React",
-      iconType: ReactIcon,
+      iconType: ReactjsIcon,
     },
     {
       title: "JavaScript",
@@ -67,13 +67,13 @@ const Skills = () => {
         </p>
 
         <div className="mt-5 flex flex-wrap justify-center gap-4">
-          {skills.map(({ title, iconType }) => (
+          {skills.map(({ title, iconType: Icon }) => (
             <div
               className="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5"
               key={title}
             >
-              <SkillIcon type={iconType} />
-              <span>{title}</span>
+              {Icon && <SkillIcon component={Icon} />}
+              {title}
             </div>
           ))}
         </div>
