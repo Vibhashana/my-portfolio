@@ -11,7 +11,21 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Sahan Bandara",
-  description: `I'm a frontend developer with ${new Date().getFullYear() - 2014} years of experience`,
+  description:
+    "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
+  keywords: [
+    "Frontend Developer",
+    "Web Developer",
+    "Next.js",
+    "React",
+    "TailwindCSS",
+    "html",
+    "css",
+    "UI Developer",
+    "Portfolio",
+    "Web Design",
+    "TypeScript",
+  ],
 };
 
 export default function RootLayout({
