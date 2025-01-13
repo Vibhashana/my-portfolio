@@ -56,7 +56,7 @@ const Hero = () => {
           <Button
             size="lg"
             asChild
-            className="h-12 bg-blue-700 text-white shadow-[0_8px_20px_0] shadow-blue-800/50 hover:bg-blue-800"
+            className="h-12 shadow-[0_8px_20px_0] shadow-blue-800/50"
           >
             <Link href="#contact">
               <span className="text-xl">🤝</span> Let&apos;s connect!

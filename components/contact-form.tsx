@@ -116,7 +116,7 @@ const ContactForm = () => {
                   <FormLabel>Your message</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Tell us a little bit about yourself"
+                      placeholder="Write your message here... Let me know how I can help!"
                       className="min-h-40 resize-y"
                       {...field}
                     />
@@ -126,7 +126,11 @@ const ContactForm = () => {
               )}
             />
 
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
               {form.formState.isSubmitting ? (
                 <span>Sending...</span>
               ) : (

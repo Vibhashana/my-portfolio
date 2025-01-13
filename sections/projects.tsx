@@ -99,7 +99,7 @@ const Projects = () => {
                     width={1086}
                     height={648}
                     className="rounded-xl"
-                    sizes="(min-width: 1360px) 571px, (min-width: 1040px) 41.67vw, calc(95.56vw - 67px)"
+                    sizes="(min-width: 1360px) 460px, (min-width: 1040px) 33.67vw, calc(95.56vw - 67px)"
                   />
                 </div>
               </div>

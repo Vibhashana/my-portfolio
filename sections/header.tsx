@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <header className="fixed top-4 z-50 w-full">
       <div className="container flex sm:items-center sm:justify-center">
-        <nav className="hidden items-center rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur sm:flex dark:border-white/15">
+        <nav className="hidden items-center rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur dark:border-white/15 sm:flex">
           <div className="flex items-center justify-center gap-1 p-0.5">
             {menu.map(({ title, href }) => (
               <Link
@@ -50,7 +50,8 @@ const Header = () => {
         <Button
           variant="outline"
           size="icon"
-          className="size-11 rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur sm:hidden dark:border-white/15"
+          className="size-11 rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur dark:border-white/15 sm:hidden"
+          aria-label="Open mobile nav"
         >
           <Menu />
         </Button>
