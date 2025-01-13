@@ -55,23 +55,25 @@ const Projects = () => {
           highlights my dedication to quality and attention to detail.
         </p>
 
-        <div className="group mt-10 md:mt-20">
+        <div className="mt-8 space-y-10 md:mt-24 lg:space-y-24">
           {projects.map(
             ({ id, title, description, image, liveUrl, githubUrl }) => (
               <div
-                className="relative isolate mb-5 flex flex-col gap-5 overflow-hidden rounded-lg p-6 outline -outline-offset-2 outline-neutral-950/40 dark:outline-white/40 md:mb-10 md:gap-10 md:p-6 lg:flex-row lg:p-10 lg:even:flex-row-reverse"
+                className="group relative isolate flex flex-col gap-10 rounded-lg p-6 outline outline-2 outline-neutral-800/10 dark:outline-white/10 md:mb-10 md:p-6 lg:flex-row lg:items-center lg:p-10 lg:even:flex-row-reverse"
                 key={id}
               >
                 <div
-                  className="absolute inset-0 -z-10 opacity-5"
+                  className="absolute inset-0 -z-10 rounded-lg opacity-5"
                   style={{
                     backgroundImage: `url(${grainImage.src})`,
                   }}
                 />
-                <div className="lg:w-[1000px]">
-                  <h3 className="mb-4 text-xl">{title}</h3>
-                  <p className="text-muted-foreground">{description}</p>
-                  <div className="mt-5 flex flex-col gap-2 sm:flex-row md:mt-8">
+                <div className="lg:w-[1500px]">
+                  <h3 className="mb-4 text-xl font-semibold">{title}</h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                  <div className="mt-5 flex flex-col gap-4 sm:flex-row md:mt-8">
                     <Button asChild>
                       <Link href={liveUrl} target="_blank">
                         <span>Visit live site</span>
@@ -90,7 +92,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="">
+                <div className="z-10 lg:-mt-24">
                   <Image
                     src={image}
                     alt={title}

@@ -40,14 +40,14 @@ const ContactForm = () => {
       setSuccessOpen(true);
       form.reset();
 
-      setTimeout(() => setSuccessOpen(false), 3000);
+      setTimeout(() => setSuccessOpen(false), 4000);
     }
 
     console.log(response);
   };
 
   return (
-    <Card className="relative overflow-hidden pt-6 md:w-[400px]">
+    <Card className="relative w-full overflow-hidden pt-6 md:w-[400px]">
       <CardContent>
         <div
           className={clsx(

@@ -12,12 +12,12 @@ const Contact = () => {
         <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
           Get in Touch
         </h2>
-        <p className="text-muted-foreground mx-auto mt-3 max-w-[60ch] text-center">
+        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
           Have a project in mind? Let&apos;s collaborate to make it happen. Drop
           me a message, and I&apos;ll get back to you soon.
         </p>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex md:justify-center">
           <ContactForm />
         </div>
       </div>

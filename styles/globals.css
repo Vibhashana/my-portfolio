@@ -12,7 +12,7 @@ body {
 
 @layer base {
   .hero-ring {
-    @apply animate-grow absolute inset-0 left-1/2 top-1/2 scale-0 rounded-full border-2 border-blue-300/5 opacity-0 shadow-[0_0_80px_inset] shadow-blue-300/5;
+    @apply absolute inset-0 left-1/2 top-1/2 scale-0 animate-grow rounded-full border-2 border-blue-300/20 opacity-0 shadow-[0_0_80px_inset] shadow-blue-300/20 dark:border-blue-300/5 dark:shadow-blue-300/5;
   }
 }
 

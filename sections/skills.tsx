@@ -1,13 +1,20 @@
 import {
+  BootstrapIcon,
+  ChakraUIIcon,
   CssIcon,
   HtmlIcon,
   JavascriptIcon,
+  MuiIcon,
   NextIcon,
+  ReacthookformIcon,
   ReactjsIcon,
+  ReduxIcon,
+  SanityIcon,
   SassIcon,
   ShadcnIcon,
   TailwindIcon,
   TypescriptIcon,
+  ZodIcon,
 } from "@/assets/icons";
 import SkillIcon from "@/components/skill-icon";
 
@@ -48,6 +55,34 @@ const Skills = () => {
     {
       title: "Sass",
       iconType: SassIcon,
+    },
+    {
+      title: "Chakra UI",
+      iconType: ChakraUIIcon,
+    },
+    {
+      title: "Material UI",
+      iconType: MuiIcon,
+    },
+    {
+      title: "Bootstrap",
+      iconType: BootstrapIcon,
+    },
+    {
+      title: "Zod",
+      iconType: ZodIcon,
+    },
+    {
+      title: "React Hook Form",
+      iconType: ReacthookformIcon,
+    },
+    {
+      title: "Redux",
+      iconType: ReduxIcon,
+    },
+    {
+      title: "Sanity",
+      iconType: SanityIcon,
     },
   ];
 

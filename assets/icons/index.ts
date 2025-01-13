@@ -13,8 +13,10 @@ export const JestIcon = dynamic(() => import("./jest.svg"));
 export const JqueryIcon = dynamic(() => import("./jquery.svg"));
 export const MuiIcon = dynamic(() => import("./mui.svg"));
 export const NextIcon = dynamic(() => import("./nextdotjs.svg"));
-export const ReacthookformIcon = dynamic(() => import("./reacthookform.svg"));
 export const ReactjsIcon = dynamic(() => import("./react.svg"));
+export const ReacthookformIcon = dynamic(() => import("./reacthookform.svg"));
+export const ReduxIcon = dynamic(() => import("./redux.svg"));
+export const SanityIcon = dynamic(() => import("./sanity.svg"));
 export const SassIcon = dynamic(() => import("./sass.svg"));
 export const ShadcnIcon = dynamic(() => import("./shadcnui.svg"));
 export const StyledcomponentsIcon = dynamic(
