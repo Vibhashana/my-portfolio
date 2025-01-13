@@ -104,7 +104,7 @@ const Skills = () => {
         <div className="mt-5 flex flex-wrap justify-center gap-4">
           {skills.map(({ title, iconType: Icon }) => (
             <div
-              className="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5"
+              className="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 transition-transform hover:scale-110"
               key={title}
             >
               {Icon && <SkillIcon component={Icon} />}

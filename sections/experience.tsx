@@ -1,4 +1,17 @@
+"use client";
+
+import { motion } from "motion/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
+// const experienceCardVariants = {
+//   hidden: { opacity: 0, x: -50 },
+//   visible: { opacity: 1, x: 0 },
+// };
+
+const listItemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
 
 const Experience = () => {
   const companies = [
@@ -72,7 +85,7 @@ const Experience = () => {
     <section className="py-10" id="experience">
       <div className="container">
         <div className="flex justify-center">
-          <p className="bg-gradient-to-r from-blue-600 to-sky-300 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
+          <p className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
             My Journey
           </p>
         </div>
@@ -94,28 +107,56 @@ const Experience = () => {
               }}
             >
               {/* Dot */}
-              <div className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto" />
+              <motion.div
+                viewport={{ once: true }}
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
+                className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 before:absolute before:-left-[7px] before:-top-[7px] before:-z-10 before:size-[25px] before:rounded-full before:bg-blue-500 before:opacity-0 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto"
+              />
 
-              <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
+              <motion.div
+                // initial="hidden"
+                // whileInView="visible"
+                viewport={{ once: true }}
+                // variants={experienceCardVariants}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
+                initial={{
+                  opacity: 0,
+                  x: index % 2 == 0 ? 50 : -50,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+              >
+                <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
 
-              <div className="absolute left-1/2 top-[22px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[9px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[9px] lg:group-even:left-auto" />
+                <div className="absolute left-1/2 top-[22px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[9px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[9px] lg:group-even:left-auto" />
 
-              <Card className="z-10 mt-[30px] lg:mt-0">
-                <CardHeader>
-                  <p className="text-xs text-muted-foreground">
-                    {company.duration}
-                  </p>
-                  <p className="text-sm">{company.name}</p>
-                  <p className="text-lg font-medium">{company.title}</p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">
-                    {company.responsibilities.map((responsibility, index) => (
-                      <li key={`${company.id}-${index}`}>{responsibility}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                <Card className="z-10 mt-[30px] lg:mt-0">
+                  <CardHeader>
+                    <p className="text-xs text-muted-foreground">
+                      {company.duration}
+                    </p>
+                    <p className="text-sm">{company.name}</p>
+                    <p className="text-lg font-medium">{company.title}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">
+                      {company.responsibilities.map((responsibility, key) => (
+                        <motion.li
+                          key={`${company.id}-${key}`}
+                          variants={listItemVariants}
+                          transition={{ duration: 0.3, delay: key * 0.1 }}
+                        >
+                          {responsibility}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </div>
           ))}
         </div>

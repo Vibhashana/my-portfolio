@@ -27,7 +27,7 @@ const Hero = () => {
             height={100}
             priority
           />
-          <div className="mt-4 inline-flex items-center gap-4 rounded-md border border-neutral-500/20 bg-neutral-200 px-4 py-1.5 text-sm font-medium dark:border-gray-800 dark:bg-gray-950">
+          <div className="-mt-4 inline-flex items-center gap-4 rounded-md border border-neutral-500/20 bg-neutral-200 px-4 py-1.5 text-sm font-medium dark:border-gray-800 dark:bg-gray-950">
             <span className="relative size-2.5 rounded-full bg-green-500 after:absolute after:-inset-[5px] after:size-5 after:animate-ping after:rounded-full after:bg-green-500/80" />
             <span>Available for work</span>
           </div>

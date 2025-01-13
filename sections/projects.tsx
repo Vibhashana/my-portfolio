@@ -6,6 +6,7 @@ import Link from "next/link";
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
+import bookmarkImage from "@/assets/images/bookmark.png";
 import { grainImage } from "@/assets/images";
 
 const Projects = () => {
@@ -33,9 +34,18 @@ const Projects = () => {
       title: "Acme Dashboard",
       image: nextDashboardImage,
       description:
-        "A dashboard project created using Next.js App router and authentication",
+        "A responsive dashboard project created using Next.js App router and authentication",
       liveUrl: "https://acmedashboard.sahanbandara.com",
       githubUrl: "https://github.com/Vibhashana/nextjs_dashboard",
+    },
+    {
+      id: 4,
+      title: "Bookmark",
+      image: bookmarkImage,
+      description:
+        "A responsive landing page for bookmark managing service. This is a solution to the Bookmark landing page challenge on Frontend Mentor.",
+      liveUrl: "https://bookmark-fm.netlify.app/",
+      githubUrl: "https://github.com/Vibhashana/bookmark-landing-page-master",
     },
   ];
 

@@ -28,7 +28,7 @@ const menu = [
     title: "Contact",
     href: "#contact",
   },
-];
+] as const;
 
 const Header = () => {
   return (
