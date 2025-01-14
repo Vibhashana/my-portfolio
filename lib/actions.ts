@@ -2,10 +2,18 @@
 
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
-import { FormSchema } from "./validations";
+import { formSchema, FormSchema } from "./validations";
 
-export const sendMail = async ({ name, email, message }: FormSchema) => {
+export const sendMail = async (formData: FormSchema) => {
   try {
+    const validateFields = formSchema.safeParse(formData);
+
+    if (!validateFields.success) {
+      throw new Error("Invalid fields");
+    }
+
+    const { email, message, name } = validateFields.data;
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -20,6 +28,7 @@ export const sendMail = async ({ name, email, message }: FormSchema) => {
       // cc: `${name} <${email}>`,
       subject: `Message from ${name} (${email})`,
       text: message,
+      replyTo: `${name} <${email}>`,
     };
 
     await transporter.sendMail(options);

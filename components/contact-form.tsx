@@ -18,6 +18,7 @@ import { CheckCircle2, Send } from "lucide-react";
 import { formSchema, type FormSchema } from "@/lib/validations";
 import { sendMail } from "@/lib/actions";
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import clsx from "clsx";
 
 const ContactForm = () => {
@@ -40,106 +41,114 @@ const ContactForm = () => {
       setSuccessOpen(true);
       form.reset();
 
-      setTimeout(() => setSuccessOpen(false), 4000);
+      // setTimeout(() => setSuccessOpen(false), 4000);
     }
-
-    console.log(response);
   };
 
   return (
-    <Card className="relative w-full overflow-hidden pt-6 md:w-[400px]">
+    <Card
+      className="relative w-full overflow-hidden pt-6 md:w-[400px]"
+      // initial={{ opacity: 0, y: 100 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true }}
+    >
       <CardContent>
-        <div
-          className={clsx(
-            successOpen &&
-              "pointer-events-auto translate-y-0 opacity-100 !blur-0",
-            "pointer-events-none absolute inset-0 z-10 flex -translate-y-10 items-center justify-center bg-card p-8 opacity-0 blur-lg transition-all duration-200"
-          )}
-        >
-          <div className="space-y-4 text-center">
-            <CheckCircle2 size={60} className="mx-auto text-green-500" />
-            <div className="text-xl font-semibold">Message sent!</div>
-            <p className="text-muted-foreground">
-              Thank you for your message. I&apos;ll get back to you soon!
-            </p>
-          </div>
-        </div>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="z-10 space-y-4"
-          >
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <>
-                  <FormItem>
-                    <FormLabel>Your name</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="John"
-                        autoComplete="name"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                </>
+        <AnimatePresence>
+          {successOpen ? (
+            <motion.div
+              layoutId="success"
+              className={clsx(
+                successOpen && "!blur-0",
+                "flex items-center justify-center bg-card p-8 blur-lg"
               )}
-            />
-
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Your email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="example@email.com"
-                      autoComplete="email"
-                      type="email"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Your message</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Write your message here..."
-                      className="min-h-40 resize-y"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={form.formState.isSubmitting}
             >
-              {form.formState.isSubmitting ? (
-                <span>Sending...</span>
-              ) : (
-                <span>Send</span>
-              )}
-              <Send />
-            </Button>
-          </form>
-        </Form>
+              <div className="space-y-4 text-center">
+                <CheckCircle2 size={60} className="mx-auto text-green-500" />
+                <div className="text-xl font-semibold">Message sent!</div>
+                <p className="text-muted-foreground">
+                  Thank you for your message. I&apos;ll get back to you soon!
+                </p>
+              </div>
+            </motion.div>
+          ) : (
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="z-10 space-y-4"
+              >
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <>
+                      <FormItem>
+                        <FormLabel>Your name</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="John"
+                            autoComplete="name"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    </>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="example@email.com"
+                          autoComplete="email"
+                          type="email"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Write your message here..."
+                          className="min-h-40 resize-y"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={form.formState.isSubmitting}
+                >
+                  {form.formState.isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <span>Send</span>
+                  )}
+                  <Send />
+                </Button>
+              </form>
+            </Form>
+          )}
+        </AnimatePresence>
       </CardContent>
     </Card>
   );

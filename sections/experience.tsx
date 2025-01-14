@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as motion from "motion/react-client";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import SectionHeader from "@/components/section-header";
 
@@ -12,7 +12,7 @@ import SectionHeader from "@/components/section-header";
 const experienceCardAnimationVariants = {
   initial: (index: number) => ({
     opacity: 0,
-    x: index % 2 == 0 ? 20 : -20,
+    x: index % 2 == 0 ? -20 : 20,
   }),
 
   animate: (index: number) => ({
@@ -120,7 +120,7 @@ const Experience = () => {
               <motion.div
                 initial="initial"
                 whileInView="animate"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5 }}
                 variants={experienceCardAnimationVariants}
                 custom={index}
               >

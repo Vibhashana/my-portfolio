@@ -63,6 +63,8 @@ const projectAnimationVariants = {
 };
 
 const ProjectGrid = () => {
+  const MotionImage = motion(Image);
+
   return (
     <>
       {projects.map(
@@ -107,7 +109,8 @@ const ProjectGrid = () => {
             </div>
 
             <div className="z-10 lg:-mt-24">
-              <Image
+              <MotionImage
+                whileHover={{ scale: 1.15 }}
                 src={image}
                 alt={title}
                 width={1086}
