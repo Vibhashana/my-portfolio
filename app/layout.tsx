@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sahan Bandara",
+  title: "Sahan Bandara | Frontend Developer",
   description:
     "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
   keywords: [

@@ -2,11 +2,25 @@
 
 import { motion } from "motion/react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import SectionHeader from "@/components/section-header";
 
 // const experienceCardVariants = {
 //   hidden: { opacity: 0, x: -50 },
 //   visible: { opacity: 1, x: 0 },
 // };
+
+const experienceCardAnimationVariants = {
+  initial: (index: number) => ({
+    opacity: 0,
+    x: index % 2 == 0 ? 20 : -20,
+  }),
+
+  animate: (index: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: 0.05 * index },
+  }),
+};
 
 const listItemVariants = {
   hidden: { opacity: 0, x: -20 },
@@ -84,20 +98,14 @@ const Experience = () => {
   return (
     <section className="py-10" id="experience">
       <div className="container">
-        <div className="flex justify-center">
-          <p className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
-            My Journey
-          </p>
-        </div>
-        <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
-          Work Experience
-        </h2>
-        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
-          I&apos;ve had the privilege of working on diverse projects that honed
-          my technical skills and creativity. Here are some highlights:
-        </p>
+        <SectionHeader
+          eyebrow="My Journey"
+          title="Work Experience"
+          description="I've had the privilege of working on diverse projects that honed
+          my technical skills and creativity. Here are some highlights:"
+        />
 
-        <div className="relative isolate mt-10 grid grid-cols-1 gap-10 after:absolute after:bottom-0 after:left-1/2 after:top-0 after:-z-20 after:w-[4px] after:-translate-x-1/2 after:bg-gradient-to-b after:from-blue-600 after:to-sky-300 lg:grid-cols-2 lg:gap-y-0">
+        <div className="relative isolate mt-10 grid grid-cols-1 gap-10 overflow-y-hidden after:absolute after:bottom-0 after:left-1/2 after:top-0 after:-z-20 after:w-[4px] after:-translate-x-1/2 after:bg-gradient-to-b after:from-blue-600 after:to-sky-300 lg:grid-cols-2 lg:gap-y-0">
           {companies.map((company, index) => (
             <div
               key={company.id}
@@ -107,28 +115,14 @@ const Experience = () => {
               }}
             >
               {/* Dot */}
-              <motion.div
-                viewport={{ once: true }}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
-                className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 before:absolute before:-left-[7px] before:-top-[7px] before:-z-10 before:size-[25px] before:rounded-full before:bg-blue-500 before:opacity-0 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto"
-              />
+              <div className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto" />
 
               <motion.div
-                // initial="hidden"
-                // whileInView="visible"
+                initial="initial"
+                whileInView="animate"
                 viewport={{ once: true }}
-                // variants={experienceCardVariants}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 == 0 ? 50 : -50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
+                variants={experienceCardAnimationVariants}
+                custom={index}
               >
                 <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
 

@@ -116,7 +116,7 @@ const ContactForm = () => {
                   <FormLabel>Your message</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Write your message here... Let me know how I can help!"
+                      placeholder="Write your message here..."
                       className="min-h-40 resize-y"
                       {...field}
                     />

@@ -15,7 +15,9 @@ export const formSchema = z.object({
     .min(5, {
       message: "Message must be 2 al least characters long.",
     })
-    .max(250),
+    .max(250, {
+      message: "Message shouldn't exceed 250 characters.",
+    }),
 });
 
 export type FormSchema = z.infer<typeof formSchema>;
