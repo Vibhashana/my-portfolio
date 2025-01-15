@@ -21,6 +21,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import clsx from "clsx";
 
+const MotionCard = motion.create(Card);
+
 const ContactForm = () => {
   const [successOpen, setSuccessOpen] = useState(false);
 
@@ -46,21 +48,24 @@ const ContactForm = () => {
   };
 
   return (
-    <Card
+    <MotionCard
       className="relative w-full overflow-hidden pt-6 md:w-[400px]"
-      // initial={{ opacity: 0, y: 100 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true }}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
     >
       <CardContent>
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {successOpen ? (
             <motion.div
-              layoutId="success"
+              layoutId="wrapper"
               className={clsx(
                 successOpen && "!blur-0",
                 "flex items-center justify-center bg-card p-8 blur-lg"
               )}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
             >
               <div className="space-y-4 text-center">
                 <CheckCircle2 size={60} className="mx-auto text-green-500" />
@@ -150,7 +155,7 @@ const ContactForm = () => {
           )}
         </AnimatePresence>
       </CardContent>
-    </Card>
+    </MotionCard>
   );
 };
 

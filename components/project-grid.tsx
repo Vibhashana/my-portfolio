@@ -63,7 +63,7 @@ const projectAnimationVariants = {
 };
 
 const ProjectGrid = () => {
-  const MotionImage = motion(Image);
+  const MotionImage = motion.create(Image);
 
   return (
     <>

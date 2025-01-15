@@ -1,34 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { MobileNav } from "@/components/mobile-nav";
+import { menu } from "@/lib/data";
 import Link from "next/link";
 import React from "react";
-
-const menu = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Projects",
-    href: "#projects",
-  },
-  {
-    title: "About",
-    href: "#about",
-  },
-  {
-    title: "Experience",
-    href: "#experience",
-  },
-  {
-    title: "Skills",
-    href: "#skills",
-  },
-  {
-    title: "Contact",
-    href: "#contact",
-  },
-] as const;
 
 const Header = () => {
   return (
@@ -47,14 +20,7 @@ const Header = () => {
             ))}
           </div>
         </nav>
-        <Button
-          variant="outline"
-          size="icon"
-          className="size-11 rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur dark:border-white/15 sm:hidden"
-          aria-label="Open mobile nav"
-        >
-          <Menu />
-        </Button>
+        <MobileNav />
       </div>
     </header>
   );
