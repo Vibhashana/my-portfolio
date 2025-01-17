@@ -8,6 +8,7 @@ export const BootstrapIcon = dynamic(() => import("./bootstrap.svg"));
 export const ChakraUIIcon = dynamic(() => import("./chakraui.svg"));
 export const HtmlIcon = dynamic(() => import("./html5.svg"));
 export const CssIcon = dynamic(() => import("./css.svg"));
+export const cssModulesIcon = dynamic(() => import("./cssmodules.svg"));
 export const JavascriptIcon = dynamic(() => import("./javascript.svg"));
 export const JestIcon = dynamic(() => import("./jest.svg"));
 export const JqueryIcon = dynamic(() => import("./jquery.svg"));

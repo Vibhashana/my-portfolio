@@ -5,19 +5,17 @@ import {
   BootstrapIcon,
   ChakraUIIcon,
   CssIcon,
+  cssModulesIcon,
   HtmlIcon,
   JavascriptIcon,
   MuiIcon,
   NextIcon,
-  ReacthookformIcon,
   ReactjsIcon,
-  ReduxIcon,
-  SanityIcon,
   SassIcon,
   ShadcnIcon,
+  StyledcomponentsIcon,
   TailwindIcon,
   TypescriptIcon,
-  ZodIcon,
 } from "@/assets/icons";
 import SkillIcon from "@/components/skill-icon";
 import SectionHeader from "@/components/section-header";
@@ -33,16 +31,16 @@ const Skills = () => {
       iconType: CssIcon,
     },
     {
-      title: "React",
-      iconType: ReactjsIcon,
-    },
-    {
       title: "JavaScript",
       iconType: JavascriptIcon,
     },
     {
       title: "TypeScript",
       iconType: TypescriptIcon,
+    },
+    {
+      title: "React",
+      iconType: ReactjsIcon,
     },
     {
       title: "Next.js",
@@ -61,6 +59,14 @@ const Skills = () => {
       iconType: SassIcon,
     },
     {
+      title: "CSS Modules",
+      iconType: cssModulesIcon,
+    },
+    {
+      title: "Styled Components",
+      iconType: StyledcomponentsIcon,
+    },
+    {
       title: "Chakra UI",
       iconType: ChakraUIIcon,
     },
@@ -71,22 +77,6 @@ const Skills = () => {
     {
       title: "Bootstrap",
       iconType: BootstrapIcon,
-    },
-    {
-      title: "Zod",
-      iconType: ZodIcon,
-    },
-    {
-      title: "React Hook Form",
-      iconType: ReacthookformIcon,
-    },
-    {
-      title: "Redux",
-      iconType: ReduxIcon,
-    },
-    {
-      title: "Sanity",
-      iconType: SanityIcon,
     },
   ];
 

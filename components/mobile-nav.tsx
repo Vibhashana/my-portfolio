@@ -51,7 +51,7 @@ const navVariants = {
 const Navigation = () => (
   <motion.div
     variants={navVariants}
-    className="relative z-10 mt-[60px] flex flex-col gap-5 p-5 pt-0"
+    className="relative z-10 mt-[60px] flex flex-col gap-5 p-5"
   >
     {menu.map((link, i) => (
       <MenuItem link={link} key={i} />
@@ -92,7 +92,7 @@ const MenuItem = ({ link }: { link: (typeof menu)[number] }) => {
 
 const sidebarVariants = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 30px 30px)`,
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -101,7 +101,7 @@ const sidebarVariants = {
   }),
 
   closed: {
-    clipPath: "circle(30px at 30px 30px)",
+    clipPath: "circle(25px at 40px 40px)",
     transition: {
       delay: 0.2,
       type: "spring",
@@ -132,7 +132,7 @@ const MenuToggle = ({ toggle }: { toggle: () => void }) => (
     size="icon"
     variant="ghost"
     onClick={toggle}
-    className="absolute size-[60px] rounded-full bg-transparent !outline-none ring-inset"
+    className="absolute left-4 top-4 size-[50px] rounded-full bg-transparent !outline-none ring-inset"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
@@ -171,8 +171,11 @@ const container: React.CSSProperties = {
   flex: 1,
   maxWidth: "100%",
   backgroundColor: "var(--accent)",
-  borderRadius: 30,
+  // borderRadius: 30,
   overflow: "hidden",
+  height: "100%",
+  top: 0,
+  left: 0,
 };
 
 const nav: React.CSSProperties = {
