@@ -12,6 +12,8 @@ export const sizes = [
   { width: 32, height: 32 },
   { width: 48, height: 48 },
   { width: 96, height: 96 },
+  { width: 192, height: 192 },
+  { width: 512, height: 512 },
 ];
 
 export const contentType = "image/png";

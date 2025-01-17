@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { sizes } from "./icon";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -10,12 +11,11 @@ export default function manifest(): MetadataRoute.Manifest {
     display: "standalone",
     background_color: "#fff",
     theme_color: "#fff",
-    icons: [
-      {
-        src: "/favicon.ico",
-        sizes: "any",
-        type: "image/x-icon",
-      },
-    ],
+    icons: sizes.map((size) => ({
+      src: `/icon?size=${size.width}`,
+      sizes: `${size.width}x${size.height}`,
+      type: "image/png",
+      purpose: "maskable",
+    })),
   };
 }
