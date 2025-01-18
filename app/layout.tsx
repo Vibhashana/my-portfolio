@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { sizes } from "./icon";
 import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -28,11 +27,6 @@ export const metadata: Metadata = {
     "Web Design",
     "TypeScript",
   ],
-  icons: sizes.map((size) => ({
-    url: `/icon?size=${size.width}`,
-    sizes: `${size.width}x${size.height}`,
-    type: "image/png",
-  })),
 };
 
 export default function RootLayout({
