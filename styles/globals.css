@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-margin-top: 500px;
 }
 
 body {

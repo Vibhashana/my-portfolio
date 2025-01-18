@@ -36,7 +36,7 @@ const projects = [
     image: nextDashboardImage,
     description:
       "A responsive dashboard project created using Next.js App router and authentication",
-    liveUrl: "https://acmedashboard.sahanbandara.com",
+    liveUrl: "https://acmedashboard.sahanbandara.com/login",
     githubUrl: "https://github.com/Vibhashana/nextjs_dashboard",
   },
   {
@@ -70,7 +70,7 @@ const ProjectGrid = () => {
       {projects.map(
         ({ id, title, description, image, liveUrl, githubUrl }, index) => (
           <motion.div
-            className="group relative isolate flex flex-col gap-10 rounded-lg p-6 outline outline-2 outline-neutral-800/10 dark:outline-white/10 md:mb-10 md:p-6 lg:flex-row lg:items-center lg:p-10 lg:even:flex-row-reverse"
+            className="group relative isolate flex flex-col gap-10 rounded-lg p-6 outline outline-2 outline-neutral-800/10 dark:outline-white/10 md:mb-10 md:flex-row md:p-6 lg:items-center lg:p-10 lg:even:flex-row-reverse"
             key={id}
             variants={projectAnimationVariants}
             initial="initial"
@@ -102,15 +102,12 @@ const ProjectGrid = () => {
                     <span>Go to GitHub repository</span>
                   </Link>
                 </Button>
-                {/* <Button variant="secondary" asChild>
-                      <Link href={`/projects/${id}`}>View project details</Link>
-                    </Button> */}
               </div>
             </div>
 
             <div className="z-10 lg:-mt-24">
               <MotionImage
-                whileHover={{ scale: 1.15 }}
+                whileHover={{ scale: 1.05 }}
                 src={image}
                 alt={title}
                 width={1086}

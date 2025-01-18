@@ -34,7 +34,7 @@ const Hero = () => {
           <div className="mx-auto max-w-[55ch]">
             <h1 className="mt-8 text-center text-3xl font-bold leading-10 tracking-wide md:text-5xl md:leading-[3.5rem]">
               Turning Ideas into{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-sky-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-transparent">
                 Exceptional Digital Experiences
               </span>
             </h1>

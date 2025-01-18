@@ -21,16 +21,18 @@ const About = () => {
           // pixel at a time."
         />
 
-        <div className="flex flex-col justify-between gap-6 md:flex-row">
+        <div className="mt-10 flex flex-col justify-between gap-6 md:flex-row">
           <div className="md:w-[60%]">
             <div className="space-y-4">
               <p>
-                Hi, I&apos;m Sahan Vibhashana Bandara, a passionate frontend
-                developer dedicated to crafting user-friendly, visually
-                stunning, and performant websites. With a strong foundation in
-                HTML, CSS, JavaScript, and TypeScript, I specialize in creating
+                Hi, I&apos;m <strong>Sahan Vibhashana Bandara</strong>, a
+                passionate frontend developer dedicated to crafting
+                user-friendly, visually stunning, and performant websites. With
+                a strong foundation in <strong>HTML, CSS, JavaScript</strong>,
+                and <strong>TypeScript</strong>, I specialize in creating
                 responsive, accessible, and dynamic user interfaces using modern
-                frameworks like React and Next.js.
+                frameworks like <strong>React</strong> and{" "}
+                <strong>Next.js</strong>.
               </p>
               <p>
                 My journey in web development began with a fascination for
@@ -86,7 +88,8 @@ const About = () => {
               alt="Sahan Bandara"
               width={288}
               height={288}
-              className="mx-auto"
+              className="mx-auto rounded-lg border-8 border-blue-500/20"
+              sizes="(min-width: 380px) 272px, calc(33.33vw + 152px)"
             />
           </div>
         </div>

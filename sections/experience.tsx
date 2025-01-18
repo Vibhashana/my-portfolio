@@ -3,6 +3,13 @@
 import * as motion from "motion/react-client";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import SectionHeader from "@/components/section-header";
+import Image from "next/image";
+
+import eukaLogo from "@/assets/images/euka-logo.png";
+import pearsonLogo from "@/assets/images/pearson-logo.png";
+import eyepaxLogo from "@/assets/images/eyepax-logo.png";
+import xcendantLogo from "@/assets/images/xcendant-logo.png";
+import ioneLogo from "@/assets/images/ione-logo.png";
 
 // const experienceCardVariants = {
 //   hidden: { opacity: 0, x: -50 },
@@ -41,6 +48,7 @@ const Experience = () => {
         "Employed Agile practices for iterative development and timely delivery.",
         "Led knowledge-sharing sessions to promote team growth and collaboration.",
       ],
+      logo: eukaLogo,
     },
     {
       id: 2,
@@ -54,6 +62,7 @@ const Experience = () => {
         "Streamlined workflows with Webpack, Yarn, and CRA, ensuring smooth development.",
         "Ensured accessibility with Figma and adhered to Agile practices using Jira.",
       ],
+      logo: pearsonLogo,
     },
     {
       id: 3,
@@ -67,6 +76,7 @@ const Experience = () => {
         "Bridged design and development using Figma, Adobe XD, and Zeplin.",
         "Optimized workflows with Gulp, Webpack, and Agile practices via Jira.",
       ],
+      logo: eyepaxLogo,
     },
     {
       id: 4,
@@ -80,6 +90,7 @@ const Experience = () => {
         "Enhanced visuals using Adobe XD, Photoshop, and Illustrator.",
         "Streamlined workflows with Git and SVN for version control.",
       ],
+      logo: xcendantLogo,
     },
     {
       id: 5,
@@ -92,6 +103,7 @@ const Experience = () => {
         "Used HTML, CSS, JavaScript, AngularJS, KnockoutJS, and tools like WordPress and Ionic.",
         "Streamlined workflows with Git and TFS for efficient project delivery.",
       ],
+      logo: ioneLogo,
     },
   ];
 
@@ -129,12 +141,24 @@ const Experience = () => {
                 <div className="absolute left-1/2 top-[22px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[9px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[9px] lg:group-even:left-auto" />
 
                 <Card className="z-10 mt-[30px] lg:mt-0">
-                  <CardHeader>
-                    <p className="text-xs text-muted-foreground">
-                      {company.duration}
-                    </p>
-                    <p className="text-sm">{company.name}</p>
-                    <p className="text-lg font-medium">{company.title}</p>
+                  <CardHeader className="flex flex-row items-center justify-between gap-2">
+                    <div>
+                      <p className="text-xs text-muted-foreground">
+                        {company.duration}
+                      </p>
+                      <p className="text-sm">{company.name}</p>
+                      <p className="text-lg font-medium">{company.title}</p>
+                    </div>
+                    <div>
+                      <Image
+                        src={company.logo}
+                        alt={company.title}
+                        width={80}
+                        height={80}
+                        className="h-auto w-[40px] object-cover md:w-[60px]"
+                        sizes="(min-width: 780px) 60px, 38px"
+                      />
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">

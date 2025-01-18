@@ -11,7 +11,7 @@ import Link from "next/link";
 
 const links = [
   {
-    title: "Find me on LinkedIn",
+    title: "Connect with me on LinkedIn",
     icon: <Linkedin />,
     href: "https://www.linkedin.com/in/sahan-bandara/",
   },
@@ -31,12 +31,12 @@ const links = [
     href: "https://www.facebook.com/svbbk",
   },
   {
-    title: "Check my Dribbble",
+    title: "Check out my Dribbble",
     icon: <Dribbble />,
     href: "https://dribbble.com/vibhashana",
   },
   {
-    title: "Check my Codepen",
+    title: "Check out my Codepen",
     icon: <Codepen />,
     href: "https://codepen.io/vibhashana",
   },
@@ -59,6 +59,7 @@ const Footer = () => {
                 title={title}
                 variant="outline"
                 size="icon"
+                aria-label={title}
               >
                 <Link href={href} target="_blank">
                   {icon}
