@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -65,7 +66,7 @@ export default {
         },
       },
       animation: {
-        grow: "grow 1s ease forwards",
+        grow: "grow 3s ease-out forwards",
       },
     },
     fontFamily: {
@@ -79,5 +80,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 } satisfies Config;

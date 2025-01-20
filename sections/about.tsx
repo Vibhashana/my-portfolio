@@ -1,6 +1,6 @@
 import SectionHeader from "@/components/section-header";
 import { Button } from "@/components/ui/button";
-import { Linkedin } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -66,7 +66,7 @@ const About = () => {
             <div className="mt-6 flex flex-wrap items-center gap-4 text-center">
               <Button asChild>
                 <Link href="https://www.linkedin.com/in/sahan-bandara">
-                  <Linkedin />
+                  <FaLinkedin />
                   <span>Connect me on LinkedIn</span>
                 </Link>
               </Button>

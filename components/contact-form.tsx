@@ -33,7 +33,6 @@ const ContactForm = () => {
       email: "",
       message: "",
     },
-    mode: "onBlur",
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -83,15 +82,23 @@ const ContactForm = () => {
                   render={({ field }) => (
                     <>
                       <FormItem>
-                        <FormLabel>Your name</FormLabel>
+                        <FormLabel
+                          className={
+                            form.formState.errors.name &&
+                            "text-red-700 dark:text-red-400"
+                          }
+                        >
+                          Your name
+                        </FormLabel>
                         <FormControl>
                           <Input
                             placeholder="John"
                             autoComplete="name"
+                            className="h-11"
                             {...field}
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-700 dark:text-red-400" />
                       </FormItem>
                     </>
                   )}
@@ -102,16 +109,24 @@ const ContactForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your email</FormLabel>
+                      <FormLabel
+                        className={
+                          form.formState.errors.email &&
+                          "text-red-700 dark:text-red-400"
+                        }
+                      >
+                        Your email
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="example@email.com"
                           autoComplete="email"
                           type="email"
+                          className="h-11"
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-700 dark:text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -121,7 +136,14 @@ const ContactForm = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your message</FormLabel>
+                      <FormLabel
+                        className={
+                          form.formState.errors.message &&
+                          "text-red-700 dark:text-red-400"
+                        }
+                      >
+                        Your message
+                      </FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Write your message here..."
@@ -129,14 +151,14 @@ const ContactForm = () => {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-700 dark:text-red-400" />
                     </FormItem>
                   )}
                 />
 
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="h-11 w-full"
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? (

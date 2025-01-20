@@ -7,7 +7,8 @@ import bookmarkImage from "@/assets/images/bookmark.png";
 import { grainImage } from "@/assets/images";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { ArrowUpRight, Github } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -98,7 +99,7 @@ const ProjectGrid = () => {
                 </Button>
                 <Button variant="outline" asChild>
                   <Link href={githubUrl} target="_blank">
-                    <Github />
+                    <FaGithub />
                     <span>Go to GitHub repository</span>
                   </Link>
                 </Button>

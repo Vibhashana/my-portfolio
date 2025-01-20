@@ -51,7 +51,7 @@ const Skills = () => {
       iconType: ShadcnIcon,
     },
     {
-      title: "Tailwind",
+      title: "Tailwind CSS",
       iconType: TailwindIcon,
     },
     {

@@ -1,43 +1,49 @@
 import { Button } from "@/components/ui/button";
+import { FaXTwitter } from "react-icons/fa6";
 import {
-  Codepen,
-  Dribbble,
-  Facebook,
-  Github,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
+  FaGithub,
+  FaLinkedin,
+  FaFacebookF,
+  FaDribbble,
+  FaCodepen,
+  FaBehance,
+} from "react-icons/fa";
 import Link from "next/link";
 
 const links = [
   {
     title: "Connect with me on LinkedIn",
-    icon: <Linkedin />,
+    icon: <FaLinkedin />,
     href: "https://www.linkedin.com/in/sahan-bandara/",
   },
   {
     title: "Check my code on GitHub",
-    icon: <Github />,
+    icon: <FaGithub />,
     href: "https://github.com/Vibhashana",
   },
   {
     title: "Follow me on Twitter",
-    icon: <Twitter />,
+    icon: <FaXTwitter />,
     href: "https://x.com/SahanVibhashana",
   },
   {
     title: "Join me on Facebook",
-    icon: <Facebook />,
+    icon: <FaFacebookF />,
     href: "https://www.facebook.com/svbbk",
   },
   {
     title: "Check out my Dribbble",
-    icon: <Dribbble />,
+    icon: <FaDribbble />,
     href: "https://dribbble.com/vibhashana",
   },
   {
+    title: "Check out my Behance",
+    icon: <FaBehance />,
+    href: "https://www.behance.net/vibhashana",
+  },
+  {
     title: "Check out my Codepen",
-    icon: <Codepen />,
+    icon: <FaCodepen />,
     href: "https://codepen.io/vibhashana",
   },
 ];
