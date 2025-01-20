@@ -149,7 +149,7 @@ const Experience = () => {
                       <p className="text-sm">{company.name}</p>
                       <p className="text-lg font-medium">{company.title}</p>
                     </div>
-                    <div>
+                    <div className="!mt-0">
                       <Image
                         src={company.logo}
                         alt={company.title}

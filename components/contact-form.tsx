@@ -14,7 +14,7 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
-import { CheckCircle2, Send } from "lucide-react";
+import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
 import { formSchema, type FormSchema } from "@/lib/validations";
 import { sendMail } from "@/lib/actions";
 import { useState } from "react";
@@ -41,9 +41,6 @@ const ContactForm = () => {
 
     if (response.success) {
       setSuccessOpen(true);
-      form.reset();
-
-      // setTimeout(() => setSuccessOpen(false), 4000);
     }
   };
 
@@ -63,9 +60,8 @@ const ContactForm = () => {
                 successOpen && "!blur-0",
                 "flex items-center justify-center bg-card p-8 blur-lg"
               )}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, scale: 0, filter: "blur(4px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
             >
               <div className="space-y-4 text-center">
                 <CheckCircle2 size={60} className="mx-auto text-green-500" />
@@ -144,11 +140,16 @@ const ContactForm = () => {
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? (
-                    <span>Sending...</span>
+                    <>
+                      <LoaderCircle className="animate-spin" />
+                      <span>Sending...</span>
+                    </>
                   ) : (
-                    <span>Send</span>
+                    <>
+                      <span>Send</span>
+                      <Send />
+                    </>
                   )}
-                  <Send />
                 </Button>
               </form>
             </Form>

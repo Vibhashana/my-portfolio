@@ -1,10 +1,10 @@
 import SectionHeader from "@/components/section-header";
 import { Button } from "@/components/ui/button";
-import { FileDown } from "lucide-react";
+import { FileDown, Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { profileImage } from "@/assets/images";
+import { largeImage } from "@/assets/images";
 
 const About = () => {
   return (
@@ -22,8 +22,8 @@ const About = () => {
         />
 
         <div className="mt-10 flex flex-col justify-between gap-6 md:flex-row">
-          <div className="md:w-[60%]">
-            <div className="space-y-4">
+          <div className="md:w-[65%]">
+            <div className="space-y-4 leading-relaxed">
               <p>
                 Hi, I&apos;m <strong>Sahan Vibhashana Bandara</strong>, a
                 passionate frontend developer dedicated to crafting
@@ -40,17 +40,10 @@ const About = () => {
                 career that allows me to combine creativity with
                 problem-solving. I&apos;ve had the privilege of collaborating on
                 diverse projects, from simple landing pages to complex web
-                applications, honing my skills in frameworks like TailwindCSS,
-                Sass, ShadCN, and libraries such as Chakra UI and Material UI.
-              </p>
-              <p>
-                I also enjoy diving into backend-friendly integrations,
-                utilizing tools like Sanity for content management and ensuring
-                seamless user experiences with form management libraries like
-                React Hook Form and validation tools like Zod. Whether it&apos;s
-                building from scratch or refining existing designs, I bring
-                attention to detail, a user-centered approach, and a commitment
-                to delivering quality results.
+                applications, honing my skills in frameworks like{" "}
+                <strong>TailwindCSS</strong>, <strong>Sass, ShadCN,</strong> and
+                libraries such as <strong>Chakra UI</strong> and{" "}
+                <strong>Material UI</strong>.
               </p>
               <p>
                 Beyond coding, I&apos;m passionate about continuous learning. I
@@ -69,7 +62,13 @@ const About = () => {
               </p>
             </div>
 
-            <div className="mt-5 text-center">
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-center">
+              <Button asChild>
+                <Link href="https://www.linkedin.com/in/sahan-bandara">
+                  <Linkedin />
+                  <span>Connect me on LinkedIn</span>
+                </Link>
+              </Button>
               <Button variant="secondary" asChild>
                 <Link
                   href="/CV of Sahan Vibhashana Bandara.pdf"
@@ -82,9 +81,9 @@ const About = () => {
               </Button>
             </div>
           </div>
-          <div>
+          <div className="mt-10 md:mt-0">
             <Image
-              src={profileImage}
+              src={largeImage}
               alt="Sahan Bandara"
               width={288}
               height={288}
