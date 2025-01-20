@@ -1,10 +1,11 @@
 import SectionHeader from "@/components/section-header";
 import { Button } from "@/components/ui/button";
-import { FileDown, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
 import { largeImage } from "@/assets/images";
+import DownloadCv from "@/components/download-cv";
 
 const About = () => {
   return (
@@ -69,16 +70,7 @@ const About = () => {
                   <span>Connect me on LinkedIn</span>
                 </Link>
               </Button>
-              <Button variant="secondary" asChild>
-                <Link
-                  href="/CV of Sahan Vibhashana Bandara.pdf"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span>Download my resume</span>
-                  <FileDown />
-                </Link>
-              </Button>
+              <DownloadCv />
             </div>
           </div>
           <div className="mt-10 md:mt-0">
