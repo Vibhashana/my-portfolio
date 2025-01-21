@@ -2,81 +2,81 @@
 
 import { motion } from "motion/react";
 import {
-  BootstrapIcon,
-  ChakraUIIcon,
-  CssIcon,
-  cssModulesIcon,
-  HtmlIcon,
-  JavascriptIcon,
-  MuiIcon,
-  NextIcon,
-  ReactjsIcon,
-  SassIcon,
-  ShadcnIcon,
-  StyledcomponentsIcon,
-  TailwindIcon,
-  TypescriptIcon,
-} from "@/assets/icons";
-import SkillIcon from "@/components/skill-icon";
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiNextdotjs,
+  SiSass,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTypescript,
+  SiCssmodules,
+  SiStyledcomponents,
+  SiBootstrap,
+  SiReact,
+  SiChakraui,
+  SiMui,
+} from "react-icons/si";
+
 import SectionHeader from "@/components/section-header";
 
 const Skills = () => {
   const skills = [
     {
       title: "HTML",
-      iconType: HtmlIcon,
+      icon: SiHtml5,
     },
     {
       title: "CSS",
-      iconType: CssIcon,
+      icon: SiCss3,
     },
     {
       title: "JavaScript",
-      iconType: JavascriptIcon,
+      icon: SiJavascript,
     },
     {
       title: "TypeScript",
-      iconType: TypescriptIcon,
+      icon: SiTypescript,
     },
     {
       title: "React",
-      iconType: ReactjsIcon,
+      icon: SiReact,
     },
     {
       title: "Next.js",
-      iconType: NextIcon,
+      icon: SiNextdotjs,
     },
     {
       title: "ShadCN",
-      iconType: ShadcnIcon,
+      icon: SiShadcnui,
     },
     {
       title: "Tailwind CSS",
-      iconType: TailwindIcon,
+      icon: SiTailwindcss,
     },
     {
       title: "Sass",
-      iconType: SassIcon,
+      icon: SiSass,
     },
     {
       title: "CSS Modules",
-      iconType: cssModulesIcon,
+      icon: SiCssmodules,
     },
     {
       title: "Styled Components",
-      iconType: StyledcomponentsIcon,
+      icon: SiStyledcomponents,
     },
     {
       title: "Chakra UI",
-      iconType: ChakraUIIcon,
+      icon: SiChakraui,
     },
     {
       title: "Material UI",
-      iconType: MuiIcon,
+      icon: SiMui,
     },
     {
       title: "Bootstrap",
-      iconType: BootstrapIcon,
+      icon: SiBootstrap,
     },
   ];
 
@@ -102,17 +102,26 @@ const Skills = () => {
         />
 
         <div className="mt-5 flex flex-wrap justify-center gap-4">
-          {skills.map(({ title, iconType: Icon }, index) => (
+          {skills.map(({ title, icon: Icon }, index) => (
             <motion.div
-              className="inline-flex items-center gap-2 rounded-lg border px-5 py-2.5"
+              className="inline-flex items-center gap-3 rounded-lg border-2 px-5 py-2.5"
               key={title}
               custom={index}
               initial="hidden"
               variants={skillIconsAnimationVariant}
               whileInView="visible"
               viewport={{ once: true }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                e.currentTarget.style.transform = `perspective(1000px) rotateX(${y * 0.15}deg) rotateY(${x * 0.15}deg)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "none";
+              }}
             >
-              {Icon && <SkillIcon component={Icon} />}
+              {<Icon className="size-7" />}
               {title}
             </motion.div>
           ))}

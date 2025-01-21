@@ -10,6 +10,7 @@ import pearsonLogo from "@/assets/images/pearson-logo.png";
 import eyepaxLogo from "@/assets/images/eyepax-logo.png";
 import xcendantLogo from "@/assets/images/xcendant-logo.png";
 import ioneLogo from "@/assets/images/ione-logo.png";
+import Link from "next/link";
 
 // const experienceCardVariants = {
 //   hidden: { opacity: 0, x: -50 },
@@ -49,6 +50,7 @@ const Experience = () => {
         "Led knowledge-sharing sessions to promote team growth and collaboration.",
       ],
       logo: eukaLogo,
+      companyUrl: "https://euka.edu.au/",
     },
     {
       id: 2,
@@ -63,6 +65,7 @@ const Experience = () => {
         "Ensured accessibility with Figma and adhered to Agile practices using Jira.",
       ],
       logo: pearsonLogo,
+      companyUrl: "https://www.pearson.com/",
     },
     {
       id: 3,
@@ -77,6 +80,7 @@ const Experience = () => {
         "Optimized workflows with Gulp, Webpack, and Agile practices via Jira.",
       ],
       logo: eyepaxLogo,
+      companyUrl: "https://eyepax.com/",
     },
     {
       id: 4,
@@ -91,6 +95,7 @@ const Experience = () => {
         "Streamlined workflows with Git and SVN for version control.",
       ],
       logo: xcendantLogo,
+      companyUrl: "https://lk.linkedin.com/company/excelsoft-pvt-ltd-",
     },
     {
       id: 5,
@@ -104,6 +109,7 @@ const Experience = () => {
         "Streamlined workflows with Git and TFS for efficient project delivery.",
       ],
       logo: ioneLogo,
+      companyUrl: "https://www.ionesoftsolutions.com/",
     },
   ];
 
@@ -135,12 +141,13 @@ const Experience = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={experienceCardAnimationVariants}
                 custom={index}
+                className="z-0"
               >
-                <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
+                <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border-2 bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
 
-                <div className="absolute left-1/2 top-[22px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[9px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[9px] lg:group-even:left-auto" />
+                <div className="absolute left-1/2 top-[24px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[7px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[7px] lg:group-even:left-auto" />
 
-                <Card className="z-10 mt-[30px] lg:mt-0">
+                <Card className="z-10 mt-[30px] border-2 lg:mt-0">
                   <CardHeader className="flex flex-row items-center justify-between gap-2">
                     <div>
                       <p className="text-xs text-muted-foreground">
@@ -150,14 +157,16 @@ const Experience = () => {
                       <p className="text-lg font-medium">{company.title}</p>
                     </div>
                     <div className="!mt-0">
-                      <Image
-                        src={company.logo}
-                        alt={company.title}
-                        width={80}
-                        height={80}
-                        className="h-auto w-[40px] object-cover md:w-[60px]"
-                        sizes="(min-width: 780px) 60px, 38px"
-                      />
+                      <Link href={company.companyUrl} target="_blank">
+                        <Image
+                          src={company.logo}
+                          alt={company.title}
+                          width={80}
+                          height={80}
+                          className="h-auto w-[40px] object-cover md:w-[60px]"
+                          sizes="(min-width: 780px) 60px, 38px"
+                        />
+                      </Link>
                     </div>
                   </CardHeader>
                   <CardContent>

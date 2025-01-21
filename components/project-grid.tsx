@@ -11,6 +11,20 @@ import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "motion/react";
+import {
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiReacthookform,
+  SiSanity,
+  SiSass,
+  SiSentry,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTypescript,
+  SiZod,
+} from "react-icons/si";
+import React from "react";
 
 const projects = [
   {
@@ -21,6 +35,15 @@ const projects = [
       "A modern web application for startup pitches built with Next.js 15, Sanity CMS, and TypeScript. The platform allows users to submit, view, and explore startup pitches with a clean and intuitive interface.",
     liveUrl: "https://ycdirectory.sahanbandara.com",
     githubUrl: "https://github.com/Vibhashana/yc_directory",
+    tags: [
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: SiTailwindcss, name: "Tailwind CSS" },
+      { icon: SiShadcnui, name: "ShadCN" },
+      { icon: SiZod, name: "Zod" },
+      { icon: SiSanity, name: "Sanity CMS" },
+      { icon: SiSentry, name: "Sentry Error Tracking" },
+    ],
   },
   {
     id: 2,
@@ -30,6 +53,13 @@ const projects = [
       "BookNest is a modern web application built with Next.js that provides an intuitive interface for browsing and purchasing books online.",
     liveUrl: "https://booknest.sahanbandara.com",
     githubUrl: "https://github.com/Vibhashana/circle-frontend-challenge",
+    tags: [
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: SiTailwindcss, name: "Tailwind CSS" },
+      { icon: SiShadcnui, name: "ShadCN" },
+      { icon: SiSentry, name: "Sentry Error Tracking" },
+    ],
   },
   {
     id: 3,
@@ -39,6 +69,14 @@ const projects = [
       "A responsive dashboard project created using Next.js App router and authentication",
     liveUrl: "https://acmedashboard.sahanbandara.com/login",
     githubUrl: "https://github.com/Vibhashana/nextjs_dashboard",
+    tags: [
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: SiTailwindcss, name: "Tailwind CSS" },
+      { icon: SiShadcnui, name: "ShadCN" },
+      { icon: SiReacthookform, name: "React Hook Form" },
+      { icon: SiZod, name: "Zod" },
+    ],
   },
   {
     id: 4,
@@ -48,6 +86,11 @@ const projects = [
       "A responsive landing page for bookmark managing service. This is a solution to the Bookmark landing page challenge on Frontend Mentor.",
     liveUrl: "https://bookmark-fm.netlify.app/",
     githubUrl: "https://github.com/Vibhashana/bookmark-landing-page-master",
+    tags: [
+      { icon: SiHtml5, name: "HTML" },
+      { icon: SiSass, name: "Sass" },
+      { icon: SiJavascript, name: "JavaScript" },
+    ],
   },
 ];
 
@@ -69,7 +112,10 @@ const ProjectGrid = () => {
   return (
     <>
       {projects.map(
-        ({ id, title, description, image, liveUrl, githubUrl }, index) => (
+        (
+          { id, title, description, image, liveUrl, githubUrl, tags },
+          index
+        ) => (
           <motion.div
             className="group relative isolate flex flex-col gap-10 rounded-lg p-6 outline outline-2 outline-neutral-800/10 dark:outline-white/10 md:mb-10 md:flex-row md:p-6 lg:items-center lg:p-10 lg:even:flex-row-reverse"
             key={id}
@@ -90,6 +136,17 @@ const ProjectGrid = () => {
               <p className="leading-relaxed text-muted-foreground">
                 {description}
               </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {tags.map(({ icon: Icon, name }) => (
+                  <span
+                    key={`${id}-${name}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-2 text-xs text-primary/80"
+                  >
+                    <Icon className="h-4 w-4" />
+                    {name}
+                  </span>
+                ))}
+              </div>
               <div className="mt-5 flex flex-col gap-4 sm:flex-row md:mt-8">
                 <Button asChild>
                   <Link href={liveUrl} target="_blank">

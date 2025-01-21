@@ -45,7 +45,7 @@ const ContactForm = () => {
 
   return (
     <MotionCard
-      className="relative w-full overflow-hidden pt-6 md:w-[400px]"
+      className="relative w-full overflow-hidden border-2 pt-6 md:w-[400px]"
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

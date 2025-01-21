@@ -12,7 +12,7 @@ const Header = () => {
             {menu.map(({ title, href }) => (
               <Link
                 href={href}
-                className="rounded-md px-4 py-2.5 text-sm font-medium transition-colors duration-300 hover:bg-neutral-50/10 hover:text-white dark:text-white/70"
+                className="rounded-md px-4 py-2.5 text-sm font-medium transition-colors duration-300 hover:bg-black/15 dark:text-white/70 hover:dark:bg-neutral-50/10 hover:dark:text-white"
                 key={title}
               >
                 {title}
