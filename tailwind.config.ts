@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        grain: "url('@/assets/images/grain.webp')",
+        grain: "url('/grain.webp')",
       },
       colors: {
         background: "hsl(var(--background))",
