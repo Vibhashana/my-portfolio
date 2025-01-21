@@ -64,9 +64,19 @@ export default {
             transform: "scale(1)",
           },
         },
+
+        "gradient-rotate": {
+          from: {
+            "--angle": "0deg",
+          },
+          to: {
+            "--angle": "360deg",
+          },
+        },
       },
       animation: {
         grow: "grow 3s ease-out forwards",
+        "gradient-rotate": "gradient-rotate 7s linear infinite",
       },
     },
     fontFamily: {
