@@ -4,7 +4,6 @@ import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
 import bookmarkImage from "@/assets/images/bookmark.png";
-import { grainImage } from "@/assets/images";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -25,6 +24,7 @@ import {
   SiZod,
 } from "react-icons/si";
 import React from "react";
+import Tag from "./ui/tag";
 
 const projects = [
   {
@@ -125,26 +125,15 @@ const ProjectGrid = () => {
             custom={index}
             viewport={{ once: true }}
           >
-            <div
-              className="absolute inset-0 -z-10 rounded-lg opacity-5"
-              style={{
-                backgroundImage: `url(${grainImage.src})`,
-              }}
-            />
+            <div className="bg-grain absolute inset-0 -z-10 rounded-lg opacity-5" />
             <div className="lg:w-[1500px]">
               <h3 className="mb-4 text-xl font-semibold">{title}</h3>
               <p className="leading-relaxed text-muted-foreground">
                 {description}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {tags.map(({ icon: Icon, name }) => (
-                  <span
-                    key={`${id}-${name}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-2 text-xs text-primary/80"
-                  >
-                    <Icon className="h-4 w-4" />
-                    {name}
-                  </span>
+                {tags.map(({ icon, name }) => (
+                  <Tag key={`${id}-${name}`} text={name} icon={icon} />
                 ))}
               </div>
               <div className="mt-5 flex flex-col gap-4 sm:flex-row md:mt-8">

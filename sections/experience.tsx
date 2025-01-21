@@ -11,6 +11,41 @@ import eyepaxLogo from "@/assets/images/eyepax-logo.png";
 import xcendantLogo from "@/assets/images/xcendant-logo.png";
 import ioneLogo from "@/assets/images/ione-logo.png";
 import Link from "next/link";
+import {
+  SiAdobeillustrator,
+  SiAdobephotoshop,
+  SiAdobexd,
+  SiAndroid,
+  SiAngular,
+  SiBitbucket,
+  SiChakraui,
+  SiCreatereactapp,
+  SiCss3,
+  SiCssmodules,
+  SiFigma,
+  SiGithub,
+  SiGitlab,
+  SiHtml5,
+  SiIonic,
+  SiJavascript,
+  SiJira,
+  SiJoomla,
+  SiLaravel,
+  SiMysql,
+  SiPhp,
+  SiReact,
+  SiSass,
+  SiStyledcomponents,
+  SiTestinglibrary,
+  SiTypescript,
+  SiVite,
+  SiVitest,
+  SiWebpack,
+  SiWordpress,
+  SiYarn,
+} from "react-icons/si";
+import Tag from "@/components/ui/tag";
+import { FaMicrosoft } from "react-icons/fa";
 
 // const experienceCardVariants = {
 //   hidden: { opacity: 0, x: -50 },
@@ -51,6 +86,20 @@ const Experience = () => {
       ],
       logo: eukaLogo,
       companyUrl: "https://euka.edu.au/",
+      techStack: [
+        { icon: SiReact, name: "ReactJS" },
+        { icon: SiTypescript, name: "TypeScript" },
+        { icon: SiChakraui, name: "Chakra UI" },
+        { icon: SiWordpress, name: "Wordpress" },
+        { icon: SiVitest, name: "Vitest" },
+        { icon: SiTestinglibrary, name: "React Testing Library" },
+        { icon: SiVite, name: "Vite" },
+        { icon: SiLaravel, name: "Laravel" },
+        { icon: SiFigma, name: "Figma" },
+        { icon: SiGithub, name: "GitHub" },
+        { icon: SiBitbucket, name: "BitBucket" },
+        { icon: SiJira, name: "Jira" },
+      ],
     },
     {
       id: 2,
@@ -66,6 +115,20 @@ const Experience = () => {
       ],
       logo: pearsonLogo,
       companyUrl: "https://www.pearson.com/",
+      techStack: [
+        { icon: SiReact, name: "ReactJS" },
+        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiSass, name: "Sass" },
+        { icon: SiStyledcomponents, name: "Styled Components" },
+        { icon: SiCssmodules, name: "CSS Modules" },
+        { icon: SiWebpack, name: "Webpack" },
+        { icon: SiYarn, name: "Yarn" },
+        { icon: SiCreatereactapp, name: "Create React App" },
+        { icon: SiFigma, name: "Figma" },
+        { icon: SiGitlab, name: "GitLab" },
+        { icon: SiBitbucket, name: "BitBucket" },
+        { icon: SiJira, name: "Jira" },
+      ],
     },
     {
       id: 3,
@@ -81,6 +144,21 @@ const Experience = () => {
       ],
       logo: eyepaxLogo,
       companyUrl: "https://eyepax.com/",
+      techStack: [
+        { icon: SiReact, name: "ReactJS" },
+        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiSass, name: "Sass" },
+        { icon: SiCssmodules, name: "CSS Modules" },
+        { icon: SiCreatereactapp, name: "Create React App" },
+        { icon: SiPhp, name: "PHP" },
+        { icon: SiLaravel, name: "Laravel" },
+        { icon: SiWebpack, name: "Webpack" },
+        { icon: SiYarn, name: "Yarn" },
+        { icon: SiFigma, name: "Figma" },
+        { icon: SiAdobexd, name: "Adobe XD" },
+        { icon: SiBitbucket, name: "BitBucket" },
+        { icon: SiJira, name: "Jira" },
+      ],
     },
     {
       id: 4,
@@ -96,6 +174,19 @@ const Experience = () => {
       ],
       logo: xcendantLogo,
       companyUrl: "https://lk.linkedin.com/company/excelsoft-pvt-ltd-",
+      techStack: [
+        { icon: SiHtml5, name: "HTML 5" },
+        { icon: SiCss3, name: "CSS 3" },
+        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiSass, name: "Sass" },
+        { icon: SiPhp, name: "PHP" },
+        { icon: SiMysql, name: "MySQL" },
+        { icon: SiAdobexd, name: "Adobe XD" },
+        { icon: SiAdobephotoshop, name: "Adobe Photoshop" },
+        { icon: SiAdobeillustrator, name: "Adobe Illustrator" },
+        { icon: SiBitbucket, name: "BitBucket" },
+        { icon: SiJira, name: "Jira" },
+      ],
     },
     {
       id: 5,
@@ -110,6 +201,24 @@ const Experience = () => {
       ],
       logo: ioneLogo,
       companyUrl: "https://www.ionesoftsolutions.com/",
+      techStack: [
+        { icon: SiHtml5, name: "HTML 5" },
+        { icon: SiCss3, name: "CSS 3" },
+        { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiAngular, name: "AngularJS" },
+        { icon: SiPhp, name: "PHP" },
+        { icon: SiMysql, name: "MySQL" },
+        { icon: SiWordpress, name: "Wordpress" },
+        { icon: SiIonic, name: "Ionic" },
+        { icon: SiAndroid, name: "Android" },
+        { icon: SiJoomla, name: "Joomla" },
+        { icon: SiAdobexd, name: "Adobe XD" },
+        { icon: SiAdobephotoshop, name: "Adobe Photoshop" },
+        { icon: SiAdobeillustrator, name: "Adobe Illustrator" },
+        { icon: FaMicrosoft, name: "TFS" },
+        { icon: SiBitbucket, name: "BitBucket" },
+        { icon: SiJira, name: "Jira" },
+      ],
     },
   ];
 
@@ -127,7 +236,7 @@ const Experience = () => {
           {companies.map((company, index) => (
             <div
               key={company.id}
-              className="group relative col-start-1 lg:-mt-[25%] lg:first:mt-0 lg:odd:col-start-2 lg:odd:ml-[30px] lg:even:mr-[30px]"
+              className="group relative col-start-1 lg:-mt-[35%] lg:first:mt-0 lg:odd:col-start-2 lg:odd:ml-[30px] lg:even:mr-[30px]"
               style={{
                 gridRowStart: index + 1,
               }}
@@ -145,15 +254,19 @@ const Experience = () => {
               >
                 <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border-2 bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
 
-                <div className="absolute left-1/2 top-[24px] z-10 size-[18px] -translate-x-1/2 rotate-45 bg-background lg:-left-[7px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[7px] lg:group-even:left-auto" />
+                <div className="absolute left-1/2 top-[24px] z-20 size-[18px] -translate-x-1/2 rotate-45 bg-[#f2f2f2] dark:bg-[#080e1c] lg:-left-[7px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[7px] lg:group-even:left-auto" />
 
-                <Card className="z-10 mt-[30px] border-2 lg:mt-0">
+                <Card className="after:bg-grain relative z-10 mt-[30px] border-2 after:absolute after:inset-0 after:-z-10 after:opacity-5 lg:mt-0">
                   <CardHeader className="flex flex-row items-center justify-between gap-2">
                     <div>
                       <p className="text-xs text-muted-foreground">
                         {company.duration}
                       </p>
-                      <p className="text-sm">{company.name}</p>
+                      <p className="text-sm">
+                        <Link href={company.companyUrl} target="_blank">
+                          {company.name}
+                        </Link>
+                      </p>
                       <p className="text-lg font-medium">{company.title}</p>
                     </div>
                     <div className="!mt-0">
@@ -181,6 +294,20 @@ const Experience = () => {
                         </motion.li>
                       ))}
                     </ul>
+                    <div className="mt-4">
+                      <p className="text-sm font-medium">
+                        Tech Stack and tools:
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {company.techStack?.map(({ icon, name }) => (
+                          <Tag
+                            key={`${company.id}-${name}`}
+                            text={name}
+                            icon={icon}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

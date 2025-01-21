@@ -1,4 +1,4 @@
-import { profileImage, grainImage } from "@/assets/images";
+import { profileImage } from "@/assets/images";
 import HeroRings from "@/components/hero-rings";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Mouse } from "lucide-react";
@@ -9,12 +9,7 @@ const Hero = () => {
   return (
     <section className="relative isolate flex min-h-screen items-center overflow-y-hidden overflow-x-clip py-20">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
-        <div
-          className="absolute inset-0 -z-30 opacity-[0.075] dark:opacity-5"
-          style={{
-            backgroundImage: `url(${grainImage.src})`,
-          }}
-        />
+        <div className="bg-grain absolute inset-0 -z-30 opacity-[0.075] dark:opacity-5" />
         <HeroRings />
       </div>
       <div className="container isolate">

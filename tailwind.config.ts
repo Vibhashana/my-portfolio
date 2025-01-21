@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        grain: "url('@/assets/images/grain.webp')",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -76,7 +79,7 @@ export default {
       },
       animation: {
         grow: "grow 3s ease-out forwards",
-        "gradient-rotate": "gradient-rotate 7s linear infinite",
+        "gradient-rotate": "gradient-rotate 10s linear infinite",
       },
     },
     fontFamily: {
