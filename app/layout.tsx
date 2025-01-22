@@ -11,8 +11,11 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Sahan Bandara | Frontend Developer (HTML, CSS, JavaScript, TypeScript, React, Next.js)",
+  metadataBase: new URL("https://sahanbandara.com"),
+  alternates: {
+    canonical: "/",
+  },
+  title: "Sahan Bandara | Frontend Developer",
   description:
     "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
   keywords: [
@@ -29,6 +32,32 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
 };
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Sahan Bandara's Portfolio",
+    url: "https://sahanbandara.com",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Sahan Bandara",
+    url: "https://sahanbandara.com",
+    jobTitle: "Frontend Developer",
+    description:
+      "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
+    sameAs: [
+      "https://www.linkedin.com/in/sahan-bandara",
+      "https://x.com/SahanVibhashana",
+      "https://www.facebook.com/svbbk",
+      "https://dribbble.com/vibhashana",
+      "https://www.behance.net/vibhashana",
+      "https://codepen.io/vibhashana",
+    ],
+  },
+];
 
 export default function RootLayout({
   children,
@@ -52,6 +81,11 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS!} />
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </html>
   );
 }

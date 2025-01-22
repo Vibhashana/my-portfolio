@@ -46,8 +46,9 @@ const ContactForm = () => {
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      className="w-full"
     >
-      <Card className="after:animate-gradient-rotate relative w-full border-0 pt-6 after:absolute after:-inset-0.5 after:-z-10 after:rounded-[inherit] after:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))] after:from-sky-400/50 after:to-border md:w-[400px]">
+      <Card className="relative mx-auto w-full border-0 pt-6 after:absolute after:-inset-0.5 after:-z-10 after:animate-gradient-rotate after:rounded-[inherit] after:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))] after:from-sky-400/50 after:to-border md:w-[400px]">
         <CardContent>
           <AnimatePresence mode="popLayout">
             {successOpen ? (
