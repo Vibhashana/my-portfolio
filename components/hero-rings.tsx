@@ -2,7 +2,7 @@ const HeroRings = () => {
   const ringSettings = {
     initialSize: 740,
     spacing: 200,
-    ringCount: 5,
+    ringCount: 6,
   };
 
   return (

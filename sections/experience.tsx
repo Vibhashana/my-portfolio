@@ -17,6 +17,7 @@ import {
   SiAdobexd,
   SiAndroid,
   SiAngular,
+  SiAxios,
   SiBitbucket,
   SiChakraui,
   SiCreatereactapp,
@@ -90,6 +91,7 @@ const Experience = () => {
         { icon: SiReact, name: "ReactJS" },
         { icon: SiTypescript, name: "TypeScript" },
         { icon: SiChakraui, name: "Chakra UI" },
+        { icon: SiAxios, name: "Axios" },
         { icon: SiWordpress, name: "Wordpress" },
         { icon: SiVitest, name: "Vitest" },
         { icon: SiTestinglibrary, name: "React Testing Library" },
@@ -118,9 +120,10 @@ const Experience = () => {
       techStack: [
         { icon: SiReact, name: "ReactJS" },
         { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiAxios, name: "Axios" },
         { icon: SiSass, name: "Sass" },
-        { icon: SiStyledcomponents, name: "Styled Components" },
         { icon: SiCssmodules, name: "CSS Modules" },
+        { icon: SiStyledcomponents, name: "Styled Components" },
         { icon: SiWebpack, name: "Webpack" },
         { icon: SiYarn, name: "Yarn" },
         { icon: SiCreatereactapp, name: "Create React App" },
@@ -147,6 +150,7 @@ const Experience = () => {
       techStack: [
         { icon: SiReact, name: "ReactJS" },
         { icon: SiJavascript, name: "JavaScript" },
+        { icon: SiAxios, name: "Axios" },
         { icon: SiSass, name: "Sass" },
         { icon: SiCssmodules, name: "CSS Modules" },
         { icon: SiCreatereactapp, name: "Create React App" },
@@ -256,7 +260,7 @@ const Experience = () => {
 
                 <div className="absolute left-1/2 top-[24px] z-20 size-[18px] -translate-x-1/2 rotate-45 bg-[#f2f2f2] dark:bg-[#080e1c] lg:-left-[7px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[7px] lg:group-even:left-auto" />
 
-                <Card className="after:bg-grain relative z-10 mt-[30px] border-2 after:absolute after:inset-0 after:-z-10 after:opacity-5 lg:mt-0">
+                <Card className="relative z-10 mt-[30px] border-2 after:absolute after:inset-0 after:-z-10 after:bg-grain after:opacity-5 lg:mt-0">
                   <CardHeader className="flex flex-row items-center justify-between gap-2">
                     <div>
                       <p className="text-xs text-muted-foreground">

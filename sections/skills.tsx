@@ -41,7 +41,7 @@ const Skills = () => {
       icon: SiTypescript,
     },
     {
-      title: "React",
+      title: "ReactJS",
       icon: SiReact,
     },
     {
@@ -114,7 +114,7 @@ const Skills = () => {
         <div className="mt-5 flex flex-wrap justify-center gap-4">
           {skills.map(({ title, icon: Icon }, index) => (
             <motion.div
-              className="hover:before:animate-gradient-rotate relative isolate rounded-lg before:absolute before:-inset-[1px] before:-z-10 before:rounded-[inherit] before:bg-border before:from-blue-600 before:to-sky-400 hover:before:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))]"
+              className="relative isolate rounded-lg before:absolute before:-inset-[1px] before:-z-10 before:rounded-[inherit] before:bg-border before:from-border before:from-50% before:to-sky-400 hover:before:animate-gradient-rotate hover:before:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))]"
               key={title}
               custom={index}
               initial="hidden"

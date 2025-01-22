@@ -62,27 +62,8 @@ const About = () => {
                 check out my projects or reach out—I&apos;d love to connect!
               </p>
             </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-center">
-              <Button asChild>
-                <Link
-                  href="https://www.linkedin.com/in/sahan-bandara"
-                  target="_blank"
-                >
-                  <FaLinkedin />
-                  <span>Connect me on LinkedIn</span>
-                </Link>
-              </Button>
-              <Button asChild variant="secondary">
-                <Link href="https://github.com/Vibhashana" target="_blank">
-                  <FaGithub />
-                  <span>Check my GitHub</span>
-                </Link>
-              </Button>
-              <DownloadCv />
-            </div>
           </div>
-          <div className="mt-10 md:mt-0">
+          <div className="mt-6 md:mt-0">
             <Image
               src={largeImage}
               alt="Sahan Bandara"
@@ -92,6 +73,24 @@ const About = () => {
               sizes="(min-width: 380px) 272px, calc(33.33vw + 152px)"
             />
           </div>
+        </div>
+        <div className="mt-10 flex flex-wrap items-center gap-4 text-center">
+          <Button asChild>
+            <Link
+              href="https://www.linkedin.com/in/sahan-bandara"
+              target="_blank"
+            >
+              <FaLinkedin />
+              <span>Connect me on LinkedIn</span>
+            </Link>
+          </Button>
+          <Button asChild variant="secondary">
+            <Link href="https://github.com/Vibhashana" target="_blank">
+              <FaGithub />
+              <span>Check my GitHub</span>
+            </Link>
+          </Button>
+          <DownloadCv />
         </div>
       </div>
     </section>
