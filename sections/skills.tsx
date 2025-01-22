@@ -103,7 +103,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="py-10" id="skills">
+    <section className="py-10 md:py-28" id="skills">
       <div className="container">
         <SectionHeader
           eyebrow="My Toolbox"
@@ -111,7 +111,7 @@ const Skills = () => {
           description="Here are the tools and technologies I use to turn ideas into reality:"
         />
 
-        <div className="mt-5 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-wrap justify-center gap-5 md:mt-16">
           {skills.map(({ title, icon: Icon }, index) => (
             <motion.div
               className="relative isolate rounded-lg before:absolute before:-inset-[1px] before:-z-10 before:rounded-[inherit] before:bg-border before:from-border before:from-50% before:to-sky-400 hover:before:animate-gradient-rotate hover:before:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))]"

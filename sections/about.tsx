@@ -22,7 +22,7 @@ const About = () => {
           // pixel at a time."
         />
 
-        <div className="mt-10 flex flex-col justify-between gap-6 md:flex-row">
+        <div className="mt-8 flex flex-col justify-between gap-6 md:mt-20 md:flex-row">
           <div className="md:w-[65%]">
             <div className="space-y-4 leading-relaxed">
               <p>

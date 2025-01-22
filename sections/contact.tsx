@@ -3,7 +3,7 @@ import SectionHeader from "@/components/section-header";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-10">
+    <section id="contact" className="pb-20 pt-10">
       <div className="container">
         <SectionHeader
           eyebrow="Let's Connect"
@@ -12,7 +12,7 @@ const Contact = () => {
           me a message, and I'll get back to you soon."
         />
 
-        <div className="mt-10 flex md:justify-center">
+        <div className="mt-10 flex md:mt-16 md:justify-center">
           <ContactForm />
         </div>
       </div>

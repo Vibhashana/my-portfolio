@@ -236,7 +236,7 @@ const Experience = () => {
           my technical skills and creativity. Here are some highlights:"
         />
 
-        <div className="relative isolate mt-10 grid grid-cols-1 gap-10 after:absolute after:bottom-0 after:left-1/2 after:top-0 after:-z-20 after:w-[4px] after:-translate-x-1/2 after:bg-gradient-to-b after:from-blue-600 after:to-sky-300 md:overflow-y-clip lg:grid-cols-2 lg:gap-y-0">
+        <div className="relative isolate mt-10 grid grid-cols-1 gap-10 after:absolute after:bottom-0 after:left-1/2 after:top-0 after:-z-20 after:w-[4px] after:-translate-x-1/2 after:bg-gradient-to-b after:from-blue-600 after:to-sky-300 md:mt-20 md:overflow-y-clip lg:grid-cols-2 lg:gap-y-0">
           {companies.map((company, index) => (
             <div
               key={company.id}
