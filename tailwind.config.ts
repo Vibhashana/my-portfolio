@@ -62,7 +62,15 @@ export default {
       },
       keyframes: {
         grow: {
-          "75%, 100%": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0)",
+          },
+          "90%": {
+            opacity: "1",
+            transform: "scale(1.05)",
+          },
+          "100%": {
             opacity: "1",
             transform: "scale(1)",
           },
@@ -78,7 +86,7 @@ export default {
         },
       },
       animation: {
-        grow: "grow 3s ease-out forwards",
+        grow: "grow 1s ease-out forwards",
         "gradient-rotate": "gradient-rotate 10s linear infinite",
       },
     },
