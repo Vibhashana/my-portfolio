@@ -39,7 +39,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className="scroll-m-28 scroll-smooth"
+      className="scroll-mt-16 scroll-smooth"
     >
       <body className={`${poppins.className} antialiased`}>
         <ThemeProvider
