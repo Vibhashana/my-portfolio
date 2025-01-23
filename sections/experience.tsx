@@ -1,231 +1,13 @@
-"use client";
-
 import * as motion from "motion/react-client";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import SectionHeader from "@/components/section-header";
 import Image from "next/image";
-
-import eukaLogo from "@/assets/images/euka-logo.png";
-import pearsonLogo from "@/assets/images/pearson-logo.png";
-import eyepaxLogo from "@/assets/images/eyepax-logo.png";
-import xcendantLogo from "@/assets/images/xcendant-logo.png";
-import ioneLogo from "@/assets/images/ione-logo.png";
 import Link from "next/link";
-import {
-  SiAdobeillustrator,
-  SiAdobephotoshop,
-  SiAdobexd,
-  SiAndroid,
-  SiAngular,
-  SiAxios,
-  SiBitbucket,
-  SiChakraui,
-  SiCreatereactapp,
-  SiCss3,
-  SiCssmodules,
-  SiFigma,
-  SiGithub,
-  SiGitlab,
-  SiHtml5,
-  SiIonic,
-  SiJavascript,
-  SiJira,
-  SiJoomla,
-  SiLaravel,
-  SiMysql,
-  SiPhp,
-  SiReact,
-  SiSass,
-  SiStyledcomponents,
-  SiTestinglibrary,
-  SiTypescript,
-  SiVite,
-  SiVitest,
-  SiWebpack,
-  SiWordpress,
-  SiYarn,
-} from "react-icons/si";
 import Tag from "@/components/ui/tag";
-import { FaMicrosoft } from "react-icons/fa";
 
-// const experienceCardVariants = {
-//   hidden: { opacity: 0, x: -50 },
-//   visible: { opacity: 1, x: 0 },
-// };
-
-const experienceCardAnimationVariants = {
-  initial: (index: number) => ({
-    opacity: 0,
-    x: index % 2 == 0 ? -20 : 20,
-  }),
-
-  animate: (index: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: { delay: 0.05 * index },
-  }),
-};
-
-const listItemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0 },
-};
+import { companies } from "@/lib/data";
 
 const Experience = () => {
-  const companies = [
-    {
-      id: 1,
-      name: "Euka Future Learning",
-      title: "Frontend Developer",
-      duration: "Oct 2023 - Oct 2024",
-      responsibilities: [
-        "Developed dynamic web apps using ReactJS, TypeScript, and Chakra UI for responsive, accessible design.",
-        "Integrated user interfaces from Figma and Zeplin with pixel-perfect precision.",
-        "Optimized state management with Jotai and enhanced frontend-backend synergy using Laravel and InertiaJS.",
-        "Employed Agile practices for iterative development and timely delivery.",
-        "Led knowledge-sharing sessions to promote team growth and collaboration.",
-      ],
-      logo: eukaLogo,
-      companyUrl: "https://euka.edu.au/",
-      techStack: [
-        { icon: SiReact, name: "ReactJS" },
-        { icon: SiTypescript, name: "TypeScript" },
-        { icon: SiChakraui, name: "Chakra UI" },
-        { icon: SiAxios, name: "Axios" },
-        { icon: SiWordpress, name: "Wordpress" },
-        { icon: SiVitest, name: "Vitest" },
-        { icon: SiTestinglibrary, name: "React Testing Library" },
-        { icon: SiVite, name: "Vite" },
-        { icon: SiLaravel, name: "Laravel" },
-        { icon: SiFigma, name: "Figma" },
-        { icon: SiGithub, name: "GitHub" },
-        { icon: SiBitbucket, name: "BitBucket" },
-        { icon: SiJira, name: "Jira" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Pearson",
-      title: "Software Engineer (UI/UX)",
-      duration: "Sep 2021 - Sep 2023",
-      responsibilities: [
-        "Built responsive, accessible UIs based on design team specifications.",
-        "Collaborated with developers and stakeholders to ensure project success.",
-        "Utilized ReactJS, SCSS, and CSS-in-JS techniques like Styled Components.",
-        "Streamlined workflows with Webpack, Yarn, and CRA, ensuring smooth development.",
-        "Ensured accessibility with Figma and adhered to Agile practices using Jira.",
-      ],
-      logo: pearsonLogo,
-      companyUrl: "https://www.pearson.com/",
-      techStack: [
-        { icon: SiReact, name: "ReactJS" },
-        { icon: SiJavascript, name: "JavaScript" },
-        { icon: SiAxios, name: "Axios" },
-        { icon: SiSass, name: "Sass" },
-        { icon: SiCssmodules, name: "CSS Modules" },
-        { icon: SiStyledcomponents, name: "Styled Components" },
-        { icon: SiWebpack, name: "Webpack" },
-        { icon: SiYarn, name: "Yarn" },
-        { icon: SiCreatereactapp, name: "Create React App" },
-        { icon: SiFigma, name: "Figma" },
-        { icon: SiGitlab, name: "GitLab" },
-        { icon: SiBitbucket, name: "BitBucket" },
-        { icon: SiJira, name: "Jira" },
-      ],
-    },
-    {
-      id: 3,
-      name: "Eyepax",
-      title: "Software Engineer (UI/UX)",
-      duration: "Dec 2017 - Sep 2021",
-      responsibilities: [
-        "Designed and implemented responsive, accessible UIs, enforcing coding standards.",
-        "Collaborated with developers and stakeholders to align project goals.",
-        "Utilized ReactJS, SCSS, Sass, PHP, and Laravel for robust web applications.",
-        "Bridged design and development using Figma, Adobe XD, and Zeplin.",
-        "Optimized workflows with Gulp, Webpack, and Agile practices via Jira.",
-      ],
-      logo: eyepaxLogo,
-      companyUrl: "https://eyepax.com/",
-      techStack: [
-        { icon: SiReact, name: "ReactJS" },
-        { icon: SiJavascript, name: "JavaScript" },
-        { icon: SiAxios, name: "Axios" },
-        { icon: SiSass, name: "Sass" },
-        { icon: SiCssmodules, name: "CSS Modules" },
-        { icon: SiCreatereactapp, name: "Create React App" },
-        { icon: SiPhp, name: "PHP" },
-        { icon: SiLaravel, name: "Laravel" },
-        { icon: SiWebpack, name: "Webpack" },
-        { icon: SiYarn, name: "Yarn" },
-        { icon: SiFigma, name: "Figma" },
-        { icon: SiAdobexd, name: "Adobe XD" },
-        { icon: SiBitbucket, name: "BitBucket" },
-        { icon: SiJira, name: "Jira" },
-      ],
-    },
-    {
-      id: 4,
-      name: "Xcendant",
-      title: "UI/UX Engineer",
-      duration: "Nov 2016 - Nov 2017",
-      responsibilities: [
-        "Created responsive UIs for web and mobile, adhering to coding standards.",
-        "Collaborated with developers and stakeholders for aligned project goals.",
-        "Leveraged HTML, CSS, JavaScript, jQuery, PHP, and GSAP for dynamic designs.",
-        "Enhanced visuals using Adobe XD, Photoshop, and Illustrator.",
-        "Streamlined workflows with Git and SVN for version control.",
-      ],
-      logo: xcendantLogo,
-      companyUrl: "https://lk.linkedin.com/company/excelsoft-pvt-ltd-",
-      techStack: [
-        { icon: SiHtml5, name: "HTML 5" },
-        { icon: SiCss3, name: "CSS 3" },
-        { icon: SiJavascript, name: "JavaScript" },
-        { icon: SiSass, name: "Sass" },
-        { icon: SiPhp, name: "PHP" },
-        { icon: SiMysql, name: "MySQL" },
-        { icon: SiAdobexd, name: "Adobe XD" },
-        { icon: SiAdobephotoshop, name: "Adobe Photoshop" },
-        { icon: SiAdobeillustrator, name: "Adobe Illustrator" },
-        { icon: SiBitbucket, name: "BitBucket" },
-        { icon: SiJira, name: "Jira" },
-      ],
-    },
-    {
-      id: 5,
-      name: "iOneSoft",
-      title: "UI/UX Engineer",
-      duration: "Jan 2014 - Nov 2016",
-      responsibilities: [
-        "Designed and implemented responsive UIs for web, mobile, desktop, and kiosk applications.",
-        "Enforced UI coding standards and collaborated globally with teams and clients.",
-        "Used HTML, CSS, JavaScript, AngularJS, KnockoutJS, and tools like WordPress and Ionic.",
-        "Streamlined workflows with Git and TFS for efficient project delivery.",
-      ],
-      logo: ioneLogo,
-      companyUrl: "https://www.ionesoftsolutions.com/",
-      techStack: [
-        { icon: SiHtml5, name: "HTML 5" },
-        { icon: SiCss3, name: "CSS 3" },
-        { icon: SiJavascript, name: "JavaScript" },
-        { icon: SiAngular, name: "AngularJS" },
-        { icon: SiPhp, name: "PHP" },
-        { icon: SiMysql, name: "MySQL" },
-        { icon: SiWordpress, name: "Wordpress" },
-        { icon: SiIonic, name: "Ionic" },
-        { icon: SiAndroid, name: "Android" },
-        { icon: SiJoomla, name: "Joomla" },
-        { icon: SiAdobexd, name: "Adobe XD" },
-        { icon: SiAdobephotoshop, name: "Adobe Photoshop" },
-        { icon: SiAdobeillustrator, name: "Adobe Illustrator" },
-        { icon: FaMicrosoft, name: "TFS" },
-        { icon: SiBitbucket, name: "BitBucket" },
-        { icon: SiJira, name: "Jira" },
-      ],
-    },
-  ];
-
   return (
     <section className="py-10" id="experience">
       <div className="container">
@@ -249,11 +31,9 @@ const Experience = () => {
               <div className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto" />
 
               <motion.div
-                initial="initial"
-                whileInView="animate"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
-                variants={experienceCardAnimationVariants}
-                custom={index}
                 className="z-0"
               >
                 <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border-2 bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
@@ -262,7 +42,12 @@ const Experience = () => {
 
                 <Card className="relative z-10 mt-[30px] border-2 after:absolute after:inset-0 after:-z-10 after:bg-grain after:opacity-5 lg:mt-0">
                   <CardHeader className="flex flex-row items-center justify-between gap-2">
-                    <div>
+                    <motion.div
+                      initial={{ opacity: 0, x: 5 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5, staggerChildren: 0.1 }}
+                      viewport={{ once: true }}
+                    >
                       <p className="text-xs text-muted-foreground">
                         {company.duration}
                       </p>
@@ -272,8 +57,14 @@ const Experience = () => {
                         </Link>
                       </p>
                       <p className="text-lg font-medium">{company.title}</p>
-                    </div>
-                    <div className="!mt-0">
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: 5 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 }}
+                      viewport={{ once: true }}
+                      className="!mt-0"
+                    >
                       <Link href={company.companyUrl} target="_blank">
                         <Image
                           src={company.logo}
@@ -284,15 +75,17 @@ const Experience = () => {
                           sizes="(min-width: 780px) 60px, 38px"
                         />
                       </Link>
-                    </div>
+                    </motion.div>
                   </CardHeader>
                   <CardContent>
                     <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">
                       {company.responsibilities.map((responsibility, key) => (
                         <motion.li
                           key={`${company.id}-${key}`}
-                          variants={listItemVariants}
-                          transition={{ duration: 0.3, delay: key * 0.1 }}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.5, staggerChildren: 0.1 }}
                         >
                           {responsibility}
                         </motion.li>
@@ -302,7 +95,13 @@ const Experience = () => {
                       <p className="text-sm font-medium">
                         Tech Stack and tools:
                       </p>
-                      <div className="mt-2 flex flex-wrap gap-2">
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.2, staggerChildren: 0.1 }}
+                        viewport={{ once: true }}
+                        className="mt-2 flex flex-wrap gap-2"
+                      >
                         {company.techStack?.map(({ icon, name }) => (
                           <Tag
                             key={`${company.id}-${name}`}
@@ -310,7 +109,7 @@ const Experience = () => {
                             icon={icon}
                           />
                         ))}
-                      </div>
+                      </motion.div>
                     </div>
                   </CardContent>
                 </Card>
