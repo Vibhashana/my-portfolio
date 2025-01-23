@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -79,6 +80,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
         {/* JSON-LD */}
         <script
           type="application/ld+json"
