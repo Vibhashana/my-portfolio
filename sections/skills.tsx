@@ -126,12 +126,6 @@ const Skills = () => {
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
                 e.currentTarget.style.transform = `perspective(1000px) rotateX(${y * 0.15}deg) rotateY(${x * 0.15}deg)`;
-                document
-                  .getElementsByTagName("body")[0]
-                  .style.setProperty(
-                    "--angle",
-                    `${Math.atan2(y, x) * (180 / Math.PI)}deg`
-                  );
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "none";

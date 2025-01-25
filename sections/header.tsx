@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="fixed top-4 z-50 w-full">
       <div className="container flex sm:items-center sm:justify-center">
-        <nav className="hidden items-center rounded-md border border-neutral-950/15 bg-white/10 backdrop-blur dark:border-white/15 sm:flex">
+        <nav className="hidden items-center rounded-md border border-neutral-950/15 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-white/15 sm:flex">
           <div className="flex items-center justify-center gap-1 p-0.5">
             {menu.map(({ title, href }) => (
               <Link
