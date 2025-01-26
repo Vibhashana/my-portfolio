@@ -6,6 +6,7 @@ import {
   SiAngular,
   SiAxios,
   SiBitbucket,
+  SiBootstrap,
   SiChakraui,
   SiCreatereactapp,
   SiCss3,
@@ -19,11 +20,15 @@ import {
   SiJira,
   SiJoomla,
   SiLaravel,
+  SiMui,
   SiMysql,
+  SiNextdotjs,
   SiPhp,
   SiReact,
   SiSass,
+  SiShadcnui,
   SiStyledcomponents,
+  SiTailwindcss,
   SiTestinglibrary,
   SiTypescript,
   SiVite,
@@ -218,5 +223,72 @@ export const companies = [
       { icon: SiBitbucket, name: "BitBucket" },
       { icon: SiJira, name: "Jira" },
     ],
+  },
+];
+
+export const skills = [
+  {
+    title: "HTML",
+    icon: SiHtml5,
+  },
+  {
+    title: "CSS",
+    icon: SiCss3,
+  },
+  {
+    title: "JavaScript",
+    icon: SiJavascript,
+  },
+  {
+    title: "TypeScript",
+    icon: SiTypescript,
+  },
+  {
+    title: "ReactJS",
+    icon: SiReact,
+  },
+  {
+    title: "Next.js",
+    icon: SiNextdotjs,
+  },
+  {
+    title: "ShadCN",
+    icon: SiShadcnui,
+  },
+  {
+    title: "Tailwind CSS",
+    icon: SiTailwindcss,
+  },
+  {
+    title: "Sass",
+    icon: SiSass,
+  },
+  {
+    title: "CSS Modules",
+    icon: SiCssmodules,
+  },
+  {
+    title: "Styled Components",
+    icon: SiStyledcomponents,
+  },
+  {
+    title: "Chakra UI",
+    icon: SiChakraui,
+  },
+  {
+    title: "Material UI",
+    icon: SiMui,
+  },
+  {
+    title: "Bootstrap",
+    icon: SiBootstrap,
+  },
+  {
+    title: "Vitest",
+    icon: SiVitest,
+  },
+  {
+    title: "Testing Library",
+    icon: SiTestinglibrary,
   },
 ];

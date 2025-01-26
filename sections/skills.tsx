@@ -1,95 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiNextdotjs,
-  SiSass,
-  SiShadcnui,
-  SiTailwindcss,
-  SiTypescript,
-  SiCssmodules,
-  SiStyledcomponents,
-  SiBootstrap,
-  SiReact,
-  SiChakraui,
-  SiMui,
-  SiTestinglibrary,
-  SiVitest,
-} from "react-icons/si";
 
 import SectionHeader from "@/components/section-header";
+import { skills } from "@/lib/data";
 
 const Skills = () => {
-  const skills = [
-    {
-      title: "HTML",
-      icon: SiHtml5,
-    },
-    {
-      title: "CSS",
-      icon: SiCss3,
-    },
-    {
-      title: "JavaScript",
-      icon: SiJavascript,
-    },
-    {
-      title: "TypeScript",
-      icon: SiTypescript,
-    },
-    {
-      title: "ReactJS",
-      icon: SiReact,
-    },
-    {
-      title: "Next.js",
-      icon: SiNextdotjs,
-    },
-    {
-      title: "ShadCN",
-      icon: SiShadcnui,
-    },
-    {
-      title: "Tailwind CSS",
-      icon: SiTailwindcss,
-    },
-    {
-      title: "Sass",
-      icon: SiSass,
-    },
-    {
-      title: "CSS Modules",
-      icon: SiCssmodules,
-    },
-    {
-      title: "Styled Components",
-      icon: SiStyledcomponents,
-    },
-    {
-      title: "Chakra UI",
-      icon: SiChakraui,
-    },
-    {
-      title: "Material UI",
-      icon: SiMui,
-    },
-    {
-      title: "Bootstrap",
-      icon: SiBootstrap,
-    },
-    {
-      title: "Vitest",
-      icon: SiVitest,
-    },
-    {
-      title: "Testing Library",
-      icon: SiTestinglibrary,
-    },
-  ];
-
   const skillIconsAnimationVariant = {
     hidden: {
       opacity: 0,
