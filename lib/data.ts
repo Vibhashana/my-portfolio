@@ -1,4 +1,12 @@
 import {
+  FaGithub,
+  FaLinkedin,
+  FaFacebookF,
+  FaDribbble,
+  FaCodepen,
+  FaBehance,
+} from "react-icons/fa";
+import {
   SiAdobeillustrator,
   SiAdobephotoshop,
   SiAdobexd,
@@ -43,6 +51,7 @@ import {
   SiZod,
 } from "react-icons/si";
 import { FaMicrosoft } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 import eukaLogo from "@/assets/images/euka-logo.png";
 import pearsonLogo from "@/assets/images/pearson-logo.png";
@@ -374,5 +383,43 @@ export const skills = [
   {
     title: "Testing Library",
     icon: SiTestinglibrary,
+  },
+];
+
+export const links = [
+  {
+    title: "Connect with me on LinkedIn",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/in/sahan-bandara/",
+  },
+  {
+    title: "Check my code on GitHub",
+    icon: FaGithub,
+    href: "https://github.com/Vibhashana",
+  },
+  {
+    title: "Follow me on Twitter",
+    icon: FaXTwitter,
+    href: "https://x.com/SahanVibhashana",
+  },
+  {
+    title: "Join me on Facebook",
+    icon: FaFacebookF,
+    href: "https://www.facebook.com/svbbk",
+  },
+  {
+    title: "Check out my Dribbble",
+    icon: FaDribbble,
+    href: "https://dribbble.com/vibhashana",
+  },
+  {
+    title: "Check out my Behance",
+    icon: FaBehance,
+    href: "https://www.behance.net/vibhashana",
+  },
+  {
+    title: "Check out my Codepen",
+    icon: FaCodepen,
+    href: "https://codepen.io/vibhashana",
   },
 ];

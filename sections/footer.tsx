@@ -1,52 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { FaXTwitter } from "react-icons/fa6";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaFacebookF,
-  FaDribbble,
-  FaCodepen,
-  FaBehance,
-} from "react-icons/fa";
 import Link from "next/link";
-
-const links = [
-  {
-    title: "Connect with me on LinkedIn",
-    icon: <FaLinkedin />,
-    href: "https://www.linkedin.com/in/sahan-bandara/",
-  },
-  {
-    title: "Check my code on GitHub",
-    icon: <FaGithub />,
-    href: "https://github.com/Vibhashana",
-  },
-  {
-    title: "Follow me on Twitter",
-    icon: <FaXTwitter />,
-    href: "https://x.com/SahanVibhashana",
-  },
-  {
-    title: "Join me on Facebook",
-    icon: <FaFacebookF />,
-    href: "https://www.facebook.com/svbbk",
-  },
-  {
-    title: "Check out my Dribbble",
-    icon: <FaDribbble />,
-    href: "https://dribbble.com/vibhashana",
-  },
-  {
-    title: "Check out my Behance",
-    icon: <FaBehance />,
-    href: "https://www.behance.net/vibhashana",
-  },
-  {
-    title: "Check out my Codepen",
-    icon: <FaCodepen />,
-    href: "https://codepen.io/vibhashana",
-  },
-];
+import { links } from "@/lib/data";
 
 const Footer = () => {
   return (
@@ -58,7 +12,7 @@ const Footer = () => {
             &copy; {new Date().getFullYear()}. All rights reserved
           </p>
           <div className="flex flex-wrap gap-1">
-            {links.map(({ href, title, icon }) => (
+            {links.map(({ href, title, icon: Icon }) => (
               <Button
                 key={title}
                 asChild
@@ -69,7 +23,7 @@ const Footer = () => {
                 aria-label={title}
               >
                 <Link href={href} target="_blank">
-                  {icon}
+                  <Icon />
                 </Link>
               </Button>
             ))}
