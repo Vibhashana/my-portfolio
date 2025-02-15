@@ -1,4 +1,4 @@
-import { MobileNav } from "@/components/mobile-nav";
+import MobileNav from "@/components/mobile-nav";
 import { menu } from "@/lib/data";
 import Link from "next/link";
 import React from "react";
@@ -33,7 +33,7 @@ const Header = () => {
             </AnimatedBackground>
           </div>
         </nav>
-        <MobileNav />
+        <MobileNav menu={menu} />
       </div>
     </header>
   );
