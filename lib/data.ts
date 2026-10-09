@@ -21,6 +21,7 @@ import {
   SiCss3,
   SiCssmodules,
   SiDrizzle,
+  SiEsphome,
   SiFigma,
   SiGit,
   SiGithub,
@@ -38,6 +39,7 @@ import {
   SiPaddle,
   SiPhp,
   SiPostgresql,
+  SiPwa,
   SiReact,
   SiReacthookform,
   SiRedux,
@@ -46,7 +48,9 @@ import {
   SiSentry,
   SiShadcnui,
   SiStyledcomponents,
+  SiSupabase,
   SiTailwindcss,
+  SiTelegram,
   SiTestinglibrary,
   SiTypescript,
   SiVite,
@@ -68,6 +72,7 @@ import xcendantLogo from "@/assets/images/xcendant-logo.png";
 import ioneLogo from "@/assets/images/ione-logo.png";
 
 import ezRsvpImage from "@/assets/images/ezrsvp.png";
+import solarMonitorImage from "@/assets/images/solar-monitor.png";
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
@@ -303,6 +308,23 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Solar Monitor",
+    image: solarMonitorImage,
+    description:
+      "A monitoring PWA for a home solar setup. An ESP32 running ESPHome reads the MPPT charge controller and posts readings to Supabase every 30 seconds, and the app shows live production, history charts and battery trends, works offline, and sends Telegram alerts.",
+    liveUrl: "https://solar-monitor.sahanbandara.com/",
+    tags: [
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiReact, name: "React" },
+      { icon: SiVite, name: "Vite" },
+      { icon: SiPwa, name: "PWA" },
+      { icon: SiSupabase, name: "Supabase" },
+      { icon: SiEsphome, name: "ESPHome" },
+      { icon: SiTelegram, name: "Telegram Bot" },
+    ],
+  },
+  {
+    id: 3,
     title: "YC Directory",
     image: ycDirectoryImage,
     description:
@@ -320,7 +342,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "BookNest",
     image: bookNestImage,
     description:
@@ -336,7 +358,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Acme Dashboard",
     image: nextDashboardImage,
     description:
@@ -353,7 +375,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Bookmark",
     image: bookmarkImage,
     description:
