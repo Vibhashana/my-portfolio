@@ -49,9 +49,8 @@ const About = () => {
               </p>
               <p>
                 Beyond coding, I&apos;m passionate about continuous learning. I
-                actively keep up with industry trends, experiment with emerging
-                technologies, and love collaborating with cross-functional teams
-                to bring innovative ideas to life.
+                actively keep up with industry trends and experiment with emerging
+                technologies.
               </p>
               <p>
                 When I&apos;m not coding, you&apos;ll find me exploring design
