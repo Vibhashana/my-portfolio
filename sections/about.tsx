@@ -55,7 +55,7 @@ const About = () => {
               </p>
               <p>
                 When I&apos;m not coding, you&apos;ll find me exploring design
-                inspiration, contributing to open-source projects, or enjoying a
+                inspiration, tinkering with my soldering iron, or enjoying a
                 good cup of coffee.
               </p>
               <p>

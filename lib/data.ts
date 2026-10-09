@@ -110,7 +110,7 @@ export const companies = [
     id: 1,
     name: "Sinorbis",
     title: "Frontend Developer (Contractor)",
-    duration: "Oct 2024 - Present",
+    duration: "Oct 2024 - Sep 2026",
     responsibilities: [
       "Build features for the Sinorbis platform and other Sinorbis products alongside the engineering team.",
       "Translate UI/UX designs into code and produce the visual elements of the platform.",
