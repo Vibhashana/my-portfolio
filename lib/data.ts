@@ -20,6 +20,7 @@ import {
   SiCreatereactapp,
   SiCss3,
   SiCssmodules,
+  SiDrizzle,
   SiFigma,
   SiGit,
   SiGithub,
@@ -34,7 +35,9 @@ import {
   SiMui,
   SiMysql,
   SiNextdotjs,
+  SiPaddle,
   SiPhp,
+  SiPostgresql,
   SiReact,
   SiReacthookform,
   SiRedux,
@@ -64,6 +67,7 @@ import eyepaxLogo from "@/assets/images/eyepax-logo.png";
 import xcendantLogo from "@/assets/images/xcendant-logo.png";
 import ioneLogo from "@/assets/images/ione-logo.png";
 
+import ezRsvpImage from "@/assets/images/ezrsvp.png";
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
@@ -281,6 +285,24 @@ export const companies = [
 export const projects = [
   {
     id: 1,
+    title: "ezRSVP",
+    image: ezRsvpImage,
+    description:
+      "A wedding RSVP SaaS where couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event. Guests RSVP without creating an account.",
+    liveUrl: "https://ezrsvp.sahanbandara.com/",
+    tags: [
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiNextdotjs, name: "Next.js" },
+      { icon: SiTailwindcss, name: "Tailwind CSS" },
+      { icon: SiShadcnui, name: "ShadCN" },
+      { icon: SiPostgresql, name: "PostgreSQL" },
+      { icon: SiDrizzle, name: "Drizzle ORM" },
+      { icon: SiPaddle, name: "Paddle" },
+      { icon: SiSentry, name: "Sentry Error Tracking" },
+    ],
+  },
+  {
+    id: 2,
     title: "YC Directory",
     image: ycDirectoryImage,
     description:
@@ -298,7 +320,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "BookNest",
     image: bookNestImage,
     description:
@@ -314,7 +336,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Acme Dashboard",
     image: nextDashboardImage,
     description:
@@ -331,7 +353,7 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Bookmark",
     image: bookmarkImage,
     description:

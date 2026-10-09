@@ -59,12 +59,14 @@ const ProjectGrid = () => {
                     <ArrowUpRight />
                   </Link>
                 </Button>
-                <Button variant="outline" asChild>
-                  <Link href={githubUrl} target="_blank">
-                    <FaGithub />
-                    <span>Go to GitHub repository</span>
-                  </Link>
-                </Button>
+                {githubUrl && (
+                  <Button variant="outline" asChild>
+                    <Link href={githubUrl} target="_blank">
+                      <FaGithub />
+                      <span>Go to GitHub repository</span>
+                    </Link>
+                  </Button>
+                )}
               </div>
             </div>
 
