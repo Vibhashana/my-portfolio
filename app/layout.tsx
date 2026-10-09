@@ -50,6 +50,15 @@ const jsonLd = [
     jobTitle: "Frontend Developer",
     description:
       "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
+    worksFor: {
+      "@type": "Organization",
+      name: "Sinorbis",
+      url: "https://www.sinorbis.com",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Wrexham Glyndŵr University",
+    },
     sameAs: [
       "https://www.linkedin.com/in/sahan-bandara",
       "https://x.com/SahanVibhashana",

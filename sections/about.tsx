@@ -27,7 +27,8 @@ const About = () => {
             <div className="space-y-4 leading-relaxed">
               <p>
                 Hi, I&apos;m <strong>Sahan Vibhashana Bandara</strong>, a
-                passionate frontend developer dedicated to crafting
+                passionate frontend developer with over 10 years of industry
+                experience, dedicated to crafting
                 user-friendly, visually stunning, and performant websites. With
                 a strong foundation in <strong>HTML, CSS, JavaScript</strong>,
                 and <strong>TypeScript</strong>, I specialize in creating

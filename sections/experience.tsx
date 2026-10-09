@@ -91,26 +91,28 @@ const Experience = () => {
                         </motion.li>
                       ))}
                     </ul>
-                    <div className="mt-4">
-                      <p className="text-sm font-medium">
-                        Tech Stack and tools:
-                      </p>
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.2, staggerChildren: 0.1 }}
-                        viewport={{ once: true }}
-                        className="mt-2 flex flex-wrap gap-2"
-                      >
-                        {company.techStack?.map(({ icon, name }) => (
-                          <Tag
-                            key={`${company.id}-${name}`}
-                            text={name}
-                            icon={icon}
-                          />
-                        ))}
-                      </motion.div>
-                    </div>
+                    {!!company.techStack?.length && (
+                      <div className="mt-4">
+                        <p className="text-sm font-medium">
+                          Tech Stack and tools:
+                        </p>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ delay: 0.2, staggerChildren: 0.1 }}
+                          viewport={{ once: true }}
+                          className="mt-2 flex flex-wrap gap-2"
+                        >
+                          {company.techStack.map(({ icon, name }) => (
+                            <Tag
+                              key={`${company.id}-${name}`}
+                              text={name}
+                              icon={icon}
+                            />
+                          ))}
+                        </motion.div>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>

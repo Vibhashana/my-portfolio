@@ -11,6 +11,7 @@ import {
   SiAdobephotoshop,
   SiAdobexd,
   SiAndroid,
+  SiAntdesign,
   SiAngular,
   SiAxios,
   SiBitbucket,
@@ -20,6 +21,7 @@ import {
   SiCss3,
   SiCssmodules,
   SiFigma,
+  SiGit,
   SiGithub,
   SiGitlab,
   SiHtml5,
@@ -35,6 +37,7 @@ import {
   SiPhp,
   SiReact,
   SiReacthookform,
+  SiRedux,
   SiSanity,
   SiSass,
   SiSentry,
@@ -52,7 +55,9 @@ import {
 } from "react-icons/si";
 import { FaMicrosoft } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { TbBrandReactNative } from "react-icons/tb";
 
+import sinorbisLogo from "@/assets/images/sinorbis-logo.png";
 import eukaLogo from "@/assets/images/euka-logo.png";
 import pearsonLogo from "@/assets/images/pearson-logo.png";
 import eyepaxLogo from "@/assets/images/eyepax-logo.png";
@@ -94,8 +99,30 @@ export const menu = [
 export const companies = [
   {
     id: 1,
+    name: "Sinorbis",
+    title: "Frontend Developer (Contractor)",
+    duration: "Oct 2024 - Present",
+    responsibilities: [
+      "Build features for the Sinorbis platform and other Sinorbis products alongside the engineering team.",
+      "Translate UI/UX designs into code and produce the visual elements of the platform.",
+      "Build reusable code and libraries, optimizing the UI for speed and scalability.",
+      "Develop, test, and document features following best practices for code quality.",
+      "Provide technical support, troubleshooting issues reported by customers and internal teams.",
+    ],
+    logo: sinorbisLogo,
+    companyUrl: "https://www.sinorbis.com/",
+    techStack: [
+      { icon: SiReact, name: "ReactJS" },
+      { icon: SiTypescript, name: "TypeScript" },
+      { icon: SiAntdesign, name: "Ant Design" },
+      { icon: SiRedux, name: "Redux" },
+      { icon: SiFigma, name: "Figma" },
+    ],
+  },
+  {
+    id: 2,
     name: "Euka Future Learning",
-    title: "Frontend Developer",
+    title: "Software Engineer (Frontend)",
     duration: "Oct 2023 - Oct 2024",
     responsibilities: [
       "Developed dynamic web apps using ReactJS, TypeScript, and Chakra UI for responsive, accessible design.",
@@ -123,7 +150,7 @@ export const companies = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "Pearson",
     title: "Software Engineer (UI/UX)",
     duration: "Sep 2021 - Sep 2023",
@@ -153,7 +180,7 @@ export const companies = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Eyepax",
     title: "Software Engineer (UI/UX)",
     duration: "Dec 2017 - Sep 2021",
@@ -186,7 +213,7 @@ export const companies = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Xcendant",
     title: "UI/UX Engineer",
     duration: "Nov 2016 - Nov 2017",
@@ -216,7 +243,7 @@ export const companies = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: "iOneSoft",
     title: "UI/UX Engineer",
     duration: "Jan 2014 - Nov 2016",
@@ -345,6 +372,10 @@ export const skills = [
     icon: SiNextdotjs,
   },
   {
+    title: "React Native",
+    icon: TbBrandReactNative,
+  },
+  {
     title: "ShadCN",
     icon: SiShadcnui,
   },
@@ -383,6 +414,18 @@ export const skills = [
   {
     title: "Testing Library",
     icon: SiTestinglibrary,
+  },
+  {
+    title: "Git",
+    icon: SiGit,
+  },
+  {
+    title: "Figma",
+    icon: SiFigma,
+  },
+  {
+    title: "Adobe XD",
+    icon: SiAdobexd,
   },
 ];
 
