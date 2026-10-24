@@ -27,7 +27,7 @@ import Chip, { ChipList } from "@/components/ui/chip";
 export const metadata: Metadata = {
   title: "QR Generator — case study",
   description:
-    "A 48-hour UI/UX assessment for Rightmo: a redesign of a QR code generator’s homepage and the Step 2 editor of its PDF QR flow, built on a token-driven design system.",
+    "A 48-hour UI/UX assessment: a redesign of a QR code generator’s homepage and the Step 2 editor of its PDF QR flow, built on a token-driven design system.",
   alternates: { canonical: "/work/qr-generator" },
 };
 
@@ -161,10 +161,10 @@ export default function QrGeneratorCaseStudy() {
   return (
     <>
       <CaseHero
-        eyebrow="04 — UI/UX assessment for Rightmo"
+        eyebrow="04 — UI/UX assessment"
         title="QR Generator"
         tagline="Show the code first."
-        intro="A 48-hour UI/UX engineer assessment for Rightmo: a redesign of a QR code generator’s homepage and the Step 2 editor of its PDF QR flow, built on a token-driven design system in Figma."
+        intro="A 48-hour UI/UX engineer assessment: a redesign of a QR code generator’s homepage and the Step 2 editor of its PDF QR flow, built on a token-driven design system in Figma."
         cta={{ label: "View design file", href: designFileUrl }}
         meta={[
           { label: "My role", value: "UX audit, UI design, design system" },
