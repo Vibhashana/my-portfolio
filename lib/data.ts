@@ -3,6 +3,7 @@ import type { StaticImageData } from "next/image";
 import ezRsvpImage from "@/assets/images/ezrsvp.png";
 import solarMonitorImage from "@/assets/images/solar-monitor.png";
 import innkeepImage from "@/assets/images/innkeep/landing.png";
+import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
@@ -142,6 +143,30 @@ export const featuredProjects: FeaturedProject[] = [
     image: innkeepImage,
     theme: "light",
     caseStudy: "/work/innkeep",
+  },
+  {
+    slug: "qr-generator",
+    title: "QR Generator",
+    tag: "UI/UX assessment · Rightmo",
+    description:
+      "A 48-hour redesign of a QR code generator’s homepage and PDF flow: the finished code shown first, a split editor with a live preview, and a token-driven design system behind both.",
+    shortDescription:
+      "A 48-hour redesign of a QR code generator: the finished code shown first, a split editor with a live preview, and a token-driven design system.",
+    stack: [
+      "UX audit",
+      "Product design",
+      "Design system",
+      "43 component sets",
+      "Desktop + mobile",
+    ],
+    image: qrGeneratorImage,
+    theme: "dark",
+    primary: {
+      label: "View design file",
+      href: "https://www.figma.com/design/5isbV1YASygvTtBJVbJzzK/Rightmo-UI-Assessment",
+      external: true,
+    },
+    caseStudy: "/work/qr-generator",
   },
 ];
 

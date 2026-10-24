@@ -49,13 +49,20 @@ const Experience = () => {
                 <span
                   aria-hidden
                   className={cn(
-                    "col-start-2 row-span-2 row-start-1 grid size-11 place-items-center rounded-full border text-[28px] font-semibold leading-none transition-colors duration-200 md:col-start-auto md:row-span-1 md:row-start-auto",
+                    "col-start-2 row-span-2 row-start-1 grid size-11 place-items-center rounded-full border transition-[background-color,border-color,color,transform] duration-200 ease-out group-active:scale-[0.94] md:col-start-auto md:row-span-1 md:row-start-auto",
                     expanded
                       ? "border-ink bg-ink text-paper"
                       : "border-line text-ink group-hover:border-ink/40"
                   )}
                 >
-                  {expanded ? "–" : "+"}
+                  {/* The vertical bar folds flat, morphing + into – */}
+                  <span className="col-start-1 row-start-1 h-0.5 w-3.5 rounded-full bg-current" />
+                  <span
+                    className={cn(
+                      "col-start-1 row-start-1 h-3.5 w-0.5 rounded-full bg-current transition-transform duration-300 ease-in-out motion-reduce:transition-none",
+                      expanded && "rotate-90"
+                    )}
+                  />
                 </span>
               </button>
 
@@ -64,11 +71,19 @@ const Experience = () => {
                 role="region"
                 aria-label={`${name} highlights`}
                 className={cn(
-                  "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
+                  "grid transition-[grid-template-rows] duration-300 ease-in-out motion-reduce:transition-none",
                   expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                 )}
               >
-                <div className="overflow-hidden" inert={!expanded}>
+                <div
+                  className={cn(
+                    "overflow-hidden transition-opacity",
+                    expanded
+                      ? "opacity-100 delay-75 duration-300"
+                      : "opacity-0 duration-150"
+                  )}
+                  inert={!expanded}
+                >
                   <div className="flex flex-col gap-5 pb-6 md:ml-[260px] md:mr-[84px] md:pb-9">
                     <ul className="flex flex-col text-body-s md:text-body-m">
                       {highlights.map((highlight) => (

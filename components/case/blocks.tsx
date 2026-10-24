@@ -2,6 +2,7 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 
+import Reveal from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -132,12 +133,12 @@ export const Flow = ({
             <span className="rotate-90 lg:rotate-0">→</span>
           </li>
         )}
-        <li
+        <Reveal
+          as="li"
+          delay={i * 70}
           className={cn(
             "flex flex-1 flex-col gap-2.5 rounded-3xl px-6 py-7",
-            tone === "dark"
-              ? "bg-night-raised"
-              : "border border-line bg-card"
+            tone === "dark" ? "bg-night-raised" : "border border-line bg-card"
           )}
         >
           <span className="eyebrow">{String(i + 1).padStart(2, "0")}</span>
@@ -152,7 +153,7 @@ export const Flow = ({
           >
             {description}
           </p>
-        </li>
+        </Reveal>
       </Fragment>
     ))}
   </ol>
@@ -203,14 +204,14 @@ export const FeatureRow = ({
           <Bullets items={bullets} />
         </div>
       </div>
-      <div
+      <Reveal
         className={cn(
           "flex flex-1 justify-center overflow-hidden rounded-[20px] bg-surface px-3.5 pt-[18px] lg:rounded-[28px] lg:px-11 lg:pt-12",
           visualClassName
         )}
       >
         {visual}
-      </div>
+      </Reveal>
     </div>
   </CaseSection>
 );
@@ -227,27 +228,29 @@ export const NextProject = ({
   image: StaticImageData;
 }) => (
   <CaseSection className="pt-0">
-    <article className="grid overflow-hidden rounded-3xl bg-ink text-on-night md:rounded-[32px] lg:grid-cols-[480px_1fr]">
-      <div className="flex flex-col justify-between gap-6 p-7 lg:p-14">
-        <div className="flex flex-col gap-3.5">
-          <p className="eyebrow">Next case study</p>
-          <h2 className="text-display-m font-semibold">{title}</h2>
-          <p className="max-w-[360px] text-body-m text-on-night-muted">
-            {description}
-          </p>
+    <Reveal>
+      <article className="grid overflow-hidden rounded-3xl bg-ink text-on-night md:rounded-[32px] lg:grid-cols-[480px_1fr]">
+        <div className="flex flex-col justify-between gap-6 p-7 lg:p-14">
+          <div className="flex flex-col gap-3.5">
+            <p className="eyebrow">Next case study</p>
+            <h2 className="text-display-m font-semibold">{title}</h2>
+            <p className="max-w-[360px] text-body-m text-on-night-muted">
+              {description}
+            </p>
+          </div>
+          <Button asChild variant="onNight" className="w-fit">
+            <Link href={href}>Read case study →</Link>
+          </Button>
         </div>
-        <Button asChild variant="onNight" className="w-fit">
-          <Link href={href}>Read case study →</Link>
-        </Button>
-      </div>
-      <div className="hidden items-center justify-center bg-night-raised p-10 lg:flex">
-        <Image
-          src={image}
-          alt=""
-          sizes="640px"
-          className="h-auto max-h-[303px] w-auto"
-        />
-      </div>
-    </article>
+        <div className="hidden items-center justify-center bg-night-raised p-10 lg:flex">
+          <Image
+            src={image}
+            alt=""
+            sizes="640px"
+            className="h-auto max-h-[303px] w-auto"
+          />
+        </div>
+      </article>
+    </Reveal>
   </CaseSection>
 );

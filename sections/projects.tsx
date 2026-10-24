@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import Reveal from "@/components/reveal";
 import SectionHeader from "@/components/section-header";
 import { Button } from "@/components/ui/button";
 import {
@@ -125,11 +126,10 @@ const ProjectCard = ({
   project: Project;
   position: number;
 }) => {
-  const { title, tag, description, stack, image, liveUrl, githubUrl } =
-    project;
+  const { title, tag, description, stack, image, liveUrl, githubUrl } = project;
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-3xl border border-line bg-card lg:rounded-[28px]">
+    <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-card lg:rounded-[28px]">
       <div className="flex items-center justify-center bg-surface p-[18px] lg:p-7">
         <Image
           src={image}
@@ -158,7 +158,7 @@ const ProjectCard = ({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink lg:text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+              className="text-ink underline-offset-4 hover:text-ink hover:underline lg:text-ink-muted"
             >
               GitHub ↗<span className="sr-only"> — {title}</span>
             </a>
@@ -191,7 +191,9 @@ const Projects = () => {
 
       <div className="mt-8 flex flex-col gap-8 md:mt-16 lg:gap-6">
         {featuredProjects.map((project, i) => (
-          <FeaturedCard key={project.slug} project={project} position={i + 1} />
+          <Reveal key={project.slug}>
+            <FeaturedCard project={project} position={i + 1} />
+          </Reveal>
         ))}
       </div>
 
@@ -202,11 +204,12 @@ const Projects = () => {
         </div>
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-6">
           {otherProjects.map((project, i) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              position={featuredProjects.length + i + 1}
-            />
+            <Reveal key={project.title} delay={(i % 2) * 80}>
+              <ProjectCard
+                project={project}
+                position={featuredProjects.length + i + 1}
+              />
+            </Reveal>
           ))}
         </div>
       </div>

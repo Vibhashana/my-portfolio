@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import portrait from "@/assets/images/portrait.jpg";
 import DownloadCv from "@/components/download-cv";
+import Reveal from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/lib/data";
 
@@ -9,7 +10,11 @@ const About = () => {
   return (
     <section id="about" className="bg-surface md:bg-transparent">
       <div className="container-page flex flex-col gap-8 py-[72px] md:py-36 lg:flex-row lg:items-start lg:gap-24">
-        <figure className="relative shrink-0 overflow-hidden rounded-3xl lg:w-[472px] lg:rounded-[32px]">
+        <Reveal
+          as="figure"
+          variant="clip"
+          className="relative shrink-0 overflow-hidden rounded-3xl lg:w-[472px] lg:rounded-[32px]"
+        >
           <Image
             src={portrait}
             alt="Sahan sitting on a wooden staircase"
@@ -23,7 +28,7 @@ const About = () => {
               <br /> and a good cup of coffee.
             </span>
           </figcaption>
-        </figure>
+        </Reveal>
 
         <div className="flex flex-col gap-8 lg:gap-10">
           <div className="flex flex-col gap-7 lg:gap-10">
@@ -45,9 +50,9 @@ const About = () => {
               matches it — states, edge cases and all.
             </p>
             <p>
-              I’ve built for teams at Pearson, Eyepax and Sinorbis, and I run
-              my own products — ezRSVP for weddings and Innkeep for small
-              hotels — so I think about the business, not just the ticket.
+              I’ve built for teams at Pearson, Eyepax and Sinorbis, and I run my
+              own products — ezRSVP for weddings and Innkeep for small hotels —
+              so I think about the business, not just the ticket.
             </p>
             <p>
               Day to day I work in React, Next.js and TypeScript with Tailwind,
@@ -64,12 +69,20 @@ const About = () => {
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
             <DownloadCv />
             <Button asChild variant="secondary">
-              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 LinkedIn ↗
               </a>
             </Button>
             <Button asChild variant="secondary">
-              <a href={profile.github} target="_blank" rel="noopener noreferrer">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 GitHub ↗
               </a>
             </Button>

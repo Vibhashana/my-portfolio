@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import ezRsvpImage from "@/assets/images/ezrsvp.png";
 import bookDoneImage from "@/assets/images/innkeep/bookdone.png";
 import bookRoomsImage from "@/assets/images/innkeep/bookrooms.png";
 import calendarImage from "@/assets/images/innkeep/calendar.png";
@@ -11,6 +10,7 @@ import coloursImage from "@/assets/images/innkeep/colours.png";
 import housekeepingImage from "@/assets/images/innkeep/hkmobile.png";
 import landingImage from "@/assets/images/innkeep/landing.png";
 import todayImage from "@/assets/images/innkeep/today.png";
+import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
 import CaseHero from "@/components/case/case-hero";
 import {
   Brief,
@@ -312,10 +312,10 @@ export default function InnkeepCaseStudy() {
       />
 
       <NextProject
-        title="ezRSVP"
-        description="A wedding RSVP SaaS — one link per family, every RSVP counted."
-        href="/work/ezrsvp"
-        image={ezRsvpImage}
+        title="QR Generator"
+        description="A 48-hour redesign of a QR code generator — the finished code shown first."
+        href="/work/qr-generator"
+        image={qrGeneratorImage}
       />
     </>
   );

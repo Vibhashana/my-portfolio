@@ -11,11 +11,24 @@ type CaseHeroProps = {
   meta: { label: string; value: string }[];
 };
 
-const CaseHero = ({ eyebrow, title, tagline, intro, cta, meta }: CaseHeroProps) => {
+const CaseHero = ({
+  eyebrow,
+  title,
+  tagline,
+  intro,
+  cta,
+  meta,
+}: CaseHeroProps) => {
   return (
     <section className="container-page flex flex-col gap-6 pb-8 pt-7 md:gap-12 md:pb-[72px] md:pt-12">
-      <nav aria-label="Breadcrumb" className="flex gap-2.5 text-label font-medium">
-        <Link href="/#work" className="hover:text-accent">
+      <nav
+        aria-label="Breadcrumb"
+        className="flex gap-2.5 text-label font-medium"
+      >
+        <Link
+          href="/#work"
+          className="transition-colors duration-200 hover:text-accent"
+        >
           ← All work
         </Link>
         <span aria-hidden className="hidden text-ink-muted md:inline">
@@ -24,7 +37,7 @@ const CaseHero = ({ eyebrow, title, tagline, intro, cta, meta }: CaseHeroProps) 
         <span className="hidden text-ink-muted md:inline">Case study</span>
       </nav>
 
-      <div className="flex flex-col gap-2.5 md:gap-4">
+      <div className="enter flex flex-col gap-2.5 md:gap-4">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="flex flex-col gap-2.5 md:gap-4">
           <span className="text-display-xl font-semibold">{title}</span>
@@ -34,7 +47,7 @@ const CaseHero = ({ eyebrow, title, tagline, intro, cta, meta }: CaseHeroProps) 
         </h1>
       </div>
 
-      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-20">
+      <div className="enter flex flex-col gap-6 [animation-delay:100ms] md:flex-row md:items-end md:justify-between md:gap-20">
         <p className="max-w-[620px] text-body-l text-ink-muted">{intro}</p>
         {cta && (
           <Button asChild className="w-full md:w-auto">
@@ -45,7 +58,7 @@ const CaseHero = ({ eyebrow, title, tagline, intro, cta, meta }: CaseHeroProps) 
         )}
       </div>
 
-      <dl className="grid md:grid-cols-4 md:border-t md:border-line md:pt-7">
+      <dl className="enter grid [animation-delay:160ms] md:grid-cols-4 md:border-t md:border-line md:pt-7">
         {meta.map(({ label, value }) => (
           <div
             key={label}

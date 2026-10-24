@@ -1,3 +1,4 @@
+import Reveal from "@/components/reveal";
 import SectionHeader from "@/components/section-header";
 import Chip, { ChipList } from "@/components/ui/chip";
 import { skillGroups } from "@/lib/data";
@@ -14,9 +15,11 @@ const Skills = () => {
         />
 
         <ul className="mt-8 grid gap-8 sm:grid-cols-2 sm:gap-5 md:mt-16 lg:grid-cols-4">
-          {skillGroups.map(({ title, skills }) => (
-            <li
+          {skillGroups.map(({ title, skills }, index) => (
+            <Reveal
+              as="li"
               key={title}
+              delay={index * 70}
               className="flex flex-col gap-[18px] rounded-[22px] bg-card p-[22px] md:min-h-[321px] md:gap-7 md:rounded-[28px] md:p-8"
             >
               <div className="mono-label flex justify-between">
@@ -30,7 +33,7 @@ const Skills = () => {
                   <Chip key={skill}>{skill}</Chip>
                 ))}
               </ChipList>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

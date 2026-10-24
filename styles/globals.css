@@ -17,6 +17,9 @@
     --color-on-night-muted: 143 139 132;
     --color-success: 43 182 115;
 
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
     color-scheme: light;
   }
 
@@ -56,5 +59,89 @@
 
   .mono-label {
     @apply font-mono text-mono-s uppercase;
+  }
+}
+
+@layer utilities {
+  /* First-paint entrance for hero content. Stagger with
+     [animation-delay:…]; reduced motion keeps the fade, drops the movement. */
+  .enter {
+    animation: enter 700ms var(--ease-out) both;
+  }
+
+  .enter-pill {
+    animation: enter-pill 900ms var(--ease-in-out) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enter,
+    .enter-pill {
+      animation-name: fade-in;
+      animation-duration: 400ms;
+    }
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes enter-pill {
+  from {
+    clip-path: inset(0 50% 0 50% round 9999px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 9999px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Scroll reveal (see components/reveal.tsx). Content is only hidden when
+   scripting is on, so it never stays invisible without JS. */
+.reveal {
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out),
+    clip-path 1000ms var(--ease-in-out);
+}
+
+.reveal-clip img {
+  transition: transform 1400ms var(--ease-out);
+}
+
+@media (scripting: enabled) {
+  .reveal-rise:not([data-revealed]) {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .reveal-clip:not([data-revealed]) {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .reveal-clip:not([data-revealed]) img {
+    transform: scale(1.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-rise:not([data-revealed]),
+    .reveal-clip:not([data-revealed]) {
+      opacity: 0;
+      transform: none;
+      clip-path: none;
+    }
+
+    .reveal-clip:not([data-revealed]) img {
+      transform: none;
+    }
   }
 }

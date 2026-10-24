@@ -2,6 +2,11 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
 export default {
+  // Wrap every hover: variant in @media (hover: hover) so taps on touch
+  // devices don't leave sticky hover states behind.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -81,14 +86,30 @@ export default {
           "clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem)",
           { lineHeight: "1.5", letterSpacing: "-0.006em" },
         ],
-        "body-m": ["1.0625rem", { lineHeight: "1.55", letterSpacing: "-0.003em" }],
-        "body-s": ["0.9375rem", { lineHeight: "1.5", letterSpacing: "-0.001em" }],
+        "body-m": [
+          "1.0625rem",
+          { lineHeight: "1.55", letterSpacing: "-0.003em" },
+        ],
+        "body-s": [
+          "0.9375rem",
+          { lineHeight: "1.5", letterSpacing: "-0.001em" },
+        ],
         label: ["0.9375rem", { lineHeight: "1.2", letterSpacing: "-0.002em" }],
         "mono-s": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.06em" }],
         "mono-m": ["0.875rem", { lineHeight: "1.5", letterSpacing: "0" }],
       },
       maxWidth: {
         page: "80rem",
+      },
+      // Stronger curves than the CSS defaults. These replace Tailwind's
+      // ease-out / ease-in-out, so every existing usage picks them up.
+      transitionDuration: {
+        400: "400ms",
+      },
+      transitionTimingFunction: {
+        out: "cubic-bezier(0.23, 1, 0.32, 1)",
+        "in-out": "cubic-bezier(0.77, 0, 0.175, 1)",
+        drawer: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
     },
   },

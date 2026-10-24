@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -54,6 +54,86 @@ const useActiveSection = (enabled: boolean) => {
   return enabled ? active : "work";
 };
 
+// The active pill is a second, ink-coloured copy of the nav clipped down to
+// the active link. Animating the clip moves the pill and swaps the text
+// colour in one motion, with no mid-way blend between two states.
+const NavPills = ({ active }: { active: SectionId }) => {
+  const navRef = useRef<HTMLDivElement>(null);
+  const [clip, setClip] = useState<string>();
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const measure = () => {
+      const link = nav.querySelector<HTMLElement>(`[data-id="${active}"]`);
+      if (!link) return;
+      const right = nav.clientWidth - link.offsetLeft - link.offsetWidth;
+      const bottom = nav.clientHeight - link.offsetTop - link.offsetHeight;
+      setClip(
+        `inset(${link.offsetTop}px ${right}px ${bottom}px ${link.offsetLeft}px round 9999px)`
+      );
+    };
+
+    measure();
+    // Re-measure when web fonts swap in or the viewport changes the widths.
+    const observer = new ResizeObserver(measure);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [active]);
+
+  // Place the first pill without animating it in from nowhere.
+  useEffect(() => {
+    if (!clip || animate) return;
+    const frame = requestAnimationFrame(() => setAnimate(true));
+    return () => cancelAnimationFrame(frame);
+  }, [clip, animate]);
+
+  const pill = "block rounded-full px-[18px] py-2.5 text-label font-medium";
+
+  return (
+    <div
+      ref={navRef}
+      className="relative rounded-full border border-line bg-card/90 shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl"
+    >
+      <ul className="flex items-center gap-0.5 p-[5px]">
+        {navLinks.map(({ title, href, id }) => (
+          <li key={id}>
+            <Link
+              href={href}
+              data-id={id}
+              aria-current={active === id ? "true" : undefined}
+              className={cn(
+                pill,
+                "transition-colors duration-200 hover:bg-surface"
+              )}
+            >
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ul
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 flex items-center gap-0.5 rounded-full bg-ink p-[5px] text-paper",
+          !clip && "invisible",
+          animate &&
+            "transition-[clip-path] duration-300 ease-in-out motion-reduce:transition-none"
+        )}
+        style={{ clipPath: clip }}
+      >
+        {navLinks.map(({ title, id }) => (
+          <li key={id}>
+            <span className={pill}>{title}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const Wordmark = () => (
   <Link
     href="/"
@@ -85,24 +165,7 @@ const Header = () => {
           aria-label="Main"
           className="absolute left-1/2 hidden -translate-x-1/2 lg:block"
         >
-          <ul className="flex items-center gap-0.5 rounded-full border border-line bg-card/90 p-[5px] shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl">
-            {navLinks.map(({ title, href, id }) => (
-              <li key={id}>
-                <Link
-                  href={href}
-                  aria-current={active === id ? "true" : undefined}
-                  className={cn(
-                    "block rounded-full px-[18px] py-2.5 text-label font-medium transition-colors duration-200",
-                    active === id
-                      ? "bg-ink text-paper"
-                      : "text-ink hover:bg-surface"
-                  )}
-                >
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <NavPills active={active} />
         </nav>
 
         <Button asChild className="hidden lg:inline-flex">
@@ -110,7 +173,7 @@ const Header = () => {
         </Button>
 
         <Sheet>
-          <SheetTrigger className="inline-flex h-11 items-center rounded-full border border-line bg-card px-[18px] text-label font-medium lg:hidden">
+          <SheetTrigger className="inline-flex h-11 items-center rounded-full border border-line bg-card px-[18px] text-label font-medium transition-transform duration-150 ease-out active:scale-[0.97] lg:hidden">
             Menu
           </SheetTrigger>
           <SheetContent>

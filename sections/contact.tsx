@@ -28,7 +28,10 @@ const Contact = () => {
             </p>
             <ul className="hidden md:block">
               {directLinks.map(({ title, action, href }) => (
-                <li key={title} className="border-b border-on-night-muted first:border-t">
+                <li
+                  key={title}
+                  className="border-b border-on-night-muted first:border-t"
+                >
                   <a
                     href={href}
                     target="_blank"
@@ -36,7 +39,7 @@ const Contact = () => {
                     className="group flex items-center justify-between py-[18px]"
                   >
                     <span className="text-h3 font-semibold">{title}</span>
-                    <span className="mono-label text-on-night-muted transition-colors group-hover:text-on-night">
+                    <span className="mono-label text-on-night-muted transition-[color,transform] duration-200 ease-out group-hover:translate-x-0.5 group-hover:text-on-night">
                       {action}
                     </span>
                   </a>
@@ -57,7 +60,10 @@ const Contact = () => {
           <p className="hidden font-serif text-[40px] italic leading-[0.96] tracking-[-0.015em] md:block">
             {profile.name}
           </p>
-          <a href="#top" className="mono-label hover:text-accent">
+          <a
+            href="#top"
+            className="mono-label transition-colors duration-200 hover:text-accent"
+          >
             Back to top ↑
           </a>
         </footer>
