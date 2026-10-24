@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "@/styles/globals.css";
-import { ThemeProvider } from "@/providers/theme-provider";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
 });
 
 export const metadata: Metadata = {
@@ -17,9 +27,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "Sahan Bandara | Frontend Developer",
+  title: {
+    default: "Sahan Bandara | Frontend Developer",
+    template: "%s | Sahan Bandara",
+  },
   description:
-    "Frontend developer crafting responsive, visually stunning, and high-performance websites. Let's bring your ideas to life!",
+    "Frontend developer with 10+ years in React, Next.js and TypeScript and a UI/UX engineering background — taking work from Figma to production without losing the details.",
   keywords: [
     "Frontend Developer",
     "Web Developer",
@@ -78,18 +91,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
-      className="scroll-mt-16 scroll-smooth"
+      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
-      <body className={`${poppins.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+      <body>
+        {children}
         <Analytics />
         {/* JSON-LD */}
         <script

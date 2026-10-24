@@ -1,26 +1,49 @@
+import { cn } from "@/lib/utils";
+
 type SectionHeaderProps = {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description?: string;
+  tone?: "light" | "dark";
+  className?: string;
 };
 
-const SectionHeader = ({ eyebrow, title, description }: SectionHeaderProps) => {
+const SectionHeader = ({
+  eyebrow,
+  title,
+  description,
+  tone = "light",
+  className,
+}: SectionHeaderProps) => {
   return (
-    <>
-      <div className="flex justify-center">
-        <p className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
-          {eyebrow}
-        </p>
+    <div
+      className={cn(
+        "flex flex-col gap-4 md:gap-6 xl:flex-row xl:items-end xl:justify-between xl:gap-10",
+        className
+      )}
+    >
+      <div className="flex flex-col gap-3.5 md:gap-5 xl:shrink-0">
+        <p className="eyebrow">{eyebrow}</p>
+        <h2
+          className={cn(
+            "text-balance text-display-l font-semibold",
+            tone === "dark" ? "text-on-night" : "text-ink"
+          )}
+        >
+          {title}
+        </h2>
       </div>
-      <h2 className="mt-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl">
-        {title}
-      </h2>
       {description && (
-        <p className="mx-auto mt-3 max-w-[60ch] text-center text-muted-foreground">
+        <p
+          className={cn(
+            "max-w-[380px] text-body-m xl:min-w-[260px]",
+            tone === "dark" ? "text-on-night-muted" : "text-ink-muted"
+          )}
+        >
           {description}
         </p>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,96 +1,92 @@
-import SectionHeader from "@/components/section-header";
-import { Button } from "@/components/ui/button";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import Link from "next/link";
 import Image from "next/image";
 
-import { largeImage } from "@/assets/images";
+import portrait from "@/assets/images/portrait.jpg";
 import DownloadCv from "@/components/download-cv";
+import Reveal from "@/components/reveal";
+import { Button } from "@/components/ui/button";
+import { profile } from "@/lib/data";
 
 const About = () => {
   return (
-    <section className="py-10" id="about">
-      <div className="container">
-        <SectionHeader
-          eyebrow="Who I Am"
-          title="About Me"
-          //     description="Hi, I'm Sahan Bandara, a passionate frontend developer with a
-          // knack for bringing designs to life. With 10 years of experience, I
-          // craft web applications that are fast, functional, and visually
-          // engaging. Whether it's coding responsive layouts or collaborating
-          // with designers, I'm here to make the web a better place, one
-          // pixel at a time."
-        />
+    <section id="about" className="bg-surface md:bg-transparent">
+      <div className="container-page flex flex-col gap-8 py-[72px] md:py-36 lg:flex-row lg:items-start lg:gap-24">
+        <Reveal
+          as="figure"
+          variant="clip"
+          className="relative shrink-0 overflow-hidden rounded-3xl lg:w-[472px] lg:rounded-[32px]"
+        >
+          <Image
+            src={portrait}
+            alt="Sahan sitting on a wooden staircase"
+            sizes="(min-width: 1024px) 472px, calc(100vw - 40px)"
+            className="aspect-[350/420] w-full object-cover lg:aspect-[472/640]"
+          />
+          <figcaption className="absolute bottom-5 left-5 hidden flex-col gap-1.5 rounded-[20px] border border-white/60 bg-white/85 px-5 py-4 backdrop-blur-xl md:flex">
+            <span className="mono-label text-ink-muted">Off the clock</span>
+            <span className="text-label font-medium">
+              Design inspiration, a soldering iron
+              <br /> and a good cup of coffee.
+            </span>
+          </figcaption>
+        </Reveal>
 
-        <div className="mt-8 flex flex-col justify-between gap-6 md:mt-20 md:flex-row">
-          <div className="md:w-[65%]">
-            <div className="space-y-4 leading-relaxed">
-              <p>
-                Hi, I&apos;m <strong>Sahan Vibhashana Bandara</strong>, a
-                passionate frontend developer with over 10 years of industry
-                experience, dedicated to crafting
-                user-friendly, visually stunning, and performant websites. With
-                a strong foundation in <strong>HTML, CSS, JavaScript</strong>,
-                and <strong>TypeScript</strong>, I specialize in creating
-                responsive, accessible, and dynamic user interfaces using modern
-                frameworks like <strong>React</strong> and{" "}
-                <strong>Next.js</strong>.
-              </p>
-              <p>
-                My journey in web development began with a fascination for
-                design and technology, and over the years, it has evolved into a
-                career that allows me to combine creativity with
-                problem-solving. I&apos;ve had the privilege of collaborating on
-                diverse projects, from simple landing pages to complex web
-                applications, honing my skills in frameworks like{" "}
-                <strong>TailwindCSS</strong>, <strong>Sass, ShadCN,</strong> and
-                libraries such as <strong>Chakra UI</strong> and{" "}
-                <strong>Material UI</strong>.
-              </p>
-              <p>
-                Beyond coding, I&apos;m passionate about continuous learning. I
-                actively keep up with industry trends and experiment with emerging
-                technologies.
-              </p>
-              <p>
-                When I&apos;m not coding, you&apos;ll find me exploring design
-                inspiration, tinkering with my soldering iron, or enjoying a
-                good cup of coffee.
-              </p>
-              <p>
-                Let&apos;s create something incredible together. Feel free to
-                check out my projects or reach out—I&apos;d love to connect!
-              </p>
-            </div>
+        <div className="flex flex-col gap-8 lg:gap-10">
+          <div className="flex flex-col gap-7 lg:gap-10">
+            <p className="eyebrow">03 — Who I am</p>
+            <h2 className="text-h2 font-semibold">
+              Hi, I’m{" "}
+              <span className="font-serif text-[1.136em] font-normal italic">
+                {profile.fullName}
+              </span>{" "}
+              — a frontend developer who cares how products look, feel and
+              perform, from the first Figma frame to the last line of code.
+            </h2>
           </div>
-          <div className="mt-6 md:mt-0">
-            <Image
-              src={largeImage}
-              alt="Sahan Bandara"
-              width={288}
-              height={288}
-              className="mx-auto rounded-lg border-8 border-blue-500/20"
-              sizes="(min-width: 380px) 272px, calc(33.33vw + 152px)"
-            />
+
+          <div className="grid gap-5 text-body-m text-ink-muted md:grid-cols-2 md:gap-x-10">
+            <p>
+              I started as a UI/UX engineer, so I speak both design and code.
+              Hand me a Figma file and I’ll hand back production React that
+              matches it — states, edge cases and all.
+            </p>
+            <p>
+              I’ve built for teams at Pearson, Eyepax and Sinorbis, and I run my
+              own products — ezRSVP for weddings and Innkeep for small hotels —
+              so I think about the business, not just the ticket.
+            </p>
+            <p>
+              Day to day I work in React, Next.js and TypeScript with Tailwind,
+              ShadCN, Chakra UI or Ant Design, test with Vitest and Testing
+              Library, and care about performance and accessibility.
+            </p>
+            <p>
+              I’m open to full-time frontend roles and freelance projects. If
+              you’re hiring or have something to build, I’d love to hear about
+              it.
+            </p>
           </div>
-        </div>
-        <div className="mt-10 flex flex-wrap items-center gap-4 text-center">
-          <Button asChild>
-            <Link
-              href="https://www.linkedin.com/in/sahan-bandara"
-              target="_blank"
-            >
-              <FaLinkedin />
-              <span>Connect me on LinkedIn</span>
-            </Link>
-          </Button>
-          <Button asChild variant="secondary">
-            <Link href="https://github.com/Vibhashana" target="_blank">
-              <FaGithub />
-              <span>Check my GitHub</span>
-            </Link>
-          </Button>
-          <DownloadCv />
+
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-3">
+            <DownloadCv />
+            <Button asChild variant="secondary">
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+            </Button>
+            <Button asChild variant="secondary">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

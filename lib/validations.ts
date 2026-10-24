@@ -1,6 +1,12 @@
 import { z } from "zod";
 
+export const intents = {
+  hiring: "I’m hiring",
+  project: "I have a project",
+} as const;
+
 export const formSchema = z.object({
+  intent: z.enum(["hiring", "project"]),
   name: z
     .string({ message: "Name is required." })
     .min(2, {
@@ -15,8 +21,8 @@ export const formSchema = z.object({
     .min(5, {
       message: "Message must be at least 5 characters long.",
     })
-    .max(250, {
-      message: "Message shouldn't exceed 250 characters.",
+    .max(1000, {
+      message: "Message shouldn't exceed 1000 characters.",
     }),
 });
 

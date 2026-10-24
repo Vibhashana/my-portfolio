@@ -2,7 +2,11 @@ import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 
 export default {
-  darkMode: ["class"],
+  // Wrap every hover: variant in @media (hover: hover) so taps on touch
+  // devices don't leave sticky hover states behind.
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,94 +14,102 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        grain: "url('/grain.webp')",
-      },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        paper: "rgb(var(--color-paper) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        card: "rgb(var(--color-card) / <alpha-value>)",
+        ink: {
+          DEFAULT: "rgb(var(--color-ink) / <alpha-value>)",
+          muted: "rgb(var(--color-ink-muted) / <alpha-value>)",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        line: "rgb(var(--color-line) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        night: {
+          DEFAULT: "rgb(var(--color-night) / <alpha-value>)",
+          raised: "rgb(var(--color-night-raised) / <alpha-value>)",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+        "on-night": {
+          DEFAULT: "rgb(var(--color-on-night) / <alpha-value>)",
+          muted: "rgb(var(--color-on-night-muted) / <alpha-value>)",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
+        success: "rgb(var(--color-success) / <alpha-value>)",
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
       },
-      keyframes: {
-        grow: {
-          "0%": {
-            opacity: "0",
-            transform: "scale(0)",
-          },
-          "90%": {
-            opacity: "1",
-            transform: "scale(1.05)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "scale(1)",
-          },
-        },
-
-        "gradient-rotate": {
-          from: {
-            "--angle": "0deg",
-          },
-          to: {
-            "--angle": "360deg",
-          },
-        },
+      // Type scale from the Figma text styles. Display sizes scale fluidly
+      // between the 390px and 1440px frames.
+      fontSize: {
+        "display-xl": [
+          "clamp(2.875rem, 0.786rem + 8.571vw, 8.5rem)",
+          { lineHeight: "0.92", letterSpacing: "-0.045em" },
+        ],
+        "display-xl-serif": [
+          "clamp(3.125rem, 0.804rem + 9.524vw, 9.375rem)",
+          { lineHeight: "0.92", letterSpacing: "-0.02em" },
+        ],
+        "display-l": [
+          "clamp(2.75rem, 1.914rem + 3.429vw, 5rem)",
+          { lineHeight: "0.96", letterSpacing: "-0.035em" },
+        ],
+        "display-l-serif": [
+          "clamp(2.375rem, 1.293rem + 4.444vw, 5.5rem)",
+          { lineHeight: "0.96", letterSpacing: "-0.015em" },
+        ],
+        "display-m": [
+          "clamp(2.25rem, 1.32rem + 3.81vw, 4rem)",
+          { lineHeight: "0.96", letterSpacing: "-0.035em" },
+        ],
+        "title-l": [
+          "clamp(1.75rem, 1.1rem + 2.667vw, 3.5rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.025em" },
+        ],
+        "title-m": [
+          "clamp(1.875rem, 1.364rem + 2.095vw, 3.25rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.025em" },
+        ],
+        h2: [
+          "clamp(1.875rem, 1.55rem + 1.333vw, 2.75rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.025em" },
+        ],
+        stat: [
+          "clamp(2.125rem, 1.893rem + 0.952vw, 2.75rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.025em" },
+        ],
+        h3: [
+          "clamp(1.375rem, 1.236rem + 0.571vw, 1.75rem)",
+          { lineHeight: "1.18", letterSpacing: "-0.015em" },
+        ],
+        "body-l": [
+          "clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem)",
+          { lineHeight: "1.5", letterSpacing: "-0.006em" },
+        ],
+        "body-m": [
+          "1.0625rem",
+          { lineHeight: "1.55", letterSpacing: "-0.003em" },
+        ],
+        "body-s": [
+          "0.9375rem",
+          { lineHeight: "1.5", letterSpacing: "-0.001em" },
+        ],
+        label: ["0.9375rem", { lineHeight: "1.2", letterSpacing: "-0.002em" }],
+        "mono-s": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.06em" }],
+        "mono-m": ["0.875rem", { lineHeight: "1.5", letterSpacing: "0" }],
       },
-      animation: {
-        grow: "grow 1s ease-out forwards",
-        "gradient-rotate": "gradient-rotate 10s linear infinite",
+      maxWidth: {
+        page: "80rem",
       },
-    },
-    fontFamily: {
-      sans: "var(--font-poppins)",
-    },
-    container: {
-      center: true,
-      padding: {
-        DEFAULT: "1rem",
-        md: "2rem",
+      // Stronger curves than the CSS defaults. These replace Tailwind's
+      // ease-out / ease-in-out, so every existing usage picks them up.
+      transitionDuration: {
+        400: "400ms",
+      },
+      transitionTimingFunction: {
+        out: "cubic-bezier(0.23, 1, 0.32, 1)",
+        "in-out": "cubic-bezier(0.77, 0, 0.175, 1)",
+        drawer: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
     },
   },

@@ -1,39 +1,208 @@
-import MobileNav from "@/components/mobile-nav";
-import { menu } from "@/lib/data";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import React from "react";
-import { AnimatedBackground } from "@/components/ui/animated-background";
+import { usePathname } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { navLinks, profile } from "@/lib/data";
+import { cn } from "@/lib/utils";
+
+type SectionId = (typeof navLinks)[number]["id"];
+
+// Highlights the nav link for whichever section sits under the header.
+const useActiveSection = (enabled: boolean) => {
+  const [active, setActive] = useState<SectionId>("work");
+
+  useEffect(() => {
+    if (!enabled) return;
+
+    const sections = navLinks
+      .map(({ id }) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      // The last section whose top has passed 40% of the viewport wins;
+      // above the first one (the hero), "Work" stays active.
+      const line = window.innerHeight * 0.4;
+      const current = sections.findLast(
+        (section) => section.getBoundingClientRect().top <= line
+      );
+      setActive((current?.id as SectionId) ?? "work");
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [enabled]);
+
+  return enabled ? active : "work";
+};
+
+// The active pill is a second, ink-coloured copy of the nav clipped down to
+// the active link. Animating the clip moves the pill and swaps the text
+// colour in one motion, with no mid-way blend between two states.
+const NavPills = ({ active }: { active: SectionId }) => {
+  const navRef = useRef<HTMLDivElement>(null);
+  const [clip, setClip] = useState<string>();
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const measure = () => {
+      const link = nav.querySelector<HTMLElement>(`[data-id="${active}"]`);
+      if (!link) return;
+      const right = nav.clientWidth - link.offsetLeft - link.offsetWidth;
+      const bottom = nav.clientHeight - link.offsetTop - link.offsetHeight;
+      setClip(
+        `inset(${link.offsetTop}px ${right}px ${bottom}px ${link.offsetLeft}px round 9999px)`
+      );
+    };
+
+    measure();
+    // Re-measure when web fonts swap in or the viewport changes the widths.
+    const observer = new ResizeObserver(measure);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [active]);
+
+  // Place the first pill without animating it in from nowhere.
+  useEffect(() => {
+    if (!clip || animate) return;
+    const frame = requestAnimationFrame(() => setAnimate(true));
+    return () => cancelAnimationFrame(frame);
+  }, [clip, animate]);
+
+  const pill = "block rounded-full px-[18px] py-2.5 text-label font-medium";
+
+  return (
+    <div
+      ref={navRef}
+      className="relative rounded-full border border-line bg-card/90 shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl"
+    >
+      <ul className="flex items-center gap-0.5 p-[5px]">
+        {navLinks.map(({ title, href, id }) => (
+          <li key={id}>
+            <Link
+              href={href}
+              data-id={id}
+              aria-current={active === id ? "true" : undefined}
+              className={cn(
+                pill,
+                "transition-colors duration-200 hover:bg-surface"
+              )}
+            >
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <ul
+        aria-hidden
+        className={cn(
+          "pointer-events-none absolute inset-0 flex items-center gap-0.5 rounded-full bg-ink p-[5px] text-paper",
+          !clip && "invisible",
+          animate &&
+            "transition-[clip-path] duration-300 ease-in-out motion-reduce:transition-none"
+        )}
+        style={{ clipPath: clip }}
+      >
+        {navLinks.map(({ title, id }) => (
+          <li key={id}>
+            <span className={pill}>{title}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const Wordmark = () => (
+  <Link
+    href="/"
+    className="flex items-center gap-2.5 md:gap-3"
+    aria-label={`${profile.name} — home`}
+  >
+    <span className="grid size-9 place-items-center rounded-[11px] bg-ink font-serif text-[22px] italic leading-none tracking-[-0.015em] text-paper md:size-10 md:rounded-xl md:text-[26px]">
+      sb
+    </span>
+    <span className="flex flex-col gap-[3px]">
+      <span className="text-label font-medium">{profile.name}</span>
+      <span className="mono-label hidden text-ink-muted md:block">
+        {profile.role}
+      </span>
+    </span>
+  </Link>
+);
 
 const Header = () => {
+  const pathname = usePathname();
+  const active = useActiveSection(pathname === "/");
+
   return (
-    <header className="fixed top-4 z-50 w-full">
-      <div className="container flex sm:items-center sm:justify-center">
-        <nav className="hidden items-center rounded-md border border-neutral-950/15 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-white/15 sm:flex">
-          <div className="flex items-center justify-center p-0.5">
-            <AnimatedBackground
-              defaultValue={menu[0].title}
-              className="rounded-md bg-black/15 dark:bg-neutral-50/10"
-              transition={{
-                type: "spring",
-                bounce: 0.2,
-                duration: 0.3,
-              }}
-              enableHover
-            >
-              {menu.map(({ title, href }) => (
-                <Link
-                  href={href}
-                  className="rounded-md px-4 py-2.5 text-sm font-medium transition-colors duration-300 dark:text-white/70 hover:dark:text-white data-[checked=true]:dark:text-white"
-                  key={title}
-                  data-id={title}
-                >
-                  {title}
-                </Link>
-              ))}
-            </AnimatedBackground>
-          </div>
+    <header className="sticky top-0 z-40 bg-paper/80 backdrop-blur-xl">
+      <div className="flex items-center justify-between px-5 py-3.5 md:px-10 md:py-5">
+        <Wordmark />
+
+        <nav
+          aria-label="Main"
+          className="absolute left-1/2 hidden -translate-x-1/2 lg:block"
+        >
+          <NavPills active={active} />
         </nav>
-        <MobileNav menu={menu} />
+
+        <Button asChild className="hidden lg:inline-flex">
+          <Link href="/#contact">Let’s talk ↗</Link>
+        </Button>
+
+        <Sheet>
+          <SheetTrigger className="inline-flex h-11 items-center rounded-full border border-line bg-card px-[18px] text-label font-medium transition-transform duration-150 ease-out active:scale-[0.97] lg:hidden">
+            Menu
+          </SheetTrigger>
+          <SheetContent>
+            <SheetTitle className="sr-only">Navigation</SheetTitle>
+            <Wordmark />
+            <ul className="mt-8 flex flex-col">
+              {navLinks.map(({ title, href, id }) => (
+                <li key={id} className="border-b border-line">
+                  <SheetClose asChild>
+                    <Link
+                      href={href}
+                      className="flex items-center justify-between py-4 text-h3 font-semibold"
+                    >
+                      {title}
+                      {active === id && (
+                        <span className="size-2 rounded-full bg-accent" />
+                      )}
+                    </Link>
+                  </SheetClose>
+                </li>
+              ))}
+            </ul>
+            <SheetClose asChild>
+              <Button asChild className="mt-8 w-full">
+                <Link href="/#contact">Let’s talk ↗</Link>
+              </Button>
+            </SheetClose>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );
