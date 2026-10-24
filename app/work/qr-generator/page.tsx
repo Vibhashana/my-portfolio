@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import ezRsvpImage from "@/assets/images/ezrsvp.png";
+import innkeepImage from "@/assets/images/innkeep/landing.png";
 import coloursImage from "@/assets/images/qr-generator/colours.png";
 import featuresImage from "@/assets/images/qr-generator/features.png";
 import heroImage from "@/assets/images/qr-generator/hero.png";
 import editorMobileImage from "@/assets/images/qr-generator/meditor.png";
+import mockupImage from "@/assets/images/qrafty-mockup.png";
 import heroMobileImage from "@/assets/images/qr-generator/mhero.png";
 import previewMobileImage from "@/assets/images/qr-generator/mpreview.png";
 import step2Image from "@/assets/images/qr-generator/step2.png";
@@ -17,6 +18,7 @@ import {
   FeatureRow,
   Flow,
   NextProject,
+  Showcase,
 } from "@/components/case/blocks";
 import { BrowserFrame, PhoneFrame } from "@/components/case/devices";
 import Reveal from "@/components/reveal";
@@ -50,7 +52,7 @@ const features = [
       "Free forever, no sign-up and file formats stated up front",
       "Three hero versions explored; the final one shows the result",
     ],
-    url: "online-qr-generator.com",
+    url: "qrafty.com",
     image: heroImage,
     alt: "Redesigned QR generator homepage hero",
     visualClassName: "items-center pb-[18px] lg:min-h-[640px] lg:pb-12",
@@ -66,7 +68,7 @@ const features = [
       "Collapsed accordions show a summary and a status badge",
       "Switch between the landing page and the styled QR card",
     ],
-    url: "online-qr-generator.com/create/pdf",
+    url: "qrafty.com/create/pdf",
     image: step2Image,
     alt: "Step 2 editor of the PDF QR flow with a live preview",
   },
@@ -80,7 +82,7 @@ const features = [
       "Monthly/yearly pricing with one “Most popular” plan",
       "FAQ and footer keep the live site’s support content",
     ],
-    url: "online-qr-generator.com/#features",
+    url: "qrafty.com/#features",
     image: featuresImage,
     alt: "Features bento and QR types on the redesigned homepage",
   },
@@ -173,18 +175,11 @@ export default function QrGeneratorCaseStudy() {
       />
 
       <CaseSection className="pb-12 md:pb-[104px]">
-        <div className="enter relative overflow-hidden rounded-3xl bg-night [animation-delay:220ms] pb-[59px] pl-[5%] pt-8 md:rounded-[36px] md:pb-[31px] md:pl-16 md:pt-20">
-          <BrowserFrame
-            url="online-qr-generator.com"
-            image={heroImage}
-            alt="Redesigned QR generator homepage"
-            sizes="(min-width: 1280px) 980px, 90vw"
-            className="aspect-[330/349] w-[94%] md:aspect-[980/651] md:w-[82%]"
-          />
-          <PhoneFrame
-            image={previewMobileImage}
-            alt="PDF landing page preview on a phone"
-            className="absolute right-[2%] top-[17%] w-[48%] md:right-[3%] md:top-[15%] md:w-[24%] md:max-w-[285px]"
+        <div className="enter relative overflow-hidden rounded-3xl bg-night pb-[59px] pl-[5%] pt-8 [animation-delay:220ms] md:rounded-[36px] md:pb-[31px] md:pl-16 md:pt-20">
+          <Showcase
+            image={mockupImage}
+            alt="QR Generator homepage"
+            tone="dark"
           />
         </div>
       </CaseSection>
@@ -196,7 +191,7 @@ export default function QrGeneratorCaseStudy() {
               key={label}
               className={
                 "flex flex-col-reverse gap-3 py-6 md:py-9 " +
-                (i % 2 === 0 ? "pr-4 " : "pl-4 md:pl-0 ") +
+                (i % 2 === 0 ? "pr-4" : "pl-4 md:pl-0") +
                 (i < 2 ? "border-b border-line md:border-0" : "")
               }
             >
@@ -233,7 +228,8 @@ export default function QrGeneratorCaseStudy() {
             },
             {
               title: "Choose type",
-              description: "Every QR type as a visual card, led by Website/URL.",
+              description:
+                "Every QR type as a visual card, led by Website/URL.",
             },
             {
               title: "Content & design",
@@ -379,10 +375,10 @@ export default function QrGeneratorCaseStudy() {
       </CaseSection>
 
       <NextProject
-        title="ezRSVP"
-        description="A wedding RSVP SaaS — one link per family, every RSVP counted."
-        href="/work/ezrsvp"
-        image={ezRsvpImage}
+        title="Innkeep"
+        description="A hotel PMS SaaS — run your whole hotel from one screen."
+        href="/work/innkeep"
+        image={innkeepImage}
       />
     </>
   );

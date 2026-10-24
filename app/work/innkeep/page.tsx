@@ -9,8 +9,9 @@ import checkInImage from "@/assets/images/innkeep/checkin.png";
 import coloursImage from "@/assets/images/innkeep/colours.png";
 import housekeepingImage from "@/assets/images/innkeep/hkmobile.png";
 import landingImage from "@/assets/images/innkeep/landing.png";
+import mockupImage from "@/assets/images/innkeep-mockup.png";
 import todayImage from "@/assets/images/innkeep/today.png";
-import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
+import solarMonitorImage from "@/assets/images/solar-monitor.png";
 import CaseHero from "@/components/case/case-hero";
 import {
   Brief,
@@ -18,6 +19,7 @@ import {
   CaseSection,
   FeatureRow,
   NextProject,
+  Showcase,
 } from "@/components/case/blocks";
 import { BrowserFrame, PhoneFrame } from "@/components/case/devices";
 import Chip, { ChipList } from "@/components/ui/chip";
@@ -47,7 +49,7 @@ const features = [
       "A needs-attention queue: unready rooms, deposits due, booking-site changes",
       "Occupancy forecast for the next 14 days",
     ],
-    url: "app.innkeep.lk/today",
+    url: "app.innkeep.com/today",
     image: todayImage,
     alt: "Innkeep Today dashboard",
   },
@@ -61,7 +63,7 @@ const features = [
       "Tonight’s summary: rooms occupied, arrivals, departures",
       "Status colours: checked in, confirmed, deposit due, checked out",
     ],
-    url: "app.innkeep.lk/calendar",
+    url: "app.innkeep.com/calendar",
     image: calendarImage,
     alt: "Innkeep tape-chart calendar",
   },
@@ -75,7 +77,7 @@ const features = [
       "Split payment, payment link and refund flows",
       "Printable registration card and arrivals list",
     ],
-    url: "app.innkeep.lk/check-in",
+    url: "app.innkeep.com/check-in",
     image: checkInImage,
     alt: "Innkeep check-in flow",
   },
@@ -89,7 +91,7 @@ const features = [
       "Sync error and sync log views",
       "Fix-mapping flow for rooms and rate plans",
     ],
-    url: "app.innkeep.lk/channels",
+    url: "app.innkeep.com/channels",
     image: channelsImage,
     alt: "Innkeep channel manager",
   },
@@ -139,7 +141,7 @@ export default function InnkeepCaseStudy() {
   return (
     <>
       <CaseHero
-        eyebrow="03 — Hotel PMS SaaS"
+        eyebrow="01 — Hotel PMS SaaS"
         title="Innkeep"
         tagline="Run your whole hotel from one screen."
         intro="Bookings, check-in, bills and housekeeping in one simple app for guesthouses, villas and small hotels — with Booking.com, Agoda, Expedia and Airbnb kept in sync. I designed the whole product and I’m now building it."
@@ -152,20 +154,11 @@ export default function InnkeepCaseStudy() {
       />
 
       <CaseSection className="pb-12 md:pb-[104px]">
-        <div className="relative overflow-hidden rounded-3xl bg-night pb-[59px] pl-[5%] pt-8 md:rounded-[36px] md:pb-[31px] md:pl-16 md:pt-20">
-          <BrowserFrame
-            url="app.innkeep.lk"
-            image={todayImage}
-            alt="Innkeep Today dashboard"
-            sizes="(min-width: 1280px) 980px, 90vw"
-            className="aspect-[330/349] w-[94%] md:aspect-[980/649] md:w-[82%]"
-          />
-          <PhoneFrame
-            image={housekeepingImage}
-            alt="Innkeep housekeeping app on a phone"
-            className="absolute right-[2%] top-[17%] w-[48%] md:right-[3%] md:top-[15%] md:w-[24%] md:max-w-[285px]"
-          />
-        </div>
+        <Showcase
+          image={mockupImage}
+          alt="Innkeep dashboard on laptop and phone"
+          tone="dark"
+        />
       </CaseSection>
 
       <CaseSection className="pb-14 md:pb-[120px]">
@@ -175,7 +168,7 @@ export default function InnkeepCaseStudy() {
               key={label}
               className={
                 "flex flex-col-reverse gap-3 py-6 md:py-9 " +
-                (i % 2 === 0 ? "pr-4 " : "pl-4 md:pl-0 ") +
+                (i % 2 === 0 ? "pr-4" : "pl-4 md:pl-0") +
                 (i < 2 ? "border-b border-line md:border-0" : "")
               }
             >
@@ -231,7 +224,11 @@ export default function InnkeepCaseStudy() {
                   (i === 2 ? "hidden md:flex" : "")
                 }
               >
-                <PhoneFrame image={image} alt={`Innkeep ${title.toLowerCase()} screen`} className="w-full" />
+                <PhoneFrame
+                  image={image}
+                  alt={`Innkeep ${title.toLowerCase()} screen`}
+                  className="w-full"
+                />
                 <h3 className="mt-6 hidden text-label font-medium md:block">
                   {title}
                 </h3>
@@ -302,20 +299,21 @@ export default function InnkeepCaseStudy() {
         visualClassName="items-center pb-[18px] lg:pb-12 lg:pt-12 pt-[18px] lg:min-h-[560px]"
         visual={
           <BrowserFrame
-            url="innkeep.lk"
+            url="innkeep.com"
             image={landingImage}
             alt="Innkeep marketing site"
             sizes="(min-width: 1024px) 660px, calc(100vw - 68px)"
             className="aspect-[660/391] w-full max-w-[660px]"
           />
         }
+        bodyClassName="pt-16 md:pt-[120px]"
       />
 
       <NextProject
-        title="QR Generator"
-        description="A 48-hour redesign of a QR code generator — the finished code shown first."
-        href="/work/qr-generator"
-        image={qrGeneratorImage}
+        title="Solar Monitor"
+        description="A monitoring PWA for a home solar setup, from ESP32 to phone."
+        href="/work/solar-monitor"
+        image={solarMonitorImage}
       />
     </>
   );

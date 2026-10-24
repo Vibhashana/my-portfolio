@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import innkeepImage from "@/assets/images/innkeep/landing.png";
+import ezRsvpImage from "@/assets/images/ezrsvp.png";
 import solarMonitorImage from "@/assets/images/solar-monitor.png";
 import CaseHero from "@/components/case/case-hero";
 import {
@@ -76,7 +76,8 @@ export default function SolarMonitorCaseStudy() {
             },
             {
               title: "Supabase",
-              description: "Stores readings and serves live and historical data.",
+              description:
+                "Stores readings and serves live and historical data.",
             },
             {
               title: "PWA",
@@ -111,10 +112,10 @@ export default function SolarMonitorCaseStudy() {
       </CaseSection>
 
       <NextProject
-        title="Innkeep"
-        description="A hotel PMS SaaS — run your whole hotel from one screen."
-        href="/work/innkeep"
-        image={innkeepImage}
+        title="ezRSVP"
+        description="A wedding RSVP SaaS — one link per family, every RSVP counted."
+        href="/work/ezrsvp"
+        image={ezRsvpImage}
       />
     </>
   );

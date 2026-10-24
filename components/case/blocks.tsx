@@ -180,6 +180,7 @@ export const FeatureRow = ({
   visual,
   reverse = false,
   visualClassName,
+  bodyClassName,
 }: {
   eyebrow: string;
   title: string;
@@ -188,8 +189,9 @@ export const FeatureRow = ({
   visual: React.ReactNode;
   reverse?: boolean;
   visualClassName?: string;
+  bodyClassName?: string;
 }) => (
-  <CaseSection>
+  <CaseSection className={bodyClassName}>
     <div
       className={cn(
         "flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-[72px]",
