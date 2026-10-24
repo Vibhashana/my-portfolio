@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import ezRsvpImage from "@/assets/images/ezrsvp.png";
-import solarMonitorImage from "@/assets/images/solar-monitor.png";
+import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
 import CaseHero from "@/components/case/case-hero";
 import {
   Brief,
@@ -31,21 +31,30 @@ export default function EzRsvpCaseStudy() {
   return (
     <>
       <CaseHero
-        eyebrow="01 — Wedding RSVP SaaS"
+        eyebrow="03 — Wedding RSVP SaaS"
         title="ezRSVP"
         tagline="One link per family. Every RSVP counted."
         intro="A wedding RSVP SaaS where couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event. Guests RSVP without creating an account."
-        cta={{ label: "Visit live site", href: "https://ezrsvp.sahanbandara.com/" }}
+        cta={{
+          label: "Visit live site",
+          href: "https://ezrsvp.sahanbandara.com/",
+        }}
         meta={[
           { label: "Product", value: "Wedding RSVP SaaS" },
           { label: "For", value: "Couples planning a wedding" },
-          { label: "Guest experience", value: "RSVP without creating an account" },
+          {
+            label: "Guest experience",
+            value: "RSVP without creating an account",
+          },
           { label: "Stack", value: "Next.js · TypeScript · PostgreSQL" },
         ]}
       />
 
       <CaseSection className="md:pb-[104px]">
-        <Showcase image={ezRsvpImage} alt="ezRSVP wedding page on laptop and phone" />
+        <Showcase
+          image={ezRsvpImage}
+          alt="ezRSVP wedding page on laptop and phone"
+        />
       </CaseSection>
 
       <CaseSection>
@@ -68,7 +77,8 @@ export default function EzRsvpCaseStudy() {
           steps={[
             {
               title: "Design",
-              description: "The couple designs their wedding page and its events.",
+              description:
+                "The couple designs their wedding page and its events.",
             },
             {
               title: "Invite",
@@ -105,7 +115,9 @@ export default function EzRsvpCaseStudy() {
                 <dt className="text-label font-medium sm:w-[200px] sm:shrink-0 sm:pt-[5px]">
                   {tool}
                 </dt>
-                <dd className="text-body-m text-ink-muted sm:w-[328px]">{use}</dd>
+                <dd className="text-body-m text-ink-muted sm:w-[328px]">
+                  {use}
+                </dd>
               </div>
             ))}
           </dl>
@@ -113,10 +125,10 @@ export default function EzRsvpCaseStudy() {
       </CaseSection>
 
       <NextProject
-        title="Solar Monitor"
-        description="A monitoring PWA for a home solar setup, from ESP32 to phone."
-        href="/work/solar-monitor"
-        image={solarMonitorImage}
+        title="QR Generator"
+        description="A 48-hour redesign of a QR code generator — the finished code shown first."
+        href="/work/qr-generator"
+        image={qrGeneratorImage}
       />
     </>
   );

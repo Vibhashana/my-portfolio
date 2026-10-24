@@ -2,8 +2,8 @@ import type { StaticImageData } from "next/image";
 
 import ezRsvpImage from "@/assets/images/ezrsvp.png";
 import solarMonitorImage from "@/assets/images/solar-monitor.png";
-import innkeepImage from "@/assets/images/innkeep/landing.png";
-import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
+import innkeepImage from "@/assets/images/innkeep-mockup.png";
+import qrGeneratorImage from "@/assets/images/qrafty-mockup.png";
 import ycDirectoryImage from "@/assets/images/yc-directory.png";
 import bookNestImage from "@/assets/images/booknest.png";
 import nextDashboardImage from "@/assets/images/next-dashboard.png";
@@ -74,31 +74,22 @@ export type FeaturedProject = {
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    slug: "ezrsvp",
-    title: "ezRSVP",
-    tag: "Wedding RSVP SaaS",
+    slug: "innkeep",
+    title: "Innkeep",
+    tag: "Hotel PMS SaaS · In progress",
     description:
-      "A wedding RSVP SaaS where couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event. Guests RSVP without creating an account.",
+      "A property management system for guesthouses, villas and small hotels — bookings, check-in, bills and housekeeping in one app, with every booking site kept in sync. I designed all of it and I’m now building the frontend.",
     shortDescription:
-      "Couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event.",
+      "Bookings, check-in, bills and housekeeping for small hotels in one app. I designed all 134 screens and the design system, and I’m now building the frontend.",
     stack: [
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "ShadCN",
-      "PostgreSQL",
-      "Drizzle ORM",
-      "Paddle",
-      "Sentry",
+      "Design + code",
+      "134 screens",
+      "Design system",
+      "Frontend build in progress",
     ],
-    image: ezRsvpImage,
+    image: innkeepImage,
     theme: "light",
-    primary: {
-      label: "Visit live site",
-      href: "https://ezrsvp.sahanbandara.com/",
-      external: true,
-    },
-    caseStudy: "/work/ezrsvp",
+    caseStudy: "/work/innkeep",
   },
   {
     slug: "solar-monitor",
@@ -127,22 +118,31 @@ export const featuredProjects: FeaturedProject[] = [
     caseStudy: "/work/solar-monitor",
   },
   {
-    slug: "innkeep",
-    title: "Innkeep",
-    tag: "Hotel PMS SaaS · In progress",
+    slug: "ezrsvp",
+    title: "ezRSVP",
+    tag: "Wedding RSVP SaaS",
     description:
-      "A property management system for guesthouses, villas and small hotels — bookings, check-in, bills and housekeeping in one app, with every booking site kept in sync. I designed all of it and I’m now building the frontend.",
+      "A wedding RSVP SaaS where couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event. Guests RSVP without creating an account.",
     shortDescription:
-      "Bookings, check-in, bills and housekeeping for small hotels in one app. I designed all 134 screens and the design system, and I’m now building the frontend.",
+      "Couples design a wedding page, send each household its own RSVP link by email or WhatsApp, and track live headcounts and meal choices per event.",
     stack: [
-      "Design + code",
-      "134 screens",
-      "Design system",
-      "Frontend build in progress",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "ShadCN",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Paddle",
+      "Sentry",
     ],
-    image: innkeepImage,
+    image: ezRsvpImage,
     theme: "light",
-    caseStudy: "/work/innkeep",
+    primary: {
+      label: "Visit live site",
+      href: "https://ezrsvp.sahanbandara.com/",
+      external: true,
+    },
+    caseStudy: "/work/ezrsvp",
   },
   {
     slug: "qr-generator",
