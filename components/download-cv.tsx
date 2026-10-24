@@ -1,27 +1,23 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "./ui/button";
-import { FileDown } from "lucide-react";
 import { sendGAEvent } from "@next/third-parties/google";
+
+import { Button } from "./ui/button";
+import { profile } from "@/lib/data";
 
 const DownloadCv = () => {
   return (
-    <Button
-      variant="secondary"
-      asChild
-      onClick={() =>
-        sendGAEvent("event", "downloadCvButtonClicked", { value: "xyz" })
-      }
-    >
-      <Link
-        href="/CV of Sahan Vibhashana Bandara.pdf"
-        rel="noopener noreferrer"
+    <Button asChild>
+      <a
+        href={profile.resume}
         target="_blank"
+        rel="noopener noreferrer"
+        onClick={() =>
+          sendGAEvent("event", "downloadCvButtonClicked", { value: "xyz" })
+        }
       >
-        <span>Download my resume</span>
-        <FileDown />
-      </Link>
+        Download my resume ↓
+      </a>
     </Button>
   );
 };

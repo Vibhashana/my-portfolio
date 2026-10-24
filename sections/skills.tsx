@@ -1,59 +1,38 @@
-"use client";
-
-import { motion } from "motion/react";
-
 import SectionHeader from "@/components/section-header";
-import { skills } from "@/lib/data";
+import Chip, { ChipList } from "@/components/ui/chip";
+import { skillGroups } from "@/lib/data";
 
 const Skills = () => {
-  const skillIconsAnimationVariant = {
-    hidden: {
-      opacity: 0,
-      y: 100,
-    },
-    visible: (custom: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: custom * 0.05 },
-    }),
-  };
-
   return (
-    <section className="py-10 md:py-28" id="skills">
-      <div className="container">
+    <section id="toolbox" className="bg-surface">
+      <div className="container-page py-[72px] md:py-36">
         <SectionHeader
-          eyebrow="My Toolbox"
-          title="Skills & Technologies"
-          description="Here are the tools and technologies I use to turn ideas into reality:"
+          eyebrow="05 — Toolbox"
+          title="Skills & technologies"
+          description="Here are the tools and technologies I use to turn ideas into reality."
+          className="[&>p]:hidden md:[&>p]:block"
         />
 
-        <div className="mt-10 flex flex-wrap justify-center gap-5 md:mt-16">
-          {skills.map(({ title, icon: Icon }, index) => (
-            <motion.div
-              className="relative isolate rounded-lg before:absolute before:-inset-[1px] before:-z-10 before:rounded-[inherit] before:bg-border before:from-border before:from-50% before:to-sky-400 hover:before:animate-gradient-rotate hover:before:bg-[conic-gradient(from_var(--angle),var(--tw-gradient-stops))]"
+        <ul className="mt-8 grid gap-8 sm:grid-cols-2 sm:gap-5 md:mt-16 lg:grid-cols-4">
+          {skillGroups.map(({ title, skills }) => (
+            <li
               key={title}
-              custom={index}
-              initial="hidden"
-              variants={skillIconsAnimationVariant}
-              whileInView="visible"
-              viewport={{ once: true }}
-              onMouseMove={(e) => {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                e.currentTarget.style.transform = `perspective(1000px) rotateX(${y * 0.15}deg) rotateY(${x * 0.15}deg)`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "none";
-              }}
+              className="flex flex-col gap-[18px] rounded-[22px] bg-card p-[22px] md:min-h-[321px] md:gap-7 md:rounded-[28px] md:p-8"
             >
-              <div className="flex items-center gap-3 rounded-[inherit] bg-card px-5 py-2.5">
-                {<Icon className="size-7" />}
-                <span>{title}</span>
+              <div className="mono-label flex justify-between">
+                <h3>{title}</h3>
+                <span className="hidden text-ink-muted md:inline">
+                  {String(skills.length).padStart(2, "0")}
+                </span>
               </div>
-            </motion.div>
+              <ChipList>
+                {skills.map((skill) => (
+                  <Chip key={skill}>{skill}</Chip>
+                ))}
+              </ChipList>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

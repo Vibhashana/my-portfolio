@@ -2,7 +2,7 @@
 
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
-import { formSchema, FormSchema } from "./validations";
+import { formSchema, FormSchema, intents } from "./validations";
 
 export const sendMail = async (formData: FormSchema) => {
   try {
@@ -12,7 +12,7 @@ export const sendMail = async (formData: FormSchema) => {
       throw new Error("Invalid fields");
     }
 
-    const { email, message, name } = validateFields.data;
+    const { email, message, name, intent } = validateFields.data;
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -26,7 +26,7 @@ export const sendMail = async (formData: FormSchema) => {
       from: `${name} <${email}>`,
       to: process.env.CONTACT_FORM_TO_EMAIL,
       // cc: `${name} <${email}>`,
-      subject: `Message from ${name} (${email})`,
+      subject: `[${intents[intent]}] Message from ${name} (${email})`,
       text: message,
       replyTo: `${name} <${email}>`,
     };

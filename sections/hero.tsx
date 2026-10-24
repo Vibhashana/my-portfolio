@@ -1,64 +1,71 @@
-import { profileImage } from "@/assets/images";
-import HeroRings from "@/components/hero-rings";
-import { Button } from "@/components/ui/button";
-import { ArrowDown, Mouse } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import portraitPill from "@/assets/images/portrait-pill.jpg";
+import { Button } from "@/components/ui/button";
+import { facts } from "@/lib/data";
+
 const Hero = () => {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-y-hidden overflow-x-clip py-20">
-      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
-        <div className="bg-grain absolute inset-0 -z-30 opacity-[0.075] dark:opacity-5" />
-        <HeroRings />
-      </div>
-      <div className="container isolate">
-        <div className="flex flex-col items-center justify-center">
+    <section className="container-page flex flex-col gap-7 pb-12 pt-10 md:gap-16 md:pb-24 md:pt-[104px]">
+      <p className="inline-flex w-fit items-center gap-2 rounded-full border border-line bg-card py-2 pl-3 pr-3 text-label font-medium md:gap-2.5 md:py-[9px] md:pl-3.5 md:pr-4">
+        <span className="relative flex size-2">
+          <span className="absolute inset-0 animate-ping rounded-full bg-success/60 motion-reduce:hidden" />
+          <span className="relative size-2 rounded-full bg-success" />
+        </span>
+        Open to full-time roles &amp; freelance
+      </p>
+
+      <h1 className="font-semibold">
+        <span className="block text-display-xl">
+          I design <span className="md:hidden">&amp;</span>
+          <span className="hidden md:inline">and</span> build
+        </span>
+        <span className="flex items-center gap-3 md:gap-8">
           <Image
-            src={profileImage}
-            alt="Sahan"
-            className="size-[100px] rounded-full"
-            width={100}
-            height={100}
+            src={portraitPill}
+            alt=""
             priority
+            sizes="(min-width: 768px) 268px, 92px"
+            className="aspect-[268/136] w-[clamp(5.75rem,1.66rem+16.76vw,16.75rem)] rounded-full object-cover"
           />
-          <div className="-mt-4 inline-flex items-center gap-4 rounded-md border border-neutral-500/20 bg-neutral-200 px-4 py-1.5 text-sm font-medium dark:border-gray-800 dark:bg-gray-950">
-            <span className="relative size-2.5 rounded-full bg-green-500 after:absolute after:-inset-[5px] after:size-5 after:animate-ping after:rounded-full after:bg-green-500/80" />
-            <span>Available for work</span>
-          </div>
-          <div className="mx-auto max-w-[55ch]">
-            <h1 className="mt-8 text-center text-3xl font-bold leading-10 tracking-wide md:text-5xl md:leading-[3.5rem]">
-              Turning Ideas into{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text text-transparent">
-                Exceptional Digital Experiences
-              </span>
-            </h1>
-            <p className="mt-4 text-center text-muted-foreground md:text-lg">
-              A frontend developer driven by a passion for clean code and
-              seamless user experiences. I transform ideas into responsive,
-              fast, and visually engaging websites that delight users and
-              clients alike.
-            </p>
+          <span className="font-serif text-display-xl-serif font-normal italic text-accent">
+            thoughtful
+          </span>
+        </span>
+        <span className="block text-display-xl">web products.</span>
+      </h1>
+
+      <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex max-w-[540px] flex-col gap-7 md:gap-8">
+          <p className="text-body-l text-ink-muted">
+            Frontend developer with 10+ years in React, Next.js and
+            TypeScript — and a UI/UX engineering background, so I take work
+            from Figma to production without losing the details. I’ve shipped
+            for teams like Pearson and Sinorbis, and I build my own SaaS
+            products end to end.
+          </p>
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
+            <Button asChild>
+              <Link href="#work">See my work ↓</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="#contact">Start a project ↗</Link>
+            </Button>
           </div>
         </div>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button variant="outline" size="lg" className="group h-12" asChild>
-            <Link href="#projects">
-              <span>Explore my work</span>
-              <ArrowDown className="!size-[18px] group-hover:animate-bounce" />
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            asChild
-            className="h-12 shadow-[0_8px_20px_0] shadow-blue-800/50"
-          >
-            <Link href="#contact">
-              <span className="text-xl">🤝</span> Let&apos;s connect!
-            </Link>
-          </Button>
-        </div>
-        <Mouse className="mx-auto mt-10 animate-bounce" size={30} />
+
+        <dl className="flex justify-between border-t border-line pt-6 lg:gap-14 lg:border-0 lg:pt-0">
+          {facts.map(({ value, label, shortLabel }) => (
+            <div key={label} className="flex flex-col-reverse gap-1 md:gap-2">
+              <dt className="mono-label text-ink-muted">
+                <span className="md:hidden">{shortLabel}</span>
+                <span className="hidden md:inline">{label}</span>
+              </dt>
+              <dd className="text-stat font-semibold">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

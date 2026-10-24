@@ -1,125 +1,90 @@
-import * as motion from "motion/react-client";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import SectionHeader from "@/components/section-header";
-import Image from "next/image";
-import Link from "next/link";
-import Tag from "@/components/ui/tag";
+"use client";
 
+import { useState } from "react";
+
+import SectionHeader from "@/components/section-header";
 import { companies } from "@/lib/data";
+import { cn } from "@/lib/utils";
+
+const year = (date: string) => date.split(" ").at(-1);
 
 const Experience = () => {
+  const [open, setOpen] = useState<string | null>(companies[0].name);
+
   return (
-    <section className="py-10" id="experience">
-      <div className="container">
-        <SectionHeader
-          eyebrow="My Journey"
-          title="Work Experience"
-          description="I've had the privilege of working on diverse projects that honed
-          my technical skills and creativity. Here are some highlights:"
-        />
+    <section id="experience" className="container-page py-[72px] md:py-36">
+      <SectionHeader
+        eyebrow="04 — Experience"
+        title="Work experience"
+        description="Over ten years of shipping interfaces — from kiosk and mobile apps to edtech platforms and SaaS."
+        className="[&>p]:hidden md:[&>p]:block"
+      />
 
-        <div className="relative isolate mt-10 grid grid-cols-1 gap-10 after:absolute after:bottom-0 after:left-1/2 after:top-0 after:-z-20 after:w-[4px] after:-translate-x-1/2 after:bg-gradient-to-b after:from-blue-600 after:to-sky-300 md:mt-20 md:overflow-y-clip lg:grid-cols-2 lg:gap-y-0">
-          {companies.map((company, index) => (
-            <div
-              key={company.id}
-              className="group relative col-start-1 lg:-mt-[35%] lg:first:mt-0 lg:odd:col-start-2 lg:odd:ml-[30px] lg:even:mr-[30px]"
-              style={{
-                gridRowStart: index + 1,
-              }}
-            >
-              {/* Dot */}
-              <div className="absolute -top-[20px] left-1/2 size-[20px] -translate-x-1/2 rounded-full border-[5px] border-background bg-blue-700 lg:-left-[60px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:even:left-auto lg:group-even:-right-[60px] lg:group-even:left-auto" />
+      <ol className="mt-8 border-b border-line md:mt-16">
+        {companies.map(({ name, role, start, end, highlights, stack }) => {
+          const expanded = open === name;
+          const panelId = `experience-${name.toLowerCase().replace(/\W+/g, "-")}`;
 
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                className="z-0"
+          return (
+            <li key={name} className="border-t border-line">
+              <button
+                type="button"
+                aria-expanded={expanded}
+                aria-controls={panelId}
+                onClick={() => setOpen(expanded ? null : name)}
+                className="group grid w-full grid-cols-[1fr_auto] items-center gap-3 py-5 text-left md:grid-cols-[220px_1fr_auto] md:items-start md:gap-10 md:py-9"
               >
-                <div className="absolute left-1/2 top-[21px] -z-10 size-[20px] -translate-x-1/2 rotate-45 border-2 bg-background lg:-left-[10px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[10px] lg:group-even:left-auto" />
+                <span className="mono-label text-ink-muted md:hidden">
+                  {year(start)} — {year(end)}
+                </span>
+                <span className="hidden font-mono text-mono-m text-ink-muted md:block md:pt-1.5">
+                  {start} — {end}
+                </span>
+                <span className="col-start-1 row-start-2 flex flex-col gap-1 md:col-start-auto md:row-start-auto md:flex-row md:items-baseline md:gap-4">
+                  <span className="text-h3 font-semibold">{name}</span>
+                  <span className="text-body-s text-ink-muted md:text-body-m">
+                    {role}
+                  </span>
+                </span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "col-start-2 row-span-2 row-start-1 grid size-11 place-items-center rounded-full border text-[28px] font-semibold leading-none transition-colors duration-200 md:col-start-auto md:row-span-1 md:row-start-auto",
+                    expanded
+                      ? "border-ink bg-ink text-paper"
+                      : "border-line text-ink group-hover:border-ink/40"
+                  )}
+                >
+                  {expanded ? "–" : "+"}
+                </span>
+              </button>
 
-                <div className="absolute left-1/2 top-[24px] z-20 size-[18px] -translate-x-1/2 rotate-45 bg-[#f2f2f2] dark:bg-[#080e1c] lg:-left-[7px] lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:group-even:-right-[7px] lg:group-even:left-auto" />
-
-                <Card className="relative z-10 mt-[30px] border-2 after:absolute after:inset-0 after:-z-10 after:bg-grain after:opacity-5 lg:mt-0">
-                  <CardHeader className="flex flex-row items-center justify-between gap-2">
-                    <motion.div
-                      initial={{ opacity: 0, x: 5 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5, staggerChildren: 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <p className="text-xs text-muted-foreground">
-                        {company.duration}
-                      </p>
-                      <p className="text-sm">
-                        <Link href={company.companyUrl} target="_blank">
-                          {company.name}
-                        </Link>
-                      </p>
-                      <p className="text-lg font-medium">{company.title}</p>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: 5 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 }}
-                      viewport={{ once: true }}
-                      className="!mt-0"
-                    >
-                      <Link href={company.companyUrl} target="_blank">
-                        <Image
-                          src={company.logo}
-                          alt={company.title}
-                          width={80}
-                          height={80}
-                          className="h-auto w-[40px] object-cover md:w-[60px]"
-                          sizes="(min-width: 780px) 60px, 38px"
-                        />
-                      </Link>
-                    </motion.div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="ml-4 list-disc space-y-2 text-sm text-muted-foreground">
-                      {company.responsibilities.map((responsibility, key) => (
-                        <motion.li
-                          key={`${company.id}-${key}`}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.5, staggerChildren: 0.1 }}
-                        >
-                          {responsibility}
-                        </motion.li>
+              <div
+                id={panelId}
+                role="region"
+                aria-label={`${name} highlights`}
+                className={cn(
+                  "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
+                  expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                )}
+              >
+                <div className="overflow-hidden" inert={!expanded}>
+                  <div className="flex flex-col gap-5 pb-6 md:ml-[260px] md:mr-[84px] md:pb-9">
+                    <ul className="flex flex-col text-body-s md:text-body-m">
+                      {highlights.map((highlight) => (
+                        <li key={highlight}>— {highlight}</li>
                       ))}
                     </ul>
-                    {!!company.techStack?.length && (
-                      <div className="mt-4">
-                        <p className="text-sm font-medium">
-                          Tech Stack and tools:
-                        </p>
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
-                          transition={{ delay: 0.2, staggerChildren: 0.1 }}
-                          viewport={{ once: true }}
-                          className="mt-2 flex flex-wrap gap-2"
-                        >
-                          {company.techStack.map(({ icon, name }) => (
-                            <Tag
-                              key={`${company.id}-${name}`}
-                              text={name}
-                              icon={icon}
-                            />
-                          ))}
-                        </motion.div>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </div>
-          ))}
-        </div>
-      </div>
+                    <p className="mono-label text-ink-muted">
+                      {stack.join(" · ")}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </section>
   );
 };
