@@ -63,7 +63,7 @@ const FeaturedCard = ({
           </p>
 
           {/* Desktop: buttons */}
-          <div className="hidden flex-wrap gap-2.5 lg:flex">
+          <div className="hidden gap-2.5 lg:flex">
             {project.primary && (
               <Button asChild variant={dark ? "onNight" : "primary"}>
                 <a

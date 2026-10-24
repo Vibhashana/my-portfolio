@@ -29,7 +29,7 @@ export const navLinks = [
 export const facts = [
   { value: "10+", label: "Years in frontend", shortLabel: "Years" },
   { value: "06", label: "Companies", shortLabel: "Teams" },
-  { value: "07", label: "Featured builds", shortLabel: "Builds" },
+  { value: "08", label: "Featured builds", shortLabel: "Builds" },
 ];
 
 export const services = [
@@ -147,7 +147,7 @@ export const featuredProjects: FeaturedProject[] = [
   {
     slug: "qr-generator",
     title: "QR Generator",
-    tag: "UI/UX assessment · Rightmo",
+    tag: "UI/UX assessment",
     description:
       "A 48-hour redesign of a QR code generator’s homepage and PDF flow: the finished code shown first, a split editor with a live preview, and a token-driven design system behind both.",
     shortDescription:
