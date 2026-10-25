@@ -29,7 +29,7 @@ export const navLinks = [
 export const facts = [
   { value: "10+", label: "Years in frontend", shortLabel: "Years" },
   { value: "06", label: "Companies", shortLabel: "Teams" },
-  { value: "08", label: "Featured builds", shortLabel: "Builds" },
+  { value: "04", label: "Featured builds", shortLabel: "Builds" },
 ];
 
 export const services = [

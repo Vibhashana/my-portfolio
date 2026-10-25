@@ -119,63 +119,6 @@ const FeaturedCard = ({
   );
 };
 
-const ProjectCard = ({
-  project,
-  position,
-}: {
-  project: Project;
-  position: number;
-}) => {
-  const { title, tag, description, stack, image, liveUrl, githubUrl } = project;
-
-  return (
-    <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-card lg:rounded-[28px]">
-      <div className="flex items-center justify-center bg-surface p-[18px] lg:p-7">
-        <Image
-          src={image}
-          alt={`${title} on laptop and phone`}
-          sizes="(min-width: 1024px) 530px, calc(100vw - 76px)"
-          className="h-auto w-full"
-        />
-      </div>
-      <div className="flex flex-col gap-2.5 p-[22px] lg:gap-3 lg:px-8 lg:pb-8 lg:pt-7">
-        <p className="mono-label flex gap-2.5 lg:hidden">
-          <span className="text-accent">{index(position)}</span>
-          <span className="text-ink-muted">{tag}</span>
-        </p>
-        <div className="flex flex-col gap-2.5 lg:flex-row lg:items-center lg:justify-between">
-          <h3 className="text-h3 font-semibold">{title}</h3>
-          <div className="order-last flex gap-[18px] text-label font-medium lg:order-none">
-            <a
-              href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink underline-offset-4 hover:underline"
-            >
-              Live ↗<span className="sr-only"> — {title}</span>
-            </a>
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink underline-offset-4 hover:text-ink hover:underline lg:text-ink-muted"
-            >
-              GitHub ↗<span className="sr-only"> — {title}</span>
-            </a>
-          </div>
-          <p className="text-body-s text-ink-muted lg:hidden">{description}</p>
-        </div>
-        <p className="hidden text-body-s text-ink-muted lg:block">
-          {description}
-        </p>
-        <p className="mono-label hidden text-ink-muted lg:block">
-          {stack.join(" · ")}
-        </p>
-      </div>
-    </article>
-  );
-};
-
 const Projects = () => {
   return (
     <section
@@ -195,23 +138,6 @@ const Projects = () => {
             <FeaturedCard project={project} position={i + 1} />
           </Reveal>
         ))}
-      </div>
-
-      <div className="mt-8 flex flex-col gap-6 lg:mt-16">
-        <div className="hidden items-center gap-4 lg:flex">
-          <h3 className="mono-label shrink-0 text-ink-muted">Also built</h3>
-          <span className="h-px flex-1 bg-line" />
-        </div>
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-6">
-          {otherProjects.map((project, i) => (
-            <Reveal key={project.title} delay={(i % 2) * 80}>
-              <ProjectCard
-                project={project}
-                position={featuredProjects.length + i + 1}
-              />
-            </Reveal>
-          ))}
-        </div>
       </div>
     </section>
   );
