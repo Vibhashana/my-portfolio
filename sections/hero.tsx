@@ -41,17 +41,18 @@ const Hero = () => {
       <div className="enter flex flex-col gap-7 [animation-delay:260ms] lg:flex-row lg:items-end lg:justify-between">
         <div className="flex max-w-[540px] flex-col gap-7 md:gap-8">
           <p className="text-body-l text-ink-muted">
-            Frontend developer with 10+ years in React, Next.js and TypeScript —
-            and a UI/UX engineering background, so I take work from Figma to
-            production without losing the details. I’ve shipped for teams like
-            Pearson and Sinorbis, and I build my own SaaS products end to end.
+            I build accessible, production-ready web applications that combine
+            thoughtful UI engineering with maintainable frontend architecture.
+            With 10+ years of experience, including UI/UX engineering, I bridge
+            the gap between design and code—from Figma specifications to
+            polished, tested interfaces.
           </p>
           <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
             <Button asChild>
-              <Link href="#work">See my work ↓</Link>
+              <Link href="#work">Explore My Work ↓</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="#contact">Start a project ↗</Link>
+              <Link href="#contact">Let's Discuss a Project ↗</Link>
             </Button>
           </div>
         </div>
