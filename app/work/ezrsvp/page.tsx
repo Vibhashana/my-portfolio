@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import ezRsvpImage from "@/assets/images/ezrsvp.png";
-import qrGeneratorImage from "@/assets/images/qr-generator/hero.png";
+import qrGeneratorImage from "@/assets/images/qrafty-mockup.png";
 import CaseHero from "@/components/case/case-hero";
 import {
   Brief,

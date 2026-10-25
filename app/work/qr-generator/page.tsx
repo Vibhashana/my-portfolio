@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
-import innkeepImage from "@/assets/images/innkeep/landing.png";
+import innkeepImage from "@/assets/images/innkeep-mockup.png";
 import coloursImage from "@/assets/images/qr-generator/colours.png";
 import featuresImage from "@/assets/images/qr-generator/features.png";
 import heroImage from "@/assets/images/qr-generator/hero.png";
